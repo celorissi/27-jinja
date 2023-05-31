@@ -1,0 +1,82 @@
+config router bgp
+    set as 65200
+    set router-id 10.111.91.254
+    set keepalive-timer 7
+    set holdtime-timer 21
+    set ibgp-multipath enable
+    set additional-path enable
+    set scan-time 30
+    set additional-path-select 4
+    config neighbor
+        edit "10.253.0.1"
+            set next-hop-self enable
+            set soft-reconfiguration enable
+            set remote-as 65200
+            set additional-path both
+            set adv-additional-path 4
+        next
+        edit "10.253.16.1"
+            set next-hop-self enable
+            set soft-reconfiguration enable
+            set remote-as 65200
+            set additional-path both
+            set adv-additional-path 4
+        next
+    end
+    config network
+        edit 6
+            set prefix {{LAN_CB}}
+        next
+        edit 2
+            set prefix {{LAN_Wifi_Corp}}
+        next
+        edit 3
+            set prefix {{LAN_Wifi_Mgmt}}
+        next
+        edit 5
+            set prefix {{LAN_Wifi_DEVCOR}}
+        next
+    end
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "static"
+    end
+    config redistribute "isis"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "static"
+    end
+    config redistribute6 "isis"
+    end
+end
+config router isis
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "static"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "bgp"
+    end
+    config redistribute6 "static"
+    end
+end

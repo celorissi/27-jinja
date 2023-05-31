@@ -1,0 +1,22 @@
+config dlp sensor
+    edit "DLP_MONITOR"
+        config filter
+            edit 1
+                set type message
+                set proto smtp pop3 imap http-post nntp mapi
+                set action log-only
+            next
+            edit 2
+                set proto smtp pop3 imap http-get http-post ftp nntp mapi
+                set action log-only
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Log a summary of email and web traffic."
+        set summary-proto smtp pop3 imap http-get http-post
+    next
+    edit "default"
+        set comment "Default sensor."
+    next
+end

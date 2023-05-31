@@ -1,0 +1,257 @@
+config firewall policy
+    edit 530
+        set name "DC_TO_LAN"
+        set uuid 7eb16902-5f6c-51ec-738e-50b308fe1599
+        set srcintf "virtual-wan-link"
+        set dstintf "TRUSTED"
+        set srcaddr "GRP_RD_DC"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set ips-sensor "IPS_PDR_LOJA"
+        set logtraffic all
+    next
+    edit 540
+        set name "PRINT_TO_DC"
+        set uuid 7ec4bf20-5f6c-51ec-2a96-42f43116a35d
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "HST_PRINTERS"
+        set dstaddr "GRP_DIGITALIZACAO_LOJA"
+        set action accept
+        set schedule "always"
+        set service "SRV_PRINTER"
+        set logtraffic all
+    next
+    edit 550
+        set name "ENABLE_SAT"
+        set uuid 7ed32eac-5f6c-51ec-54f4-ecf882cba685
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN22_LAN_CB"
+        set dstaddr "SRV_SAT_10.228.1.80"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+        set comments "ENABLE_SAT"
+    next
+    edit 560
+        set name "VLAN 22_TO_DC"
+        set uuid 7eeb8dda-5f6c-51ec-cda5-061885d923dd
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN22_LAN_CB"
+        set dstaddr "GRP_RD_DC" "RD_CENTRAL_IMG_177.135.149.8/31" "GRP_BRADESCO" "RD_CENTRAL_IMG_201.48.215.194/32" "RD_CENTRAL_IMG_189.112.91.53/32"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+        set webcache enable
+        set comments "Policy VLAN 22"
+    next
+    edit 570
+        set name "GUEST INTERNET"
+        set uuid 7f0605de-5f6c-51ec-0cbe-693069422199
+        set srcintf "UNTRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN192_LAN_Wifi_GUEST"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_GUEST"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WEB_GUEST"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_GUEST"
+        set application-list "APP_GUEST"
+        set logtraffic all
+        set comments "GUEST INTERNET"
+        set nat enable
+    next
+    edit 580
+        set name "BREAKOUT"
+        set uuid 7f1e815e-5f6c-51ec-a55b-42a0f57e3952
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN22_LAN_CB"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "Whitelist_Loja"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_INET"
+        set logtraffic all
+        set nat enable
+    next
+    edit 590
+        set name "VLAN 212 - PDV MOBILE"
+        set uuid 7f32f40e-5f6c-51ec-afa5-6231575dcb23
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN212_LAN_WIFI_CORP"
+        set dstaddr "bitbucket" "intranetsistemas" "IP_DNS_Infoblox_SCS" "IP_DNS_Infoblox_EQX" "IP_HOST_DNS_10.0.0.141" "IP_HOST_DNS_10.0.0.154" "TEF-1" "TEF-2" "TEF-3" "TEF-4" "TEF-5" "VIAMAISMOBILE" "VIAMAISMOBILE-HLG" "PDVSERVER" "TEF-EQX" "hst_10.128.125.160" "hst_10.128.22.56" "hst_10.107.16.5" "VIAMAIS_APP_2.0" "hst_10.128.22.142" "hst_10.128.22.27" "hst_10.128.22.133" "hst_10.128.22.144" "hst_10.101.4.134" "hst_10.128.22.156" "APP_PAG_CARTEIRAS_DIGITAIS" "Multiskill-PRD" "hst_10.105.13.8"
+        set action accept
+        set schedule "always"
+        set service "DNS" "HTTP" "HTTPS" "TEF-2046" "grp_PDV_Mobile" "grp_PIX_APP_Pag"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+        set webcache enable
+        set comments "Comunicacao rede Wifi Corp com DC"
+    next
+    edit 600
+        set name "VLAN 216"
+        set uuid 7f49e4b6-5f6c-51ec-1112-408950460ed5
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN216_LAN_WIFI_DEVCORP"
+        set dstaddr "GRP_RD_DC"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+        set webcache enable
+    next
+    edit 640
+        set name "VLAN 212 INTERNET"
+        set uuid 7f5ab3c2-5f6c-51ec-68df-50b4d4160e54
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN212_LAN_WIFI_CORP" "VLAN216_LAN_WIFI_DEVCORP"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_VENDEDOR"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_VENDEDOR_V2"
+        set logtraffic all
+        set nat enable
+    next
+    edit 650
+        set name "VLAN14 INTERNET"
+        set uuid 7f6c6f5e-5f6c-51ec-9f60-4c20dee79260
+        set srcintf "UNTRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN14_LAN_WIFI_DEVEXT"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_GUEST"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WEB_GUEST"
+        set dnsfilter-profile "default"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_GUEST"
+        set application-list "APP_GUEST"
+        set logtraffic all
+        set nat enable
+    next
+    edit 670
+        set name "VLAN 215 TO DC"
+        set uuid 7f863420-5f6c-51ec-64f9-357777cfeb0a
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN215_LAN_WIFI_MGMT"
+        set dstaddr "GRP_RD_DC"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+    next
+    edit 660
+        set name "VLAN 215 INTERNET"
+        set uuid 7f96369a-5f6c-51ec-b501-2522981c49a4
+        set srcintf "TRUSTED"
+        set dstintf "virtual-wan-link"
+        set srcaddr "VLAN215_LAN_WIFI_MGMT"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set dlp-sensor "DLP_MONITOR"
+        set ips-sensor "IPS_PDR_LOJA"
+        set application-list "APP_PDR_LOJA"
+        set logtraffic all
+        set nat enable
+    next
+    edit 800
+        set name "IMPRESSAO_PDV"
+        set uuid a998d314-491b-51ed-9afe-4b92e6596c34
+        set srcintf "TRUSTED"
+        set dstintf "TRUSTED"
+        set srcaddr "VLAN212_LAN_WIFI_CORP"
+        set dstaddr "VLAN22_LAN_CB"
+        set action accept
+        set schedule "always"
+        set service "TCP-8082"
+        set utm-status enable
+        set ssl-ssh-profile "SSL_PDR_LOJA"
+        set av-profile "AV_PDR"
+        set webfilter-profile "WF_PDR_LOJA"
+        set logtraffic all
+    next
+end

@@ -1,0 +1,113 @@
+config system virtual-wan-link
+    set status enable
+    config members
+        edit 11
+            set interface "VPN1_EQX"
+            set gateway 10.253.0.1
+            set source {{dhcp_vlan_22_gateway}}
+            set priority 1
+        next
+        edit 15
+            set interface "wan2"
+            set gateway {{wan2_gateway}}
+        next
+        edit 12
+            set interface "VPN2_EQX"
+            set gateway 10.253.16.1
+            set source {{dhcp_vlan_22_gateway}}
+            set priority 1
+        next
+        edit 16
+            set interface "wan1"
+            set gateway {{wan1_gateway}}
+        next
+    end
+    config health-check
+        edit "DC"
+            set server "10.255.223.200"
+            set members 11 12
+            config sla
+                edit 1
+                    set latency-threshold 80
+                    set jitter-threshold 50
+                    set packetloss-threshold 5
+                next
+            end
+        next
+        edit "INTERNET"
+            set server "177.126.185.240" "200.160.4.6"
+            set members 15 16
+            config sla
+                edit 1
+                    set latency-threshold 80
+                    set jitter-threshold 50
+                    set packetloss-threshold 5
+                next
+            end
+        next
+        edit {{alias wan1}}
+            set server "177.126.185.196" "131.100.116.199"
+            set update-static-route disable
+            set members 15
+            config sla
+                edit 1
+                    set latency-threshold 80
+                    set jitter-threshold 50
+                    set packetloss-threshold 5
+                next
+            end
+        next
+        edit {{alias wan2}}
+            set server "177.126.185.197" "131.100.116.198"
+            set update-static-route disable
+            set members 16
+            config sla
+                edit 1
+                    set latency-threshold 80
+                    set jitter-threshold 50
+                    set packetloss-threshold 5
+                next
+            end
+        next
+        edit "TESTE_VIA+"
+            set server "10.128.22.138" "10.128.22.139"
+            set interval 2000
+            set update-static-route disable
+            set members 11 12
+            config sla
+                edit 1
+                    set latency-threshold 80
+                    set jitter-threshold 50
+                    set packetloss-threshold 5
+                next
+            end
+        next
+    end
+
+        config service
+        edit 1
+            set name "DC"
+            set mode sla
+            set dst "RD_CENTRAL_IMG_177.135.149.8/31" "GRP_BRADESCO" "GRP_RD_DC" "RD_CENTRAL_IMG_201.48.215.194/32" "RD_CENTRAL_IMG_189.112.91.53/32"
+            set src "VLAN212_LAN_WIFI_CORP" "VLAN215_LAN_WIFI_MGMT" "VLAN216_LAN_WIFI_DEVCORP" "VLAN22_LAN_CB"
+            config sla
+                edit "DC"
+                    set id 1
+                next
+            end
+            set priority-members 12 11
+        next
+        edit 2
+            set name "INTERNET"
+            set mode load-balance
+            set dst "all"
+            set src "all"
+            config sla
+                edit "INTERNET"
+                    set id 1
+                next
+            end
+            set priority-members 15 16
+        next
+    end
+end

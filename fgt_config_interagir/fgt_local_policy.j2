@@ -1,0 +1,16 @@
+config firewall local-in-policy
+    edit 1
+        set intf "OUTSIDE_EBT"
+        set srcaddr "all"
+        set dstaddr "all"
+        set service "BGP"
+        set schedule "always"
+    next
+    edit 2
+        set intf "wan1"
+        set srcaddr "all"
+        set dstaddr "all"
+        set service "BGP"
+        set schedule "always"
+    next
+end

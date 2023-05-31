@@ -1,0 +1,155 @@
+config firewall service custom
+    edit "DNS"
+        set category "Network Services"
+        set tcp-portrange 53
+        set udp-portrange 53
+    next
+    edit "HTTP"
+        set category "Web Access"
+        set tcp-portrange 80
+    next
+    edit "HTTPS"
+        set category "Web Access"
+        set tcp-portrange 443
+    next
+    edit "IMAP"
+        set category "Email"
+        set tcp-portrange 143
+    next
+    edit "IMAPS"
+        set category "Email"
+        set tcp-portrange 993
+    next
+    edit "LDAP"
+        set category "Authentication"
+        set tcp-portrange 389
+    next
+    edit "DCE-RPC"
+        set category "Remote Access"
+        set tcp-portrange 135
+        set udp-portrange 135
+    next
+    edit "POP3"
+        set category "Email"
+        set tcp-portrange 110
+    next
+    edit "POP3S"
+        set category "Email"
+        set tcp-portrange 995
+    next
+    edit "SAMBA"
+        set category "File Access"
+        set tcp-portrange 139
+    next
+    edit "SMTP"
+        set category "Email"
+        set tcp-portrange 25
+    next
+    edit "SMTPS"
+        set category "Email"
+        set tcp-portrange 465
+    next
+    edit "KERBEROS"
+        set category "Authentication"
+        set tcp-portrange 88 464
+        set udp-portrange 88 464
+    next
+    edit "LDAP_UDP"
+        set category "Authentication"
+        set udp-portrange 389
+    next
+    edit "SMB"
+        set category "File Access"
+        set tcp-portrange 445
+    next
+    edit "ALL"
+        set category "General"
+        set protocol IP
+    next
+    edit "ALL_ICMP"
+        set category "General"
+        set protocol ICMP
+        unset icmptype
+    next
+    edit "webproxy"
+        set proxy enable
+        set category "Web Proxy"
+        set protocol ALL
+        set tcp-portrange 0-65535:0-65535
+    next
+    edit "SVC_BRADESCO_TCP_UDP"
+        set tcp-portrange 8030 10002 4240 8030 10003
+        set udp-portrange 8030 10002 4240 8030 10003
+    next
+    edit "SVC_BRADESCO_RANGE"
+        set tcp-portrange 4200-4300 5000-6000 8000-8020 9000-9020 50000-60000
+    next
+    edit "SRV_PRINTER"
+        set category "Network Services"
+        set comment "SRV_PRINTER"
+        set tcp-portrange 137-139 445 20-21 53
+        set udp-portrange 53
+    next
+    edit "TCP-8081"
+        set tcp-portrange 8081
+    next
+    edit "TEF-2046"
+        set tcp-portrange 2046
+    next
+    edit "tcp_8085"
+        set tcp-portrange 8085
+    next
+    edit "tcp_8185"
+        set tcp-portrange 8185
+    next
+    edit "tcp_8205"
+        set tcp-portrange 8205
+    next
+    edit "tcp_8125"
+        set tcp-portrange 8125
+    next
+    edit "tcp_8165"
+        set tcp-portrange 8165
+    next
+    edit "tcp_8105"
+        set tcp-portrange 8105
+    next
+    edit "tcp_8245"
+        set tcp-portrange 8245
+    next
+    edit "tcp_8225"
+        set tcp-portrange 8225
+    next
+    edit "BGP"
+        set category "Network Services"
+        set tcp-portrange 179
+        set udp-portrange 179
+    next
+    edit "tcp_8480"
+        set tcp-portrange 8480
+    next
+    edit "tcp_8580"
+        set tcp-portrange 8580
+    next
+    edit "tcp_8680"
+        set tcp-portrange 8680
+    next
+    edit "tcp_8780"
+        set tcp-portrange 8780
+    next
+    edit "tcp_8880"
+        set tcp-portrange 8880
+    next
+    edit "tcp_8980"
+        set tcp-portrange 8980
+    next
+    edit "tcp_9080"
+        set tcp-portrange 9080
+    next
+    edit "tcp_9180"
+        set tcp-portrange 9180
+    next
+    edit "TCP-8082"
+        set tcp-portrange 8082
+    next
+end

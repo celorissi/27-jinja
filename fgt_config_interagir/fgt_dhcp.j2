@@ -1,0 +1,93 @@
+config system dhcp server
+    edit 8
+        set lease-time 50400
+        set default-gateway {{dhcp_vlan_212_gateway}}
+        set netmask {{dhcp_vlan_212_mascara}}
+        set interface "LAN_Wifi_Corp"
+        config ip-range
+            edit 1
+                set start-ip {{dhcp_vlan_212_start}}
+                set end-ip {{dhcp_vlan_212_end}}
+            next
+        end
+        set timezone-option default
+        set dns-server1 10.129.8.75
+        set dns-server2 10.129.8.76
+        set dns-server3 10.128.8.75
+    next
+    edit 10
+        set default-gateway 192.168.14.1
+        set netmask 255.255.255.0
+        set interface "LAN_Wifi_DEVEXT"
+        config ip-range
+            edit 1
+                set start-ip 192.168.14.2
+                set end-ip 192.168.14.254
+            next
+        end
+        set timezone-option default
+        set dns-server1 208.91.112.53
+        set dns-server2 208.91.112.52
+    next
+    edit 6
+        set lease-time 28800
+        set default-gateway 192.168.80.1
+        set netmask 255.255.255.0
+        set interface "LAN_Wifi_Guest"
+        config ip-range
+            edit 1
+                set start-ip 192.168.80.2
+                set end-ip 192.168.80.254
+            next
+        end
+        set timezone-option default
+        set dns-server1 208.67.222.222
+        set dns-server2 208.67.220.220
+    next
+    edit 4
+        set default-gateway {{dhcp_vlan_215_gateway}}
+        set netmask {{dhcp_vlan_215_mascara}}
+        set interface "LAN_Wifi_Mgmt"
+        config ip-range
+            edit 1
+                set start-ip {{dhcp_vlan_215_start}}
+                set end-ip {{dhcp_vlan_215_end}}
+            next
+        end
+        set timezone-option default
+        set dns-server1 10.0.0.141
+        set dns-server2 10.0.0.154
+    next
+    edit 5
+        set default-gateway {{dhcp_vlan_216_gateway}}
+        set netmask {{dhcp_vlan_216_mascara}}
+        set interface "LAN_Wifi_DEVCOR"
+        config ip-range
+            edit 1
+                set start-ip {{dhcp_vlan_216_start}}
+                set end-ip {{dhcp_vlan_216_end}}
+            next
+        end
+        set timezone-option default
+        set dns-server1 10.0.0.141
+        set dns-server2 10.0.0.154
+    next
+    edit 7
+        set default-gateway {{dhcp_vlan_22_gateway}}
+        set netmask {{dhcp_vlan_22_mascara}}
+        set interface "LAN_CB"
+        config ip-range
+            edit 1
+                set start-ip {{dhcp_vlan_22_start_22}}
+                set end-ip {{hcp_vlan_22_start_99}}
+            next
+            edit 2
+                set start-ip {{dhcp_vlan_22_start_105}}
+                set end-ip {{dhcp_vlan_22_end_254}}
+            next
+        end
+        set dns-server1 10.128.8.75
+        set dns-server2 10.128.8.76
+        set ntp-server1 10.128.8.75
+    next
+end

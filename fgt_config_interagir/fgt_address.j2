@@ -1,0 +1,559 @@
+config firewall address
+    edit "FABRIC_DEVICE"
+        set uuid 532670e6-fbe1-51eb-53ec-7b7e6269689d
+        set comment "IPv4 addresses of Fabric Devices."
+    next
+    edit "SSLVPN_TUNNEL_ADDR1"
+        set uuid 60fc12b4-b5f0-51e8-1f41-59ec848fd793
+        set type iprange
+        set associated-interface "ssl.root"
+        set start-ip 10.212.134.200
+        set end-ip 10.212.134.210
+    next
+    edit "all"
+        set uuid 932c12dc-1e48-51e9-74dc-dcbac9ef7f8e
+    next
+    edit "FIREWALL_AUTH_PORTAL_ADDRESS"
+        set uuid 60fc79ac-b5f0-51e8-7909-c5a93f5b5bde
+        set visibility disable
+    next
+    edit "SRV_SAT_10.228.1.80"
+        set uuid 45d6c0fa-c509-51e9-cedb-3d5e7db6a23a
+        set subnet 10.228.1.80 255.255.255.255
+    next
+    edit "HST_PRINTERS"
+        set uuid ab7a59c6-eb4c-51e9-e11d-b51149fc76c9
+        set type iprange
+        set comment "HST_PRINTERS"
+        set start-ip 10.111.88.120
+        set end-ip 10.111.88.194
+    next
+    edit "NAS-BRIDGE01"
+        set uuid a62c9062-f27a-51e9-bb0c-499dbe530cbb
+        set subnet 10.208.32.50 255.255.255.255
+    next
+    edit "IP_HOST_DIGIT_10.128.15.92/32"
+        set uuid a62df628-f27a-51e9-e97d-add941540f2b
+        set comment "Host"
+        set subnet 10.128.15.92 255.255.255.255
+    next
+    edit "IP_HOST_DIGIT_10.128.15.93/32"
+        set uuid a62f9f46-f27a-51e9-104a-36d8a32c8380
+        set comment "Host"
+        set subnet 10.128.15.93 255.255.255.255
+    next
+    edit "IP_HOST_DIGIT_10.129.30.100/32"
+        set uuid a6311024-f27a-51e9-2ed3-76829da91c36
+        set comment "Host"
+        set subnet 10.129.30.100 255.255.255.255
+    next
+    edit "IP_HOST_DIGIT_10.129.30.101/32"
+        set uuid a6327bf8-f27a-51e9-d98d-6fa7490cff1e
+        set comment "Host"
+        set subnet 10.129.30.101 255.255.255.255
+    next
+    edit "VIP_DIGIT_EQX_10.128.22.216"
+        set uuid a633dc1e-f27a-51e9-c2be-9d2f2efa979f
+        set comment "VIP Servico Digitalizacao Loja (EQX)"
+        set subnet 10.128.22.216 255.255.255.255
+    next
+    edit "VIP_DIGIT_SCS_10.129.22.190"
+        set uuid a6358140-f27a-51e9-bf3f-f274e64f5dd1
+        set comment "VIP Servico Digitalizacao Loja (SCS)"
+        set subnet 10.129.22.190 255.255.255.255
+    next
+    edit "bitbucket"
+        set uuid 7784f6ba-e170-51ea-dedf-e7ff9a840951
+        set subnet 10.128.131.113 255.255.255.255
+    next
+    edit "intranetsistemas"
+        set uuid 77868354-e170-51ea-f900-2469d7358e77
+        set subnet 10.228.1.80 255.255.255.255
+    next
+    edit "IP_DNS_Infoblox_SCS"
+        set uuid 778842e8-e170-51ea-6918-5a00ef94e6fa
+        set type iprange
+        set start-ip 10.129.8.75
+        set end-ip 10.129.8.76
+    next
+    edit "IP_DNS_Infoblox_EQX"
+        set uuid 778bd412-e170-51ea-6f43-945af14edc3c
+        set type iprange
+        set start-ip 10.128.8.75
+        set end-ip 10.128.8.76
+    next
+    edit "IP_HOST_DNS_10.0.0.141"
+        set uuid 778f476e-e170-51ea-93af-2aad8c37f99f
+        set subnet 10.0.0.141 255.255.255.255
+    next
+    edit "IP_HOST_DNS_10.0.0.154"
+        set uuid 779111c0-e170-51ea-ff23-693b85e47519
+        set subnet 10.0.0.154 255.255.255.255
+    next
+    edit "TEF-1"
+        set uuid 7792b480-e170-51ea-524a-615fd017cf1f
+        set type iprange
+        set start-ip 10.206.5.1
+        set end-ip 10.206.5.7
+    next
+    edit "TEF-2"
+        set uuid 779516da-e170-51ea-ed0d-a51b02dcfb22
+        set type iprange
+        set start-ip 10.206.5.13
+        set end-ip 10.206.5.15
+    next
+    edit "TEF-3"
+        set uuid 7797b124-e170-51ea-c8c9-15573c6483e3
+        set type iprange
+        set start-ip 10.206.11.1
+        set end-ip 10.206.11.6
+    next
+    edit "TEF-4"
+        set uuid 779a3264-e170-51ea-c2b6-9365c6a9db45
+        set subnet 10.206.5.17 255.255.255.255
+    next
+    edit "TEF-5"
+        set uuid 779bdc7c-e170-51ea-54ab-b9a61549fe5d
+        set subnet 10.206.5.19 255.255.255.255
+    next
+    edit "VIAMAISMOBILE"
+        set uuid 779d985a-e170-51ea-b532-b322c3293840
+        set subnet 10.128.22.139 255.255.255.255
+    next
+    edit "VIAMAISMOBILE-HLG"
+        set uuid 779f9e5c-e170-51ea-7182-80139eb75aef
+        set subnet 10.128.22.137 255.255.255.255
+    next
+    edit "PDVSERVER"
+        set uuid 77a17c68-e170-51ea-5c99-c39ab4eeb89e
+        set subnet 10.128.22.201 255.255.255.255
+    next
+    edit "TEF-EQX"
+        set uuid 63b6699c-fddc-51ea-c0d0-cc9a8d14cc55
+        set type iprange
+        set start-ip 10.128.32.132
+        set end-ip 10.128.32.139
+    next
+    edit "hst_10.128.125.160"
+        set uuid aa61b3ea-a793-51eb-4375-7cb9715de9a4
+        set comment "APP PDV Mobile Scope"
+        set subnet 10.128.125.160 255.255.255.255
+    next
+    edit "hst_10.128.22.56"
+        set uuid 64d559ee-d3c1-51eb-af2a-d12a268b303f
+        set comment "looqbox.viavarejo.com.br"
+        set subnet 10.128.22.56 255.255.255.255
+    next
+    edit "hst_10.107.16.5"
+        set uuid a0b440e2-e8fc-51eb-480a-e6c4f4e7759e
+        set comment "pp.viavarejo.com.br"
+        set subnet 10.107.16.5 255.255.255.255
+    next
+    edit "login.microsoftonline.com"
+        set uuid 6c4cebfe-fbe1-51eb-8d15-6980481ae997
+        set type fqdn
+        set fqdn "login.microsoftonline.com"
+    next
+    edit "login.microsoft.com"
+        set uuid 6c4cf464-fbe1-51eb-6074-d3e4b8c92e49
+        set type fqdn
+        set fqdn "login.microsoft.com"
+    next
+    edit "login.windows.net"
+        set uuid 6c4cfbc6-fbe1-51eb-56c3-c1e69d5bb842
+        set type fqdn
+        set fqdn "login.windows.net"
+    next
+    edit "gmail.com"
+        set uuid 6c4d0300-fbe1-51eb-39f8-4c4c4fc94c03
+        set type fqdn
+        set fqdn "gmail.com"
+    next
+    edit "wildcard.google.com"
+        set uuid 6c4d0b70-fbe1-51eb-504a-8d24c6b74b06
+        set type fqdn
+        set fqdn "*.google.com"
+    next
+    edit "wildcard.dropbox.com"
+        set uuid 6c4d12d2-fbe1-51eb-cf56-44ea72458e26
+        set type fqdn
+        set fqdn "*.dropbox.com"
+    next
+    edit "VLAN192_LAN_Wifi_GUEST"
+        set uuid ed0a679c-5f6b-51ec-eed6-1987cf6e08bd
+        set subnet 192.168.80.0 255.255.255.0
+    next
+    edit "VLAN216_LAN_WIFI_DEVCORP"
+        set uuid ed0d7e14-5f6b-51ec-a587-fe5c6b7cc8e7
+        set subnet {{LAN_Wifi_DEVCOR}}
+    next
+    edit "VLAN22_LAN_CB"
+        set uuid ed0fddb2-5f6b-51ec-621e-34cf818286ea
+        set subnet {{LAN_CB}}
+    next
+    edit "VLAN212_LAN_WIFI_CORP"
+        set uuid ed113536-5f6b-51ec-b05c-b738e47f30c7
+        set subnet {{LAN_Wifi_Corp}}
+    next
+    edit "VLAN14_LAN_WIFI_DEVEXT"
+        set uuid ed1296f6-5f6b-51ec-d93a-7ac025d52e2c
+        set subnet 192.168.14.0 255.255.255.0
+    next
+    edit "VLAN215_LAN_WIFI_MGMT"
+        set uuid ed13f1cc-5f6b-51ec-5afd-6585cd7ce4ba
+        set subnet {{LAN_Wifi_Mgmt}}
+    next
+    edit "RD_10.0.0.0/8"
+        set uuid ed331e1c-5f6b-51ec-ba52-ff8f12da4dbd
+        set subnet 10.0.0.0 255.0.0.0
+    next
+    edit "RD_172.16.0.0/12"
+        set uuid ed343ea0-5f6b-51ec-8166-e7fba3fdcd5b
+        set subnet 172.16.0.0 255.240.0.0
+    next
+    edit "RD_192.168.0.0/16"
+        set uuid ed357e78-5f6b-51ec-bf0b-0225c56cf3d8
+        set subnet 192.168.0.0 255.255.0.0
+    next
+    edit "IP_BRD_186.159.117.11/32"
+        set uuid ed36c72e-5f6b-51ec-b463-bf8dd124ea33
+        set subnet 186.159.117.11 255.255.255.255
+    next
+    edit "IP_BRD_186.159.117.12/32"
+        set uuid ed381a52-5f6b-51ec-ef2f-bacd5f18e546
+        set subnet 186.159.117.12 255.255.255.255
+    next
+    edit "IP_BRD_177.69.107.225/32"
+        set uuid ed3966d2-5f6b-51ec-16bd-e88ce26a2e39
+        set subnet 177.69.107.225 255.255.255.255
+    next
+    edit "IP_BRD_200.174.54.18/32"
+        set uuid ed3ab23a-5f6b-51ec-ee1e-154999d05b69
+        set subnet 200.174.54.18 255.255.255.255
+    next
+    edit "IP_BRD_200.189.178.244/32"
+        set uuid ed3bfbae-5f6b-51ec-57da-7b94c896627a
+        set subnet 200.189.178.244 255.255.255.255
+    next
+    edit "IP_BRD_200.198.75.242/32"
+        set uuid ed3d53e6-5f6b-51ec-84fd-6a57a228e637
+        set subnet 200.198.75.242 255.255.255.255
+    next
+    edit "IP_BRD_189.125.116.50/32"
+        set uuid ed3eba4c-5f6b-51ec-28d4-d640c1362468
+        set subnet 189.125.116.50 255.255.255.255
+    next
+    edit "RD_CENTRAL_IMG_177.135.149.8/31"
+        set uuid ed4029cc-5f6b-51ec-b423-16828cda5537
+        set subnet 177.135.149.8 255.255.255.254
+    next
+    edit "STG-VIAMAIS-CARRINHO-HLG_APP2.0"
+        set uuid 9af6d1a2-8518-51ec-27c0-ad1336fd18d6
+        set subnet 10.101.18.180 255.255.255.255
+    next
+    edit "STG-VIAMAIS-CARRINHO-PRD_APP2.0"
+        set uuid 9af9b37c-8518-51ec-3a99-e1d1ce4b23e3
+        set subnet 10.101.16.10 255.255.255.255
+    next
+    edit "STG-VIAMAIS-CHECKOUT-HLG_APP2.0"
+        set uuid 9afc260c-8518-51ec-106f-e7637605ab67
+        set subnet 10.101.18.156 255.255.255.255
+    next
+    edit "STG-VIAMAIS-CHECKOUT-PRD_APP2.0"
+        set uuid 9afebd5e-8518-51ec-ae41-75476ac73b9e
+        set subnet 10.101.16.108 255.255.255.255
+    next
+    edit "STG-VIAMAIS-CORE-HLG_APP2.0"
+        set uuid 9b00ee9e-8518-51ec-017f-49be08dae758
+        set subnet 10.101.18.132 255.255.255.255
+    next
+    edit "STG-VIAMAIS-CORE-PRD_APP2.0"
+        set uuid 9b03b958-8518-51ec-5f98-c022fe3cfbe7
+        set subnet 10.101.16.84 255.255.255.255
+    next
+    edit "STG-VIAMAIS-NEGOCIACAO-HLG_APP2.0"
+        set uuid 9b0628fa-8518-51ec-976e-a500ce21b2d5
+        set subnet 10.101.18.148 255.255.255.255
+    next
+    edit "STG-VIAMAIS-NEGOCIACAO-PRD_APP2.0"
+        set uuid 9b08b1c4-8518-51ec-716a-79b0af8ae1ca
+        set subnet 10.101.16.100 255.255.255.255
+    next
+    edit "VV-VIAMAIS-CARRINHO-API-HLG_APP2.0"
+        set uuid 9b0b3aca-8518-51ec-645c-5d05253bb020
+        set subnet 10.101.20.134 255.255.255.255
+    next
+    edit "VV-VIAMAIS-CARRINHO-API-PRD_APP2.0"
+        set uuid 9b0dee00-8518-51ec-a2e8-b11f96986321
+        set subnet 10.101.1.135 255.255.255.255
+    next
+    edit "VV-VIAMAIS-CHECKOUT-API-HLG_APP2.0"
+        set uuid 9b1061da-8518-51ec-d0e2-c418b0606571
+        set subnet 10.101.20.198 255.255.255.255
+    next
+    edit "VV-VIAMAIS-CHECKOUT-API-PRD_APP2.0"
+        set uuid 9b12d35c-8518-51ec-ff4a-23e019f8d2f3
+        set subnet 10.101.2.7 255.255.255.255
+    next
+    edit "RD_CENTRAL_IMG_201.48.215.194/32"
+        set uuid 78896e1a-a988-51ec-81de-5ad24ecb1493
+        set subnet 201.48.215.194 255.255.255.255
+    next
+    edit "RD_CENTRAL_IMG_189.112.91.53/32"
+        set uuid 788bd2c2-a988-51ec-fc9b-6fe889302d4c
+        set subnet 189.112.91.53 255.255.255.255
+    next
+    edit "hst_10.128.22.142"
+        set uuid e7e01c88-b6b1-51ec-50e4-a648f3807a6f
+        set comment "Vendedor Online IP Interno"
+        set subnet 10.128.22.142 255.255.255.255
+    next
+    edit "hst_10.128.22.27"
+        set uuid a60f2094-ecd8-51ec-4f5d-c21a0cb89f2c
+        set comment "pdvserver.viavarejo.com.br"
+        set subnet 10.128.22.27 255.255.255.255
+    next
+    edit "hst_10.128.22.133"
+        set uuid a6122258-ecd8-51ec-d49f-99874e99705e
+        set comment "vv-multiskill-api-viamais-pdv.ocp-eqx.dc.nova"
+        set subnet 10.128.22.133 255.255.255.255
+    next
+    edit "hst_10.128.22.144"
+        set uuid b24ce07a-016f-51ed-e66d-16984e030697
+        set comment "Openshift4 Via Mais"
+        set subnet 10.128.22.144 255.255.255.255
+    next
+    edit "hst_10.101.4.134"
+        set uuid f881005e-09c0-51ed-4f86-6775e5cc7686
+        set comment "Bradescard"
+        set subnet 10.101.4.134 255.255.255.255
+    next
+    edit "hst_10.128.22.156"
+        set uuid f88d7e10-09c0-51ed-d929-c8a794f5cd79
+        set comment "Bradescard"
+        set subnet 10.128.22.156 255.255.255.255
+    next
+    edit "APP_PAG_CARTEIRAS_DIGITAIS"
+        set uuid 548f0b22-37d7-51ed-aa51-76db4b9fc08a
+        set comment "CARTEIRA DIGITAL"
+        set subnet 10.128.32.194 255.255.255.255
+    next
+    edit "Multiskill-PRD"
+        set uuid a9ce929c-491b-51ed-05e5-ec25e9d55cb2
+        set subnet 10.128.22.15 255.255.255.255
+    next
+    edit "IP_NET_PCI_10.108.3.128/27"
+        set uuid 6be28e82-b9b6-51ed-dab3-47e23675d54e
+        set subnet 10.108.3.128 255.255.255.224
+    next
+    edit "IP_HOST_PCI_10.128.131.211/32"
+        set uuid 3a008ed6-b9b7-51ed-f572-ee9e6a90ff09
+        set comment "DESTINO_SALT_PCI"
+        set subnet 10.128.131.211 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.131.212/32"
+        set uuid 3a052248-b9b7-51ed-8f30-d7289fbcc3f9
+        set comment "DESTINO_SALT_PCI"
+        set subnet 10.128.131.212 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.131.213/32"
+        set uuid 3a08f814-b9b7-51ed-cf6b-87fe29513afe
+        set comment "DESTINO_SALT_PCI"
+        set subnet 10.128.131.213 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.131.214/32"
+        set uuid 3a0cab26-b9b7-51ed-32dc-111c39de3207
+        set comment "DESTINO_SALT_PCI"
+        set subnet 10.128.131.214 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.133.7/32"
+        set uuid 3a10f500-b9b7-51ed-2715-15de51bcf57d
+        set comment "DESTINO_SALT_QA_PCI"
+        set subnet 10.128.133.7 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.131.215/32"
+        set uuid 3a14a3bc-b9b7-51ed-5b8c-fb870937c095
+        set comment "DESTINO_SALT_PULP_PCI"
+        set subnet 10.128.131.215 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.13.188/32"
+        set uuid 3a186db2-b9b7-51ed-3605-ba81bb900cd6
+        set comment "DESTINO_WISE_PCI"
+        set subnet 10.128.13.188 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.13.154/32"
+        set uuid 3a1c218c-b9b7-51ed-f570-1ba75b440bcd
+        set comment "DESTINO_WISE_QA_PCI"
+        set subnet 10.128.13.154 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.0.0.141/32"
+        set uuid 3a216ebc-b9b7-51ed-00ee-d1233fa59964
+        set comment "DESTINO_DNS1_PCI"
+        set subnet 10.0.0.141 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.0.0.154/32"
+        set uuid 3a25700c-b9b7-51ed-30d1-ca2c08dd0579
+        set comment "DESTINO_DNS2_PCI"
+        set subnet 10.0.0.154 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.205.0.53/32"
+        set uuid 3a28cf5e-b9b7-51ed-e3cc-38c7e0959523
+        set comment "DESTINO_CTG_PCI"
+        set subnet 10.205.0.53 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.207.96.10/32"
+        set uuid 3a2ccabe-b9b7-51ed-0fd3-058c45f924a1
+        set comment "DESTINO_SISTRANFE_PCI"
+        set subnet 10.207.96.10 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.205.0.1/32"
+        set uuid 3a2efb90-b9b7-51ed-a9bf-9ac01be960d0
+        set comment "DESTINO_PCOM_PCI"
+        set subnet 10.205.0.1 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.0.0.1/32"
+        set uuid 3a313216-b9b7-51ed-ff6a-ee79dde92044
+        set comment "DESTINO_PCOM_BKP_PCI"
+        set subnet 10.0.0.1 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.209.0.30/32"
+        set uuid 3a34ff90-b9b7-51ed-8b40-41fc583dfa93
+        set comment "DESTINO_PROXY_FIREFOX1_PCI"
+        set subnet 10.209.0.30 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.228.0.40/32"
+        set uuid 3a38d886-b9b7-51ed-7a88-bff0389b3c8b
+        set comment "DESTINO_PROXY_FIREFOX2_PCI"
+        set subnet 10.228.0.40 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.0.10.4/32"
+        set uuid 3a3cbaf0-b9b7-51ed-f43f-0ef174e2f47f
+        set comment "DESTINO_ADM_AUTOMACAO_PCI"
+        set subnet 10.0.10.4 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.208.16.36/32"
+        set uuid 3a407e56-b9b7-51ed-2bb0-4b0e171bc6aa
+        set comment "DESTINO_CAT1_PCI"
+        set subnet 10.208.16.36 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.228.0.50/32"
+        set uuid 3a4418c2-b9b7-51ed-17d1-1cbb47e600b4
+        set comment "DESTINO_CAT2_PCI"
+        set subnet 10.228.0.50 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.228.10.75/32"
+        set uuid 3a47ad5c-b9b7-51ed-0b7a-6ba5507909b5
+        set comment "DESTINO_SPLUNK_PCI"
+        set subnet 10.228.10.75 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.7/32"
+        set uuid 3a4b8684-b9b7-51ed-7ed5-8320391f41d1
+        set comment "DESTINO_TEF_CB_LOJA_FISICA_IMPAR1_PCI"
+        set subnet 10.206.5.7 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.11.5/32"
+        set uuid 3a4f8c52-b9b7-51ed-e818-b9ab50de8615
+        set comment "DESTINO_TEF_PF_LOJA_FISICA_IMPAR_PCI"
+        set subnet 10.206.11.5 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.5/32"
+        set uuid 3a53ba0c-b9b7-51ed-6c91-271842b7bf34
+        set comment "DESTINO_TEF_CB_LOJA_FISICA_PAR1_PCI"
+        set subnet 10.206.5.5 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.11.1/32"
+        set uuid 3a57bea4-b9b7-51ed-6c4c-437b2075e60c
+        set comment "DESTINO_TEF_PF_LOJA_FISICA_PAR_PCI"
+        set subnet 10.206.11.1 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.6/32"
+        set uuid 3a5bc2ce-b9b7-51ed-2bbc-bbb626363ce4
+        set comment "DESTINO_TEF_CB_LOJA_FISICA_IMPAR2_PCI"
+        set subnet 10.206.5.6 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.4/32"
+        set uuid 3a5fb3ac-b9b7-51ed-80e9-2a3324bbee8b
+        set comment "DESTINO_TEF_CB_LOJA_FISICA_PAR2_PCI"
+        set subnet 10.206.5.4 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.1/32"
+        set uuid 3a639cba-b9b7-51ed-c0de-855be41618db
+        set comment "DESTINO_TEF_PF_LOJA_FISICA_PCI"
+        set subnet 10.206.5.1 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.3/32"
+        set uuid 3a67ab20-b9b7-51ed-4d60-bcb0f5e06b03
+        set comment "DESTINO_TEF_CB_LOJA_FISICA_PCI"
+        set subnet 10.206.5.3 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.208.16.51/32"
+        set uuid 3a6b7ac0-b9b7-51ed-745f-6902672c676e
+        set comment "DESTINO_ANALISE_LINK_PCI"
+        set subnet 10.208.16.51 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.2/32"
+        set uuid 3a6f2ef4-b9b7-51ed-f162-e54fdc35958d
+        set comment "DESTINO_TEF_PF_PAR_PCI"
+        set subnet 10.206.5.2 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.206.5.13/32"
+        set uuid 3a72ee7c-b9b7-51ed-0845-0132e33cc538
+        set comment "DESTINO_TEF_CB_PAR_PCI"
+        set subnet 10.206.5.13 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.100.110.100/32"
+        set uuid 3a768c1c-b9b7-51ed-69ae-addf0e2a62a4
+        set comment "DESTINO_PORTAL_SERVICO_PCI"
+        set subnet 10.100.110.100 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.22.137/32"
+        set uuid 3a7a8416-b9b7-51ed-9c17-1e498710b3f8
+        set comment "DESTINO_AIRFOX_PCI"
+        set subnet 10.128.22.137 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.129.22.151/32"
+        set uuid 3a7e5aa0-b9b7-51ed-bcf0-ecdac6769221
+        set comment "DESTINO_PROXY_VV2_PCI"
+        set subnet 10.129.22.151 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.228.5.15/32"
+        set uuid 3a81ed64-b9b7-51ed-300b-d2a4043c2aa0
+        set comment "DESTINO_INTEGRADOR_AIRFOX_PCI"
+        set subnet 10.228.5.15 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.22.224/32"
+        set uuid 3a84087e-b9b7-51ed-8a66-9bd0fe359262
+        set comment "DESTINO_VIP_F5_PCI"
+        set subnet 10.128.22.224 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.8.155/32"
+        set uuid 3a88ea6a-b9b7-51ed-5191-5d8ecca0dd37
+        set comment "DESTINO_SCAN_PCI"
+        set subnet 10.128.8.155 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.48.12/32"
+        set uuid 3a8c6eb0-b9b7-51ed-1fad-12ef2ff9793b
+        set comment "DESTINO_SCAN_PCI"
+        set subnet 10.128.48.12 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.70.12/32"
+        set uuid 3a8fe78e-b9b7-51ed-1aef-571a2d0be66d
+        set comment "DESTINO_SCAN_PCI"
+        set subnet 10.128.70.12 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.13.240/32"
+        set uuid 3a935c2a-b9b7-51ed-9ab9-202c0c5d4e96
+        set comment "DESTINO_SUSEMANAGER_PCI"
+        set subnet 10.128.13.240 255.255.255.255
+    next
+    edit "IP_HOST_PCI_10.128.13.251/32"
+        set uuid 3a96fd8a-b9b7-51ed-58b8-30b154c19201
+        set comment "DESTINO_WISE_PCI"
+        set subnet 10.128.13.251 255.255.255.255
+    next
+    edit "hst_10.105.13.8"
+        set uuid 4c956762-cef5-51ed-271a-f33a7c4d7e7b
+        set comment "Vendedor Online - vho-data-sync.viavarejo.com.br"
+        set subnet 10.105.13.8 255.255.255.255
+    next
+end

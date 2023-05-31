@@ -1,0 +1,5000 @@
+#config-version=FGT51E-6.2.11-FW-build1303-220621:opmode=0:vdom=0:user=N3.TELECOM
+#conf_file_ver=1616535496277562
+#buildno=1303
+#global_vdom=1
+
+
+config system custom-language
+    edit "en"
+        set filename "en"
+    next
+    edit "fr"
+        set filename "fr"
+    next
+    edit "sp"
+        set filename "sp"
+    next
+    edit "pg"
+        set filename "pg"
+    next
+    edit "x-sjis"
+        set filename "x-sjis"
+    next
+    edit "big5"
+        set filename "big5"
+    next
+    edit "GB2312"
+        set filename "GB2312"
+    next
+    edit "euc-kr"
+        set filename "euc-kr"
+    next
+end
+
+config system sso-admin
+end
+config system ha
+    set hbdev "wan2" 50 "wan1" 50 
+    set override disable
+end
+config system storage
+    edit "Internal"
+        set status enable
+        set media-status enable
+        set order 1
+        set partition "WANOPTXX9FAFA837"
+        set device "/dev/sda1"
+        set size 8563
+        set usage wanopt
+        set wanopt-mode mix
+    next
+end
+
+config system replacemsg-image
+    edit "logo_fnet"
+        set image-type gif
+    next
+    edit "logo_fguard_wf"
+        set image-type gif
+    next
+    edit "logo_fw_auth"
+    next
+    edit "logo_v2_fnet"
+    next
+    edit "logo_v2_fguard_wf"
+    next
+    edit "logo_v2_fguard_app"
+    next
+    edit "VVJ-logo"
+        set image-base64 "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"
+    next
+end
+config system replacemsg mail "email-av-fail"
+end
+config system replacemsg mail "email-block"
+end
+config system replacemsg mail "email-dlp-subject"
+end
+config system replacemsg mail "email-dlp-ban"
+end
+config system replacemsg mail "email-filesize"
+end
+config system replacemsg mail "email-file-filter"
+end
+config system replacemsg mail "partial"
+end
+config system replacemsg mail "smtp-block"
+end
+config system replacemsg mail "smtp-filesize"
+end
+config system replacemsg mail "email-decompress-limit"
+end
+config system replacemsg mail "smtp-decompress-limit"
+end
+config system replacemsg http "bannedword"
+end
+config system replacemsg http "url-block"
+end
+config system replacemsg http "urlfilter-err"
+end
+config system replacemsg http "infcache-block"
+end
+config system replacemsg http "http-block"
+end
+config system replacemsg http "http-filesize"
+end
+config system replacemsg http "http-dlp-ban"
+end
+config system replacemsg http "http-archive-block"
+end
+config system replacemsg http "http-contenttypeblock"
+end
+config system replacemsg http "https-invalid-cert-block"
+end
+config system replacemsg http "https-untrusted-cert-block"
+end
+config system replacemsg http "https-blacklisted-cert-block"
+end
+config system replacemsg http "http-client-block"
+end
+config system replacemsg http "http-client-filesize"
+end
+config system replacemsg http "http-client-bannedword"
+end
+config system replacemsg http "http-post-block"
+end
+config system replacemsg http "http-client-archive-block"
+end
+config system replacemsg http "switching-protocols-block"
+end
+config system replacemsg webproxy "deny"
+end
+config system replacemsg webproxy "user-limit"
+end
+config system replacemsg webproxy "auth-challenge"
+end
+config system replacemsg webproxy "auth-login-fail"
+end
+config system replacemsg webproxy "auth-group-info-fail"
+end
+config system replacemsg webproxy "http-err"
+end
+config system replacemsg webproxy "auth-ip-blackout"
+end
+config system replacemsg ftp "ftp-av-fail"
+end
+config system replacemsg ftp "ftp-dl-blocked"
+end
+config system replacemsg ftp "ftp-dl-filesize"
+end
+config system replacemsg ftp "ftp-dl-dlp-ban"
+end
+config system replacemsg ftp "ftp-explicit-banner"
+end
+config system replacemsg ftp "ftp-dl-archive-block"
+end
+config system replacemsg ftp "ftp-file-filter-block"
+end
+config system replacemsg nntp "nntp-av-fail"
+end
+config system replacemsg nntp "nntp-dl-blocked"
+end
+config system replacemsg nntp "nntp-dl-filesize"
+end
+config system replacemsg nntp "nntp-dlp-subject"
+end
+config system replacemsg nntp "nntp-dlp-ban"
+end
+config system replacemsg nntp "email-decompress-limit"
+end
+config system replacemsg fortiguard-wf "ftgd-block"
+    set buffer "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
+<html>
+  <head>
+    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+    <meta name=\"referrer\" content=\"no-referrer\">
+    <title>
+      Web Filter Violation
+    </title>
+    <style type=\"text/css\">
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 10pt;
+      }
+      h1, h2 {
+        height: 82px;
+        text-indent: -999em;
+        margin: 0;
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        margin: 0;
+        padding: 0;
+      }
+      div.header {
+        background: url(%%IMAGE:VVJ-logo%%) 0 0 no-repeat;
+        height: 115px;
+        width: 210px;
+        margin: auto;
+      }
+      div.header h1 {
+        background: url 0 0 no-repeat;
+      }
+      div.header h2 {
+        background:  0 -82px no-repeat;
+        width: 160px;
+        float: right;
+      }
+      div.sidebar {
+        width: 0px;
+        height: 0px;
+        float: left;
+      }
+      div.main {
+        padding: 5px;
+        margin-left: 5px auto;
+      }
+      div.buttons
+        margin-top: 30px;
+        text-align: right;
+      }
+      h3 {
+        margin: 36px 0;
+        font-size: 16pt;
+      }
+      .blocked      h3 {
+        color: #c00;
+      }
+      .authenticate h3 {
+        color: #36c;
+      }
+      h2.fgd_icon {
+        background: 0 0 repeat-x;
+        width: 90px;
+        height: 92px;
+        margin: 48px auto;
+      }
+      .blocked      h2.fgd_icon {
+        background-position: 0 -166px;
+      }
+      .authenticate h2.fgd_icon {
+        background-position: -89px -166px;
+      }
+      form {
+        width: 300px;
+        margin: 30px 0;
+      }
+      label {
+        display: block;
+        width: 300px;
+        margin: 5px 0;
+        line-height: 25px;
+      }
+      label input {
+        width: 200px;
+        border: 1px solid #7f9db9;
+        height: 20px;
+        float: right;
+      }
+    </style>
+  </head>
+  <body class=\"blocked\">
+    <div class=\"header\">
+    </div>
+    <div class=\"sidebar\">
+      <h2 class=\"fgd_icon\">
+        blocked
+      </h2>
+    </div>
+    <div class=\"main\">
+      <h3>
+        <center>
+        Página Bloqueada!
+        </center>
+      </h3>
+      <div class=\"notice\">
+        <p>
+          <center>
+          Você tentou acessar uma página web que viola as políticas da Via Varejo.
+          <p>
+          Caso seja necessário o acesso, entrar em contato no ramal 6555 (Opção 2).
+            </p>
+          </center>
+        </p>
+        <p>
+          <center>
+          URL: %%PROTOCOL%%://%%URL%%
+          <br />
+          Category: %%CATEGORY%%
+          </center>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>"
+end
+config system replacemsg fortiguard-wf "http-err"
+end
+config system replacemsg fortiguard-wf "ftgd-ovrd"
+end
+config system replacemsg fortiguard-wf "ftgd-quota"
+end
+config system replacemsg fortiguard-wf "ftgd-warning"
+end
+config system replacemsg spam "ipblocklist"
+end
+config system replacemsg spam "smtp-spam-dnsbl"
+end
+config system replacemsg spam "smtp-spam-feip"
+end
+config system replacemsg spam "smtp-spam-helo"
+end
+config system replacemsg spam "smtp-spam-emailblack"
+end
+config system replacemsg spam "smtp-spam-mimeheader"
+end
+config system replacemsg spam "reversedns"
+end
+config system replacemsg spam "smtp-spam-bannedword"
+end
+config system replacemsg spam "smtp-spam-ase"
+end
+config system replacemsg spam "submit"
+end
+config system replacemsg alertmail "alertmail-virus"
+end
+config system replacemsg alertmail "alertmail-block"
+end
+config system replacemsg alertmail "alertmail-nids-event"
+end
+config system replacemsg alertmail "alertmail-crit-event"
+end
+config system replacemsg alertmail "alertmail-disk-full"
+end
+config system replacemsg admin "pre_admin-disclaimer-text"
+end
+config system replacemsg admin "post_admin-disclaimer-text"
+end
+config system replacemsg auth "auth-disclaimer-page-1"
+end
+config system replacemsg auth "auth-disclaimer-page-2"
+end
+config system replacemsg auth "auth-disclaimer-page-3"
+end
+config system replacemsg auth "auth-reject-page"
+end
+config system replacemsg auth "auth-login-page"
+end
+config system replacemsg auth "auth-login-failed-page"
+end
+config system replacemsg auth "auth-token-login-page"
+end
+config system replacemsg auth "auth-token-login-failed-page"
+end
+config system replacemsg auth "auth-success-msg"
+end
+config system replacemsg auth "auth-challenge-page"
+end
+config system replacemsg auth "auth-keepalive-page"
+end
+config system replacemsg auth "auth-portal-page"
+end
+config system replacemsg auth "auth-password-page"
+end
+config system replacemsg auth "auth-fortitoken-page"
+end
+config system replacemsg auth "auth-next-fortitoken-page"
+end
+config system replacemsg auth "auth-email-token-page"
+end
+config system replacemsg auth "auth-sms-token-page"
+end
+config system replacemsg auth "auth-email-harvesting-page"
+end
+config system replacemsg auth "auth-email-failed-page"
+end
+config system replacemsg auth "auth-cert-passwd-page"
+end
+config system replacemsg auth "auth-guest-print-page"
+end
+config system replacemsg auth "auth-guest-email-page"
+end
+config system replacemsg auth "auth-success-page"
+end
+config system replacemsg auth "auth-block-notification-page"
+end
+config system replacemsg auth "auth-quarantine-page"
+end
+config system replacemsg auth "auth-qtn-reject-page"
+end
+config system replacemsg auth "auth-saml-page"
+end
+config system replacemsg sslvpn "sslvpn-login"
+end
+config system replacemsg sslvpn "sslvpn-header"
+end
+config system replacemsg sslvpn "sslvpn-limit"
+end
+config system replacemsg sslvpn "hostcheck-error"
+end
+config system replacemsg device-detection-portal "device-detection-failure"
+end
+config system replacemsg nac-quar "nac-quar-virus"
+end
+config system replacemsg nac-quar "nac-quar-dos"
+end
+config system replacemsg nac-quar "nac-quar-ips"
+end
+config system replacemsg nac-quar "nac-quar-dlp"
+end
+config system replacemsg nac-quar "nac-quar-admin"
+end
+config system replacemsg nac-quar "nac-quar-app"
+end
+config system replacemsg traffic-quota "per-ip-shaper-block"
+end
+config system replacemsg utm "virus-html"
+end
+config system replacemsg utm "client-virus-html"
+end
+config system replacemsg utm "virus-text"
+end
+config system replacemsg utm "dlp-html"
+end
+config system replacemsg utm "dlp-text"
+end
+config system replacemsg utm "appblk-html"
+end
+config system replacemsg utm "ipsblk-html"
+end
+config system replacemsg utm "ipsfail-html"
+end
+config system replacemsg utm "exe-text"
+end
+config system replacemsg utm "waf-html"
+end
+config system replacemsg utm "outbreak-prevention-html"
+end
+config system replacemsg utm "outbreak-prevention-text"
+end
+config system replacemsg utm "file-filter-text"
+end
+config system replacemsg utm "file-size-text"
+end
+config system replacemsg utm "internal-error-text"
+end
+config system replacemsg icap "icap-req-resp"
+end
+
+
+config firewall internet-service-definition
+end
+config wanopt content-delivery-network-rule
+    edit "vcache://"
+        set comment "Static entries are not allowed to change except disable."
+        set response-expires enable
+        set text-response-vcache disable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/*.m3u8"
+                    next
+                end
+                config content-id
+                    set target hls-manifest
+                    set start-str "/"
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mpd"
+                    next
+                end
+                config content-id
+                    set target dash-manifest
+                    set start-str "/"
+                end
+            next
+            edit "rule3"
+                config match-entries
+                    edit 1
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set target hls-fragment
+                    set start-str "/"
+                end
+            next
+            edit "rule4"
+                config match-entries
+                    edit 1
+                        set pattern "/*.*"
+                    next
+                end
+                config content-id
+                    set target dash-fragment
+                    set start-str "/"
+                end
+            next
+        end
+    next
+    edit "vcache://youtube/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "youtube.com"
+        set category youtube
+        set text-response-vcache disable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/videoplayback"
+                    next
+                end
+                config content-id
+                    set target youtube-id
+                    set start-str "v="
+                    set start-skip 2
+                    set end-str "&"
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/videoplayback"
+                    next
+                end
+                config content-id
+                    set target youtube-id
+                    set start-str "v="
+                    set start-skip 2
+                end
+            next
+            edit "rule3"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/stream_204"
+                    next
+                    edit 2
+                        set pattern "/ptracking"
+                    next
+                    edit 3
+                        set pattern "/get_video_info"
+                    next
+                end
+                config content-id
+                    set target youtube-map
+                    set start-str "/"
+                end
+            next
+        end
+    next
+    edit "vcache://googlevideo/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "googlevideo.com"
+        set category youtube
+        set text-response-vcache disable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/videoplayback"
+                    next
+                end
+                config content-id
+                    set target youtube-id
+                    set start-str "v="
+                    set start-skip 2
+                    set end-str "&"
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/videoplayback"
+                    next
+                end
+                config content-id
+                    set target youtube-id
+                    set start-str "v="
+                    set start-skip 2
+                end
+            next
+            edit "rule3"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/stream_204"
+                    next
+                    edit 2
+                        set pattern "/ptracking"
+                    next
+                    edit 3
+                        set pattern "/get_video_info"
+                    next
+                end
+                config content-id
+                    set target youtube-map
+                    set start-str "/"
+                end
+            next
+        end
+    next
+    edit "vcache://metacafe/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "mccont.com" "akvideos.metacafe.com" "cdn.metacafe.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://facebook/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "fbcdn.net" "facebook.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://dailymotion/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "dailymotion.com" "dmcdn.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/video/*.mp4"
+                    next
+                    edit 2
+                        set pattern "/video/*.flv"
+                    next
+                    edit 3
+                        set pattern "/video/*.ts"
+                    next
+                    edit 4
+                        set pattern "/video/*.on2"
+                    next
+                    edit 5
+                        set pattern "/video/*.aac"
+                    next
+                    edit 6
+                        set pattern "/video/*.h264"
+                    next
+                    edit 7
+                        set pattern "/video/*.h263"
+                    next
+                    edit 8
+                        set pattern "/sec*.mp4"
+                    next
+                    edit 9
+                        set pattern "/sec*.flv"
+                    next
+                    edit 10
+                        set pattern "/sec*.on2"
+                    next
+                    edit 11
+                        set pattern "/sec*.aac"
+                    next
+                    edit 12
+                        set pattern "/sec*.h264"
+                    next
+                    edit 13
+                        set pattern "/sec*.h263"
+                    next
+                    edit 14
+                        set pattern "*.ts"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "start=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://break/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "break.com" "0ebe.edgecastcdn.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/dnet/media/*.flv"
+                    next
+                    edit 2
+                        set pattern "/dnet/media/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "ec_seek=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mp4*"
+                    next
+                    edit 2
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://msn/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "video.msn.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://llnwd/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "llnwd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.fll"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "fs=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://yahoo/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "yimg.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.m4s"
+                    next
+                end
+                config content-id
+                    set target parameter
+                    set start-str "vid="
+                end
+            next
+        end
+    next
+    edit "vcache://myspace/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "myspacecdn.com"
+        set request-cache-control enable
+        set response-cache-control enable
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://vimeo/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "vimeo.com" "vimeocdn.com" "56skyfiregce-a.akamaihd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.m4s"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://blip.tv/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "blip.tv"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.m4v"
+                    next
+                    edit 2
+                        set pattern "/*.flv"
+                    next
+                    edit 3
+                        set pattern "/*.mp4"
+                    next
+                    edit 4
+                        set pattern "/*.wmv"
+                    next
+                    edit 5
+                        set pattern "/*.rm"
+                    next
+                    edit 6
+                        set pattern "/*.ram"
+                    next
+                    edit 7
+                        set pattern "/*.mov"
+                    next
+                    edit 8
+                        set pattern "/*.avi"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "ms=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://maker.tv/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "videos-f.jwpsrv.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://aol/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "stream.aol.com" "5min.com" "vidiblevod-vh.akamaihd.net" "stg-ec-ore-u.uplynk.com" "vidible.tv"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*timeoffset=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://clipfish/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "clipfish.de" "universal-music.de"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.f4v"
+                    next
+                    edit 3
+                        set pattern "/*.mp4"
+                    next
+                    edit 4
+                        set pattern "/*.m4v"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://cnn/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "cnn-vh.akamaihd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv*"
+                    next
+                    edit 2
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mp4*"
+                    next
+                    edit 2
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule3"
+                config match-entries
+                    edit 1
+                        set pattern "/*.ts*"
+                    next
+                    edit 2
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://foxnews/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "foxnews.com" "foxnews-f.akamaihd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mp4*"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set target parameter
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://discovery/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "discovery.com" "discidevflash-f.akamaihd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://liveleak/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "edge.liveleak.com" "cdn.liveleak.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*seek=0"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/*.mp4"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*seek=0"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule3"
+                config match-entries
+                    edit 1
+                        set pattern "/*.wmv"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*seek=0"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://sevenload/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "sevenload.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "aktimeoffset=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://stupidvideos/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "stupidvideos.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://howcast/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "media.howcast.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "start=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://vevo/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "vevo.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://redtube/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "redtube.com" "redtubefiles.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://xtube/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "xtube.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/videos/*.flv"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "Thumb*"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "av_preview*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/videos/*"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*ms=0"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule3"
+                config match-entries
+                    edit 1
+                        set pattern "/videos/*"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*ms=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://youporn/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "youporn.com" "youporn.phncdn.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*ms=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+        end
+    next
+    edit "vcache://pornhub/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "pornhub.com" "pornhub.phncdn.com" "d.rncdn3.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*start=*"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*ms=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+        end
+    next
+    edit "vcache://tube8/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "tube8.com" "tube8.phncdn.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.3gp"
+                    next
+                    edit 3
+                        set pattern "/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*start=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+        end
+    next
+    edit "vcache://ooyala/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "ooyala.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "*Seg*"
+                    next
+                    edit 2
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://ms-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "msads.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://yumenetworks-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "yumenetworks.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://2mdn-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "2mdn.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://eyewonder-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "eyewonder.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://eyereturn-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "eyereturn.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://serving-sys-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "serving-sys.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://amazonaws-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "amazonaws.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://edgesuite-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "edgesuite.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://gorillanation-ads/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "video.gorillanation.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                set match-mode any
+                set skip-rule-mode any
+                config match-entries
+                    edit 1
+                        set pattern "/*.flv"
+                    next
+                    edit 2
+                        set pattern "/*.mp4"
+                    next
+                    edit 3
+                        set pattern "/*.ts"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://youku/"
+        set comment "Static entries are not allowed to change except disable."
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.mp4"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*start=0"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+            edit "rule2"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.flv"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*start=0"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+            edit "rule3"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.kux"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*start=0"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+            edit "rule4"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.mp4"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*start=*"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+            edit "rule5"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.flv"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*start=*"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+            edit "rule6"
+                config match-entries
+                    edit 1
+                        set pattern "/youku/*.kux"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*start=*"
+                    next
+                end
+                config content-id
+                    set target youku-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+        end
+    next
+    edit "vcache://tudou/"
+        set comment "Static entries are not allowed to change except disable."
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/f4v/*"
+                    next
+                    edit 2
+                        set target parameter
+                        set pattern "*id=tudou*"
+                    next
+                end
+                config skip-entries
+                    edit 1
+                        set target parameter
+                        set pattern "*begin=*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                    set start-direction backward
+                end
+            next
+        end
+    next
+    edit "vcache://cbc/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "cbc.ca" "mobilehls-vh.akamaihd.net"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "*.mp4*"
+                    next
+                    edit 2
+                        set pattern "*Seg*"
+                    next
+                    edit 3
+                        set pattern "*Frag*"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+            edit "rule2"
+                set match-mode any
+                config match-entries
+                    edit 1
+                        set pattern "*.ts"
+                    next
+                    edit 2
+                        set pattern "*.mp4"
+                    next
+                end
+                config content-id
+                    set start-str "/"
+                    set start-skip 1
+                end
+            next
+        end
+    next
+    edit "vcache://megaupload/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "megaupload.com"
+        set response-expires enable
+        config rules
+            edit "rule1"
+                config match-entries
+                    edit 1
+                        set pattern "/files/*"
+                    next
+                end
+                config content-id
+                    set target referrer
+                    set start-str "d="
+                    set start-skip 2
+                end
+            next
+        end
+    next
+    edit "update://windowsupdate/"
+        set comment "Static entries are not allowed to change except disable."
+        set host-domain-name-suffix "download.windowsupdate.com"
+        set request-cache-control enable
+        set response-cache-control enable
+        set response-expires enable
+        set updateserver enable
+    next
+end
+config system cluster-sync
+end
+config system fortiguard
+    set protocol udp
+    set sdns-server-ip "208.91.112.220" 
+end
+config ips global
+end
+
+config system email-server
+    set server "notification.fortinet.net"
+    set port 465
+    set security smtps
+end
+config system session-helper
+    edit 1
+        set name pptp
+        set protocol 6
+        set port 1723
+    next
+    edit 2
+        set name h323
+        set protocol 6
+        set port 1720
+    next
+    edit 3
+        set name ras
+        set protocol 17
+        set port 1719
+    next
+    edit 4
+        set name tns
+        set protocol 6
+        set port 1521
+    next
+    edit 5
+        set name tftp
+        set protocol 17
+        set port 69
+    next
+    edit 6
+        set name rtsp
+        set protocol 6
+        set port 554
+    next
+    edit 7
+        set name rtsp
+        set protocol 6
+        set port 7070
+    next
+    edit 8
+        set name rtsp
+        set protocol 6
+        set port 8554
+    next
+    edit 9
+        set name ftp
+        set protocol 6
+        set port 21
+    next
+    edit 10
+        set name mms
+        set protocol 6
+        set port 1863
+    next
+    edit 11
+        set name pmap
+        set protocol 6
+        set port 111
+    next
+    edit 12
+        set name pmap
+        set protocol 17
+        set port 111
+    next
+    edit 13
+        set name sip
+        set protocol 17
+        set port 5060
+    next
+    edit 14
+        set name dns-udp
+        set protocol 17
+        set port 53
+    next
+    edit 15
+        set name rsh
+        set protocol 6
+        set port 514
+    next
+    edit 16
+        set name rsh
+        set protocol 6
+        set port 512
+    next
+    edit 17
+        set name dcerpc
+        set protocol 6
+        set port 135
+    next
+    edit 18
+        set name dcerpc
+        set protocol 17
+        set port 135
+    next
+    edit 19
+        set name mgcp
+        set protocol 17
+        set port 2427
+    next
+    edit 20
+        set name mgcp
+        set protocol 17
+        set port 2727
+    next
+end
+config system auto-install
+    set auto-install-config enable
+    set auto-install-image enable
+end
+config system console
+    set output standard
+end
+config system ntp
+    set ntpsync enable
+end
+config system object-tagging
+    edit "default"
+    next
+end
+config switch-controller traffic-policy
+    edit "quarantine"
+        set description "Rate control for quarantined traffic"
+        set guaranteed-bandwidth 163840
+        set guaranteed-burst 8192
+        set maximum-burst 163840
+        set cos-queue 0
+        set id 1
+    next
+    edit "sniffer"
+        set description "Rate control for sniffer mirrored traffic"
+        set guaranteed-bandwidth 50000
+        set guaranteed-burst 8192
+        set maximum-burst 163840
+        set cos-queue 0
+        set id 2
+    next
+end
+config system settings
+    set gui-load-balance enable
+    set gui-local-in-policy enable
+    set gui-wanopt-cache enable
+    set gui-dynamic-routing enable
+    set gui-multiple-utm-profiles enable
+    set gui-ips enable
+    set gui-endpoint-control disable
+    set gui-allow-unnamed-policy enable
+end
+config system replacemsg-group
+    edit "default"
+        set comment "Default replacement message group."
+    next
+end
+config system session-ttl
+    config port
+        edit 1
+        next
+    end
+end
+
+
+
+config firewall multicast-address
+    edit "all"
+        set start-ip 224.0.0.0
+        set end-ip 239.255.255.255
+    next
+end
+config firewall address6
+    edit "all"
+        set uuid 5f2f5950-b5f0-51e8-f4f7-4ee74facab0b
+    next
+    edit "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set uuid 60fc21c8-b5f0-51e8-ca77-5e663f04691c
+        set ip6 fdff:ffff::/120
+    next
+end
+config firewall multicast-address6
+    edit "all"
+        set ip6 ff00::/8
+    next
+end
+
+config firewall wildcard-fqdn custom
+    edit "google-play"
+        set uuid 536a2854-fbe1-51eb-5b8f-7c73a6e74f9b
+        set wildcard-fqdn "*play.google.com"
+    next
+    edit "update.microsoft.com"
+        set uuid 536a2c3c-fbe1-51eb-93d9-7b6a581ae741
+        set wildcard-fqdn "*update.microsoft.com"
+    next
+    edit "swscan.apple.com"
+        set uuid 536a3010-fbe1-51eb-1ce0-4ec7715ea9b8
+        set wildcard-fqdn "*swscan.apple.com"
+    next
+    edit "autoupdate.opera.com"
+        set uuid 536a33d0-fbe1-51eb-2f1c-0f7c3951866f
+        set wildcard-fqdn "*autoupdate.opera.com"
+    next
+    edit "live.com"
+        set uuid 74529d52-18f0-51e9-4b25-50381d98d8e7
+        set wildcard-fqdn "*.live.com"
+    next
+    edit "Windows update 2"
+        set uuid 74537f4c-18f0-51e9-70df-6f5a4aa1aab1
+        set wildcard-fqdn "*.windowsupdate.com"
+    next
+    edit "verisign"
+        set uuid 74545818-18f0-51e9-04af-555c3f715757
+        set wildcard-fqdn "*.verisign.com"
+    next
+    edit "softwareupdate.vmware.com"
+        set uuid 74552f68-18f0-51e9-885e-c8bc0d89d84f
+        set wildcard-fqdn "*.softwareupdate.vmware.com"
+    next
+    edit "skype"
+        set uuid 74560726-18f0-51e9-5381-5420d53364c1
+        set wildcard-fqdn "*.messenger.live.com"
+    next
+    edit "microsoft"
+        set uuid 7456deee-18f0-51e9-d30d-dae71f7c732e
+        set wildcard-fqdn "*.microsoft.com"
+    next
+    edit "itunes"
+        set uuid 7457b59e-18f0-51e9-976e-990ea0e85a22
+        set wildcard-fqdn "*itunes.apple.com"
+    next
+    edit "icloud"
+        set uuid 745913f8-18f0-51e9-eef8-5281e6a356bc
+        set wildcard-fqdn "*.icloud.com"
+    next
+    edit "Gotomeeting"
+        set uuid 7459ea08-18f0-51e9-385f-1fd74257933e
+        set wildcard-fqdn "*.gotomeeting.com"
+    next
+    edit "google-play3"
+        set uuid 745abeba-18f0-51e9-9c18-2a2343ddbf3a
+        set wildcard-fqdn "*.books.google.com"
+    next
+    edit "google-play2"
+        set uuid 745b94e8-18f0-51e9-ba0e-a8153628173f
+        set wildcard-fqdn "*.ggpht.com"
+    next
+    edit "google-drive"
+        set uuid 745c6a1c-18f0-51e9-081f-14275bb01a2b
+        set wildcard-fqdn "*drive.google.com"
+    next
+    edit "googleapis.com"
+        set uuid 745d3f50-18f0-51e9-a78a-686ca2d5361c
+        set wildcard-fqdn "*.googleapis.com"
+    next
+    edit "fortinet"
+        set uuid 745e13c6-18f0-51e9-4976-facb58aae7da
+        set wildcard-fqdn "*.fortinet.com"
+    next
+    edit "firefox update server"
+        set uuid 745eeb0c-18f0-51e9-5691-c5e3e09343e5
+        set wildcard-fqdn "aus*.mozilla.org"
+    next
+    edit "eease"
+        set uuid 745fc48c-18f0-51e9-2364-94e840fe8c41
+        set wildcard-fqdn "*.eease.com"
+    next
+    edit "dropbox.com"
+        set uuid 7460a032-18f0-51e9-4f53-b1ab0e29f693
+        set wildcard-fqdn "*.dropbox.com"
+    next
+    edit "citrix"
+        set uuid 7461782c-18f0-51e9-4d94-03089a9947e7
+        set wildcard-fqdn "*.citrixonline.com"
+    next
+    edit "auth.gfx.ms"
+        set uuid 74624cd4-18f0-51e9-b779-99bbc16b8b25
+        set wildcard-fqdn "*.auth.gfx.ms"
+    next
+    edit "appstore"
+        set uuid 7463262c-18f0-51e9-c03e-5ee31151c682
+        set wildcard-fqdn "*.appstore.com"
+    next
+    edit "apple"
+        set uuid 7463f9f8-18f0-51e9-0c8f-0bd4b86777b5
+        set wildcard-fqdn "*.apple.com"
+    next
+    edit "android"
+        set uuid 7464cde2-18f0-51e9-9c6b-5235674f2579
+        set wildcard-fqdn "*.android.com"
+    next
+    edit "Adobe Login"
+        set uuid 7465a14a-18f0-51e9-9aca-d7972e5755fb
+        set wildcard-fqdn "*.adobelogin.com"
+    next
+    edit "adobe"
+        set uuid 74667584-18f0-51e9-e157-3f3f0b22813c
+        set wildcard-fqdn "*.adobe.com"
+    next
+end
+config firewall service category
+    edit "General"
+        set comment "General services."
+    next
+    edit "Web Access"
+        set comment "Web access."
+    next
+    edit "File Access"
+        set comment "File access."
+    next
+    edit "Email"
+        set comment "Email services."
+    next
+    edit "Network Services"
+        set comment "Network services."
+    next
+    edit "Authentication"
+        set comment "Authentication service."
+    next
+    edit "Remote Access"
+        set comment "Remote access."
+    next
+    edit "Web Proxy"
+        set comment "Explicit web proxy."
+    next
+end
+
+
+config vpn certificate ca
+    edit "FW-LOJAS_CA2"
+        set ca "-----BEGIN CERTIFICATE-----
+MIIDADCCAeigAwIBAgIgN0Y5QzUyODZBNDg3QTA0N0ZGOEY3MTA1NEM0NTQzMTMw
+DQYJKoZIhvcNAQEFBQAwKzEWMBQGA1UEChMNRm9ydGluZXQgTHRkLjERMA8GA1UE
+AxMIRm9ydGluZXQwHhcNMTkwMTE1MTMyMTEwWhcNMjkwMTE5MTMyMTEwWjArMRYw
+FAYDVQQKEw1Gb3J0aW5ldCBMdGQuMREwDwYDVQQDEwhGb3J0aW5ldDCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAPjit4qzBRk4hKV/ICbFhcnfCkUoKGuJ
+jboJcWOiT7lau3hiQ5Rr5dkWAO4Ksm3CS/t0XWWK8VzmDYbSWlG40rIdrWX4V8i6
+zdQ/ZO5NfwhbaQbsBtapvO6r6KJnwISUV3VkxQe/wZJJVpGpT1u0U+hgI5F6bIm+
+vj001ppl79oBUtKUq5Vqib2mnJwqgTEsYJgnyeFgkrY91yGyaF8g1qSkLX4w5TB/
+IpkF9HvmsziMp8ur3TEztSOY2yogAS2r8CoYixB2vCcgqna2uxhvqoivAd1NFcS+
+5IblBFn/m2P24TZrP5oxiHc4XsbPw5xcxSZvQnqnF+7NyH23gbjxhlUCAwEAAaMQ
+MA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAhpy613/z4vupkIoC
+NR6CAsfKd0FmVUbqm9DGxqlmJEdztE/YqPPZ9dl84xjxUvuDti2c0I6SsLhmU1AV
+1vJCZwLo0Q3IZoTeam9RZRqtfrV7X/zPzTuSKY9zjt9luLHxFht8l82oVM3KDwF1
+mLDRc39gGR7nHOVkmW3Lm2LtmHlJkS5rzzXYQDOYHmxakluGbzS56M9mZEaImy0m
+nOPgeS2XadMMsV+qzs8I6Q7zVg8STq4u8D0Ou+wwU3Tl/RftqlzLz7yKSC5o/jCK
+33DWL9QJ5Tt7ras704R8+M6rfqw547EaI9gkKMd1TpJgDkAG4XJUTnFjPnhz4+re
+i44gRw==
+-----END CERTIFICATE-----"
+        set range global
+    next
+end
+config vpn certificate local
+    edit "Fortinet_CA_SSL"
+        set password ENC XuviZHVnjTW8CDTgIDqsw2zdVja2K98Da6TQfGYJKOGLFrnJUhY0u6wDhC5vI+X4f2LBc9IhwVncbo85pGAs5b894q6u+d7R8LmWmtaCyuqaKe3vxZq0JY0K+XJ5By69e5J0c7cKTIM61/gnZ4/wnogf46P+kKUqmWUXxwDpm/OYmZYvHMDLdFKwyzDmuf4UvAM7cw==
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIKG/4D/bix5ICAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECBEl0ryJEgcJBIIEyPaoctQZvDWr
+UsLqykIb959xcgMk635bMwjLnReL1NQ+o60BZ90ho3V7+4AeiA3HWlRrTmPkdTDO
+ewRRxoRvf5JgC8DTQ3bT+jDvPIazUAzWOZ5ATz5YMGGVbqL7pZIh5m6FXYfVZgJ1
+OXcae5KiQW8RJ8DatcqWHgk/nv1MGX3DtHRljNBLqbMgMhg7bsu8Tin50ZMnzF6z
+lf756mTlBSivjdE1nKwIOzNdMC0VGsA1XLDDSmW048nv2vRcoOotFRIPwpLPEZOI
+cWGMaVYIlr2QmMeRE+jSYZ+ovFEm0JDA6GTA74+9FuH/Hd2y/hLLyGZ32jc16HFB
+aoICRAMyl0AZl2o8f3dIpSXqElkdqRjcIma5MzwZSUDnNaxMfSmk8qpizyxrt8Qv
+auSsLidGHTts052lZiRfFIKyFZ2YwnfACd39AozCpp2gVwa72JWroRx66XHoMxCK
+dZARds3o0Hsnj4TpShQs34qNYCKPXHhnKket6b7XUcII/aIzeahSFZvHCktd/zG8
+zHShLTLvM8SQDq07hnwQUBjbfbgrA2Wl1SPRIIzH0iNdNCRRV84pgZvqflZN3LZ+
+POwRR9G9sASVtpymj8A3E5bb2TEpr5qyU1VkqIy6vDIFuNytZ4tp3Ev8hQnXYo6c
+uSoj8GoT5nxjsJJGgzOGjg2b3EjJVm2Jaxj8/NaG66uK2ODEHkZW6zgJqJQMm0jq
+SHJ9uM8hVOFuKzWaoluwAMY/OOfmarILfuduUNSClUBTV+4J0I96BQxbV8bIiuT7
+A5Rd8Zh811p4tLACgXu+zFNWII4k7AvEGNuTkbnSegwtmapdTPz4Pv89usFhwydQ
+XbZ76chNVnr+LM00h4JJ+N84oevsRHGJURRMVJsVvFTZFbD7l14AQW/QWctNe+An
+QkxlZAoQ4zDxhg2TQDI/JlkOTuReuOvoeHYqc3OSHk/0jwDUt8QSK5WkcN3KVb/p
+KyYVg8RGu4w0ZCW0t3N/bKaMntpRknUWcQvDtDCUri4WEc714dEwaTquvMFyziyW
+bUtzRR6peAWCdTTidEgSj109XQD4YzdSZCcRTSbIZEHa+RwqLn2JFOukZFGh4rYn
+YwKH+QS6Xu61+tNU8xnusYn1OkRAGiiP7oa6lOyjBJ1LuJaJ37B6Yspywu4aha0O
+mSOnu5gKc+ET1SQ06LptZFQdMg3NThOpXD83Y+aEy3TLK/OeCyyT7HEs9u/3ZZgg
+YkTIezPWWTsx+7Vn8FElemhouMDEpLX/Uuflb2EBCYwSD08GerjQIekZP4Ef34qn
+CWzm7v18PA4Conj1CnAhTQXLfQ3a5AbEfr0+1Nck30l6CILqW0mTS9mXC/8Dus/C
+vmfF6T9/R032ZZSMRLULRdo776khUE/hU8R0GlFVo8kNgI9tieFFtIB33PEzaCls
+UqsLmdOGnuCBsM6VJ3W2gVDVhL3F/d4/mumqW78KwSRqvWM2TnVwkk8Ja9VreFuD
+CjtgiPI6KzEUaEetfa+IvS5H0d1T/WQdMoMVo8arjK6Grwink+qf4HuDPwbDMFGd
+7u4rJRULTFprCNV5nn6jc99m1MfgZEIW0vy+GNGZZnyriTtfX8Dx8vECIboJF6R7
+Wf8ITcouIUFW6N+m42C/WA==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIID4jCCAsqgAwIBAgIEQxeAMzANBgkqhkiG9w0BAQsFADCBqTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxHjAcBgNVBAsMFUNlcnRpZmljYXRlIEF1dGhvcml0eTEZ
+MBcGA1UEAwwQRkdUNTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9y
+dEBmb3J0aW5ldC5jb20wHhcNMTkwODE5MjE1MjQ2WhcNMjkwODE5MjE1MjQ2WjCB
+qTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1
+bm55dmFsZTERMA8GA1UECgwIRm9ydGluZXQxHjAcBgNVBAsMFUNlcnRpZmljYXRl
+IEF1dGhvcml0eTEZMBcGA1UEAwwQRkdUNTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3
+DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDOogEv3WOwcTYgi44pHVcA8VNM3yd1l/ElzEEaC05AuhQNnrHu
+S6/vH7/GJHDVYiHaxtX6K/ztNaWNZDcPheu2Mq0XzjiorcEK6xN+G0JAmqAeDDi5
+AhyoUtdUxiYYQ+F3/uWesYdLlcD0l8ObjdoCK5IepCRuGgqon4JvJ2BvXCJGrSkw
+lnkPwtxnXccYLzn5b6rFvhxPnTXvIyvnFxr+jGQYcNFfnBFJ7BbaIAQW2+r9/bWy
+MorMxA+2t683GowsvhjQ3itWwTpWd9if6/HBlw/GWkCxAi2idR+WmhaatiS9CVVR
+37jX1EilMqwOlTs2B8qToo6bRqb2mgS6tpQHAgMBAAGjEDAOMAwGA1UdEwQFMAMB
+Af8wDQYJKoZIhvcNAQELBQADggEBAKpQTCnv/rvWcpaVTiZcXggVtT6xjWayhW4Z
+X/yawMoIB1T8/7aIkDzlKYmre0tKjjfRd7N6CG5ytwpQVlB2E8oMWaN/7/eF569a
+pkiEge7MN+xAiK5gKhmq4bgoqWv95mXv+UyUSSMBiOU03B/58bexHaB1x3zHc/lQ
+HcjBmHoHiG8PeWFcReedUIDa77MbirfQ22nI9bHlj56JbScGm8wtZmJmdwN3aLDa
+8FY9OyEXKTjg3n+U+cmG36Mxwn3kGjRpnaVFVia+S+bCLfDwkgZtIeWrzbXW97DR
+D+79z+f1zAIy0C+k9b6Jq82rem7mElL5Cev9gmU01MRVuoPbX5o=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_CA_Untrusted"
+        set password ENC It+mtI6DqZu9NT9kBfkBS7Hzyk0B+ZCaJrXLu3eVNpwhL45A6PdHjHj8+uJyLaDt8DidYMvr9wXtZre/ei+TdLOeoyyaBcleY3PnRYshNS1rnIQm3WTlmZhRgPp1rm92LUoa+BvRQTai8C34W1ByDdz7xcD1JMevFIr7CcJptyc1jxzDBMr9EaChvm8FMGMTJTugdQ==
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIpQxYgyMAFOcCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECCe9NGn71N8xBIIEyF44zG2zHCL0
+OSF2X0H+tI8S+ePNCI81s9hWqIoGOpl1KEdTGv10wazH0umAGq/kgrXQPdeo7oWp
+6CV95wgw2QK/bodH5wvN+OsdOMei9ays57NhHoFrlcYEGbiIfMmTbrkQUehyYKoS
+V1LTxh4uHXG3JFjVDoELVMAInz7igaNKMDfY+BxnoF5rgG8Ws5wG7IiDin0lFjdj
+8tE0lAJ2KGg7gHoZKjwSaTBzC45000DautxjI3fdflIPNSriCFX6LxiYwex31KFg
+Ih6uY+jddgwi9MTe0f9d4Vtn958ILCjSX99h5zHqGW0XwWtjgixoBuWwWL6fc9Rr
+NVZqm+uVGhHU3fYDocB36QcWsDABEppWtqHr44KJ/pTSv3JRljjUF4A9OA7JGZqw
+udj1gszzs64ojdG3u9yvED5ocLGVmTCFRkhoAOXiEav+pxBhpL8NuwfcN/qbybFP
+Svh5Oi9rHZxKSZjO45tFKOe17P1laqeQJOiihUr9EbmL/HvjBf8SjWdoovms39Hb
+qblqJcbwT5DbMzfI5cRjO/huE8yuUxV0En+7M2QaX/CGeUyDY1lhPMY6fdT0VTYD
+dlOaeutiFhiVnAp6J/Q8up518YMSuFFr/yG70WIhtmwEyelEbKllIoNzBOAThh/E
+6IQjIHi3Epw18qCDc6YvNlCPGgItATlba/aNarv/2e2wQtuN8hp74Z3ejRoR3+r3
+Y9ozNIT4TqXhkuxGYpupZFyvo+LAoM33J4lFxlRbp7bIq3snj/OLkeswpCfm4VjW
+EJzR3JcFp2BDahYH+AUdl1myfmrb5sxAyM44XgtRKsx01nvOIhQdKp5RWt5r3stb
+3PMO7HW68qaS1bYJX/DqaHFv5zniVIgczr638o7BdTNhKUpkLb3u0AuNDU/iCd72
+JCYbZERV54nqdg3uTLTV78Dlmr9V/Ho1fizGaIIOMYzgrWzW7Ii3YpGsuMOFlj8b
+f+kEVDAUou2w616mxCEkH2HiELkxyOCeY34ICVEhLRb0wO4aM1LLgxWzJCE7pDDE
+XtxD9otTFMhePlsCOBuLH/M5cwqES11TEtAb/ALtgq7hOqqZoq/t0PFDyPS18Yrm
+TI2Ck2nCey3BUn68QxYdBiPFvCc2BhSveOhmZra5u6Uu4UrOVzXIaKQ4Z5e+WNTQ
+0TNloQogZ5PUja3xdqFA8Ku0+eexb/WGavwBLm84APDUl2n6fG+SLG27LdfMAOr8
+VSWkXkTPMCr80miiP46k/w/+x2MHOdSZ1tAJdvvGjUBEVOto91IjHknDJb6CEVGG
+H4khsHFT5T0HRsAf9pZO3eQnS39e71ohMSCeHJXd8TOHY+N/4hExTbxoPPS9DEHw
+qtQ5/I/xvDZ8iKyFO6o8fQquR6W5jzoZxqcpm11gkKzdES1JHuvJ57kcoyBGNx6b
+heWo2ZQTBwjUtsBy2TnQBcAsE7b0n6pdrDYgfQpw8Wk2mud5iyfgdptF0CUp4fMA
+OozWiSvKdWgpzjhtqS7I4CT9dras0oduatLoRAY/Pl3t7yBEtyM7yTiIFh3whTPn
+bxbQjgtWgHfb+F3VsoPL5jl2oF4cfdMF8Db8Xs0kxRu8f2/+XdTipDPceCm/jJrg
+7tfp1+d1hEd4MfzuD3BzIg==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIID7DCCAtSgAwIBAgIEGiniWjANBgkqhkiG9w0BAQsFADCBrjELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxHjAcBgNVBAsMFUNlcnRpZmljYXRlIEF1dGhvcml0eTEe
+MBwGA1UEAwwVRm9ydGluZXQgVW50cnVzdGVkIENBMSMwIQYJKoZIhvcNAQkBFhRz
+dXBwb3J0QGZvcnRpbmV0LmNvbTAeFw0xNjEyMTMwMDUyMTZaFw0yNjEyMTQwMDUy
+MTZaMIGuMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UE
+BwwJU3Vubnl2YWxlMREwDwYDVQQKDAhGb3J0aW5ldDEeMBwGA1UECwwVQ2VydGlm
+aWNhdGUgQXV0aG9yaXR5MR4wHAYDVQQDDBVGb3J0aW5ldCBVbnRydXN0ZWQgQ0Ex
+IzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxDJHO8edEQl2ngIQYSVkuhzhYrQw3P4gyJH5
+tk1Q/P9OJR7OzhqWKh39EZ+5sZkON6sC/aMjFHFtPH8gdYsx9N5naGoKFuKi3S7u
+gt6Fi7TFaYXtAHGMsVlj//XFuPRoY3XIwAst9MaIBb32P4sLldvqlf/Llx2UGi6O
+uyHZdoigSNjnmSPpn5YcVOWzuv8Gy46P/INySu85EdElLNZZo1iVGymxF+VXEigo
+NoeQap3X8hfZRxANNAJrJUseqaabgC2AqT1/iSA9HjwHy74f4Y8S1ZuIAD3h3GoI
+SaQZj7fISY+3nPWQcFoMf9gLWYD5TUvvdt4rRbHkWMagWC+dfQIDAQABoxAwDjAM
+BgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAnle5aScchXR+6HQ80grHT
+qvCOBbftahaCNFLnBPpgYCEwecttAjju8ZQFWArh+tE1OiHki3Tg7RqkFBKEwsJs
+5n9hlUJy5NGsKoa89h+gn+1sNN1BdwfQ8yU/roZYr0BVOjlHIFLmQvnejwsMcCff
+FjFoGW70GWi1vdS0IXwL85SkblS34IJpbbiK9hXBfF4bxHhimnlZbTGWaaTjY7Wv
+s8cCNqDMgciQi9XysXE9Ns5QvWib8TUiQ6tvKDMLHHXyVT/S/ZOcfAujvOdpbcZY
+FTe7G57gtzWOtMa2fvc1HGokN4nZXrFw8lL0U4ths5K+ILzvJw7KjR1KY+1ueyC8
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL"
+        set password ENC 0b3RGQaBtsMDJVYuVg3yELsBpXG62UJz8gr2ZfAppvz3qRiB7m/CAmQLbdKgxqX2rgfPnvOqMYLnQiXCdeFPsNuJAtwkwXGyZRU0E551GmAcC8wv/iD5U7GzAq/SxTmRFpWty0M2f38eK33skqjF4QryMMty+EC3FLFrFrZR2+6Nrvn8z77R/QDer01O4S8h4tCavA==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIlqowkNAQWroCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECMqlW7K6ml1HBIIEyDkIg4atkxNb
+Oqpo6aik9bjebCxJsV2QpqzBxdjwitNllj5xHduIFSi0xwfEjjK+0NEAz6ev8PAI
+Gey6TJ3H08hwJC2x32xSYzP3zkv56T/Ffjm/LPzRYybUUTGFFpce41ksPHW8Yl9S
+PPv0wPU6sbzpc58QZRzVWRS98JDo1i+AdWRFJWuuQ7MffXyHoZg7bXKZPi50hKV4
+CXcRS3E5RnkldC0HCTlrFF/1AVHzk7QJio8TyOBsyQQFG5SNBMPboVvSBYojk26Y
+gCRmM5ZqXsiDDZfcKVLTq77JB2/QEJ/I8Uwr44Jp+3EBphyowYMzUCtnl31aAlCa
+uy+XNUtbGMJnQKb+nM/gZe3ovqaY9KFl3E0/X3ketLVwZxQo8++HnjdTjLKhPfbJ
+dE4jZep20kNzHrseLZwkBT6koNDbVtc3hiGJC5bh/JJ4qCeXgVznK6yCOOx8mc/D
+6G3hvrDg+tADgaUKtYqosf/BxY85k5cRsR/SHBA/Ab7sbc5QbSXsK4KP3ZFdYfln
+gLQ1kMPRWgNRkFGizDC+7U6cG4yUsuOPQXajU0yv9ETa+ERs2HkjkLe6yCk1kg/2
+d3EizYD4JMf67/G6qTXSx40CdTAloFkipV4CGOPZ8iijA+y17gE0/jIvKtVwvfPO
+sV9u+EWiw34NNolXu7tOKxLsDzTy/FyDEOPbvKyPXJq/xuFM2pglWX6hngwHZJAX
+3giaZ0nyqqFyrYZyv+9mKBfcv41Bh7WCLT3dumvMGkZwbJYrdljvSbTQh0O8qLIc
+yuV3WP9g81KRuCb93Lzs0HlAa4gROD3r7LwR5eaGtCU4Tc0QYdll/0U7iwpncnR8
+6O1+umsMwWVlYhsQlIHsbz/w+l1Q7wuxZ7W093dLCgMDSSdMvpZ4d6Av0o5dGSiV
+5lxFAjtgjk69Yh27m731cVbWHcleNuy7+K128TdkmshZRq9cbWbJfSeNK54UMeK0
+F+jMdJ7iXHq4pRGbEqc5+Ut1+n8QdTl5CXrqbUhUb1g6mpNtUmKdFtOdd7GE2nER
+bYOpG2mbQozO8/VRFFB9A3MDdoeYSkH98NGM51xTlJKDxziquXl/0vuc+71fxrRJ
+dy/6ODSL2IhxUTlIvMPgzPdSTE7eT+ATGJRvP6JKCCwr0DDclJd7zSQdx+SzX5ld
+Rp39ghE2bdO3jsevq4Ia6nb8YpowhygFU5n+eCrRwJ1f9ZLAeQG0g1DVWEWRofTX
+s1CnOMJaEn8AVTIZqnZ5dX8NqHOp2O+yJpnThCW1fhEF+CXPRUD5bv0QKmQEw37Y
+yr6SrMWNGhlKXUb8byX/s3RHPvRkh4JlvTNJbAt8t1QKIDd6kvVpG3HMH0UXV5Ro
+zBC1rM07L+CGksAsuESAFmJWaFk1atjOx/J5aagMDwjAVwL7ZF59UJ53Tc9TAKuT
+RoFYLfyYNlYs5VLHeNu3rPr/OCq1JKUm4LvZXcIpVPwrAevmsf6Xk+gy3rZ2WTx7
+16EmA441ICdkB9RAL0Dd5PWQaC5VPt8te43lcf56kTHtCvqpLYqRidilBwFyFwyK
+Nt2RqV8x6kIiW0QeRRGNsOAxoFD6T0QKrEH4NaIW1o7qWVGR9iKyX42CJSWWU2la
+tp29CUA1c6NRUCi2GzbVFg==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDxzCCAq+gAwIBAgIEE1Q98TANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wHhcNMTkwODE5MjE1MzE1WhcNMjkwODE5MjE1MzE1WjCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCzj2sv+/x2lYlQD9If
+2k5zqnvHigQvsDKcjqrl4VhfgrwdOX8l7jRijEiTvoeCbb0lpBhECJbB/FHyXUjl
+4KsH/F9/Ik6LqXbmjglDgCD+t6OolS6I/mm5eh3xcPb/ms1t3Y1skr9yZCWAiRQs
+nb0G9PYr2KDJbq6leOigonUNkVrVxkjefmr3CRDIgTIdaBVGXaXxI0bLRaHnJORE
+MOeyDFhmng38jCbblb2X9NAPU2zsZUO70LtY2pqyZsIVLZy+TKvn5eox8RZZiz1y
+T9Uj93qLw95C4ZIeZW4bYC/p8kMVo9+7BsDGwLFx20+cCn3hlQEp/gUaUZD4VFug
+BlG9AgMBAAGjDTALMAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggEBABUlwh6Y
+IEYh5Pk8KwhoPb4Ur4X19vtzlaPEmrCIY5Z4MA++DTrLTSfgml0BXYI9ljJgNAPU
+sTIWYGCKnlIttc0WDbD9M800We0LX3jtphvn71xcOhRbn9zzw7Mk+mBCjiR9qzDi
+++v5/REKPifycGpUVpwQLEJGArYmvVcy0I06L/UFezsUEyuqSh/x/KPxTl0pbBSI
+Ftzyh6sILeLIxi7l5FFWMb3LUEguBtnl5Hm4YYuNIodVB7nt8w4z1qEx3E4e3wDf
+9zxaqKfz7sZrGla7J0qHbwrcaeOG7J0lh4vTuuB3DBEMhwZGNJBhctBQoEf2+NhX
+GyH+GkXkvzS60Ng=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_RSA1024"
+        set password ENC E4qiPBIphRWdElOj4Bv2b1VvYHUVdyNQvBWBv7mD9tHT56znEh/fXavjWjnQAN1WYQ8PS3V1AXEpaEyi/Xv8tznfVcpH9NWeyZ9XW+3OfFa48wQXWh0KpYPX+b+4mRHG/yDpjRV/aVpzEca/l2EgaQOvi3nRivKXEkYjx6FGBsaMcXTs94uSQ0gbR7ueNjnqx860Xg==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIC1DBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIJYQgC5ZG/S0CAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECPaHjq3PXlcXBIICgCYTHqbLYNiA
+4r857ApXBAxptR7YMWaOcBY32LwIyN7MePamC3r8uR+n7isDReeofdu9hUzBD96d
+0LjR5bq3Z95mavE1R0MH7BOVdKl/J6duXvYiFgC1ERKOBgYM52/7lDEejHVmqNGf
+vplW2ujM0SaLmpEyiwCmwuM84fETMQoPFwmZpnFAQbY1AogWJL8N6ozC9oxMUHoA
+DOsTbnAqjGXMbJH7r9Yz39lzUuJFPtcASQ+oOMlHu5RL+zq/hq5Dvbs8gnzG/5p5
+7YNtD/2alnwXNF4arqTMLuD6yxCLY/zIVQzPR/SAik0OTKf0Q1lhEQBZAnxklg2s
+NW4LtCBcA5UR4lGrBcytqSOT4MyAJNn9fWvgzeaPUZyZp61a+As3iQIccHZx3dI0
+ZPGOsEihJpvpaY6KGOp9MhMPIjTTzPy8bQ2yU1CKbSqs30qHqOPyDsYq4CehHZWS
+XJxKg6++nlvSTuqrhOfEb/CkEhw178SyQIWaTpbkpu7xbwkqlPHs8dYetj1/YKmX
+xx9Tls59v5OquXin8fyyYnf9aZrtAAr5t/RTe6MQ+HyEceYvx+ZpCYTKzHSdvTvB
+LcQjh84QGso5POF1X1AU5qfnFASfuWFYNIoZ0jQ34n6qAlVOZJOpHViUZmd1Szm9
+/e6ha/CVktoE7RsPk+roMFFmrYKUfSKb0OLvaOJ01WMZH2zA5jqASy4+dYsBvSU6
+1uO8P+u2VoxGGw833PImUOojmg2Q5AJ2v+KjCKpgdDEcI2PtQQT0pOxxENAHFu94
+xoVIUXdryYBEZwYy7EFGXKxltPwKqC3Z6lkMRR1bf0UtzijVFCCv/YEy9nwwTxZ9
+W8AvYxSDzu8=
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICwjCCAiugAwIBAgIEZosR+TANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wHhcNMTkwODE5MjE1MjI0WhcNMjkwODE5MjE1MjI0WjCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMOCj7kZPm5yozOy1cFe4chz
+ZlP4Tb9Ratl3nZ4sPxNPoTyeHVcmWcR6gdjBTjujEgr5zx39Bus5Dz6s6/ZLnXvo
+cf6wY58o4AXCIMpTfD92qDGzk/WJw9XubmarFqtOFfP4tG9rZPMk6lgJgGKADv14
+oYiRZXeNziw7RlLVdYRNAgMBAAGjDTALMAkGA1UdEwQCMAAwDQYJKoZIhvcNAQEL
+BQADgYEAXXXcKN3rOQUwGMdU7zozW7ak06XbIf5e9SzpXOLKQIOTVU9kQyAl4ozJ
+GsLwcCRZJb/8pIBrSB9avVUu7wK4h3YFy0Kby0LUfpCVyusUxo2AHz4cWWGfFpyz
+ynAANFq/2MYoueG7/R+uv+28FCT04dunkRqkJ1Wk3FiAUmV9VV8=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_RSA2048"
+        set password ENC AtrJMZNE1KHIzvTkT5yOhBsme/YpVPrPqEMjka1GOLnYf3+5WtYadUCzWpebmd0FWKaN/bxzR0awnbRXMdgncOg3CX/M0I0LyKM510x2EPvJTo7+U3VMuy+Ec7OhdrOGxXlpKjkgkPHEIoRyrvfBUnSSXlrenVJX51PS/Q6BDNY6tRTQS6ln4tnkAa/maT+MAElR4w==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIWhWINuM3rT0CAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECJ89RjK6ZuN+BIIEyDvI4uXWCRjg
+z+HkGukH120zGLhsQa8sZRWUhUo5CLuhPES9CyotkT4bhYxJiSnUAwrG78UffJ3X
+IZQMQVsY5qFZvMq+nvulRwoZ5eqkAkrrY5j/pWG9lRj2Oj07ENQj4zMdPvBi0lwa
++flY4MaX6jiUAtatNYZMU92MwqqkmQMD9H4WMiykwSAUryPEYgNGtMDfWQJE8OZT
+y/jDLLrh4jk8AVk4MyCkgJj3Q8BbUDVvU/mfFb31UgRuVU/XHly/3LxupqxniCUs
+ZZh8JNcbL57GCcoEpRchuts1ajl1pGvjYiohXoy6ITARAMbjT6qNY3lFESk+jIYY
+LY+1mqmNk3FSpvBEAN97PAzSwDefbfEg2sEJDA4oyGaWTRfxbXY8lMRnWGS+eDBg
+STLh5zCo8tkciM7L5Z0tFoewHRzeVaYlXgKMDxlJ6P5adMeh4Wb3HlhaYS81TJM4
+XzkGbv8UATNng6lOwWDuB/qeDbslmlJqFslgtv+qcCClTQ8ozwYov+SR/RK6u2G0
+7bw17NZN/87d2Ok0hnwk3kFugFH58exiYyu6zipi7q/lIZuAevd7zHpIkbp0SiLf
+I7MC4eDhy+4pF2eqTPOZuJega3odoMxmGAU4x0UgqJcH2ebgWGCByS/Tm3PHG5Qm
+18PwK473/19uae5MXPYR5Ejw6cegNIF59Bldk0ZbaP5B2bMLeA8zy3yNWE8h79Vl
+kajX2DkKBYXLSctSdEmVt07L6KfZ7dUZt3SpLoYaKYBHo8aP1mKFlHHDl1BuUI7X
+BJCpeq6pfM8r4ej0XGKCqrgY8ZIRQ3GbdE3oe6lR9ytCtLavTu4c6RZRnWrgdYAs
+0Mib6FWREEDsIkbNCJQQBNLnnsVYSsBLvpczzcwP4Id9qYxk59iPEUbdBkCZL7jU
+9DWVCWLpPi/OzJmPntDN9mRQbxYwv+vGKofG5jDBu7uzT9cmVP/cj/78269upbFA
+aOB7D6Ne6smoeQNm9LtFaD+0/wAeswvhVxjmxpn+FMou1f1Kd/YAifuNCuU4Wc4k
+CULQuGH0nMR+XA7AIi8QDKcA18ho/oOc0I12+yS80UI5rd9oqmvboSznwEsTgx/u
+tlg+OVKjTyOvkmc1zA9GwPit+T+KQElGqoa9s5WFgXCydLsIFIl8XQuYw3RYEJEz
+CIpwUkOTdk4pxI2KQUTJOrqC0h8WFWk/wDXwmSHdFrheahnUNgVHSOgHtHtpoxfD
+LApzppTZIvthiie2Q81+kxcVAmNaTlUmqvLNKNZzrz0xT8XVkdH4m4Y9nWUam5rI
++lwpp1FLfWktFjpRu5hW0T3deUJ2TG2cuUKjQ5T25w4DVFgIBGO//QmlKs9BVFL7
+74+r74TkylM6InnvUTILLy8HCJAHYEEL0dUYvkQUB86IQugLYUsy33beLWJtFIIk
+nnIjWLgzmM6MWEfaOvZ6/GJTvXRw5jfzoXmHO8SD2HFdZjteUuXf7Ir/IFsE547c
+nM/36IoAVgfzvskUyymOLDU0JGWM222vbuioBH3802lBlzDSOSQcMme5LoqEH0Xv
+UoiOVrs6HZLtmeBeLMRYqqeuPxycPzs10YtnykNhrMI8KFo4qJAyI6g4GTh2LRIu
+BGxDAK9cFtwA/8pvyiBSZQ==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDxzCCAq+gAwIBAgIEHrz0EjANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wHhcNMTkwODE5MjE1MjI3WhcNMjkwODE5MjE1MjI3WjCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+wPR325CwvhQ7NODn
+UbfoVkgm+EJBxbhR2lezAxtt/qRZgT091/vJhk9NCY++V9LTE1lIu5oML8Y2zTYV
+I+ekb7MBNhGv9LZpb1bNIv922DOBgsffsKFTYtERsO7DIIQSa1Hc5k3NeUMJlW+5
+4WP5W4ZzfZqtTI3aGXTkBw17vxorD61rfOwbYR6Kz66sgH5GUBSspVZ2LqogwZeE
+kY+N96BWLOKBNj8gnedpHyLMuvtYG6BE29/f8NdXncVqvyEJ3m7SxyGTFt1hrsCE
+rke1YTbn31A/iQjqBMPlN3jfi5LqHnDhJ7S/233CM5+LUDZ/gEnBbK7uGyU0Ca9O
+KfxtAgMBAAGjDTALMAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggEBALmNsK3b
+MX6mjeqtohaALt7Z9Q63E3h/cgoduEO8TeDCa1qYNFqWEK7PS0qel4Xk8IjZKYLV
+srrjFZzscfboJbt1aUNyL9W/+ZoBaBdfCnfOKUlx8fShVG0O+yan/2KvcO/v5MNS
+Av3kzVSKVHrEWt5N2qPQ58Gaf3eApCX1q3zuNIp7PF5HjBzGSPlAqUVJa6FUxwqs
+vivKR9bDgEyir1qf98FbW3YdMP5QeRrEsgVdws5UbKO4hm7LBcv5hNJ0RZjzMvyr
+q3TyYOBYCVazebWYjld8MGfrvFoc7hiYNkstP7Q3lkEtP5PFCBYnYipYFnsuFdXZ
+dLUUwxo9D5+LAso=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_RSA4096"
+        set password ENC rSiEJg29DhV0yT04nSDL8VXU8iKB/AKjUvlkX2MTApnR2GhZ46ST/aCeB7fqgDm7fr73BLd7/4pW2Z5VbW4hGwDPnEZ06oMsbwtngEbxTMYnj2+zQFwi2HzBat0NTuWCW+ahYQWtzi0f6AEeJjEUPuJXfaqvtW4uC30G/WRZ/WRvw9MnTHjpbG/zSr/8BlC01j1qdQ==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+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
+SzFxeUjMc17ruJZL/B8TLQ==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIFxzCCA6+gAwIBAgIES+MZ6DANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wHhcNMjEwODEzMDMwNzQyWhcNMzEwODE0MDMwNzQyWjCBnTELMAkGA1UEBhMC
+VVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8G
+A1UECgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdU
+NTFFNTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5j
+b20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDGDY2jXMv/mfRufZYJ
+zvH4xsF38A5ayzwdfjVkEv+365SaUGCGFlYF3CeNrcogf6nWVM5hgEpu0vWPLOk6
+tiwh+dZQSfBA5MBTTxXG8qFakVXJ1tEVNTnHvq7vlNuabR1B3PBsuUyTxdQfvln3
+qDJLFPlFPGF0urZ6CKBT/DQ7wFvVdoiRhQhNpVR4z0ESzGG22KkRx+0sYjgnEJVA
+NVi8skJgtaeQn86zTTivU0l7v2EJbu7Pnivd+pCawsDTv37TWl30nseY97+WSo6c
+xznqaaqhuDSooJehQDed3gdg6HHB9fNtew+E9Z9DDpyr4k6xFsK/s0jSrWaTHdL0
+1eIkyNTAK2dA+U5qqNOjPktyjVLB0ojZPQouqkK+6kXIKXZZcN1/y02WFicI/CF3
+DXZaxAd1KV6ybshX3nHH3n10SpLgZuyUme04zrhSIGVf+DQb3KqrpB59Mec9g8rC
+77BdjfxZRGR1ogsLKSiCIyu2VpjgUJ9mExe2QcUt7sP3Ts8cm3pHRhqmyZ2VljtO
+Q3CklMPLJM0Xcf9+5NJA5xdTaY8msIX42AGlwTg8HeEVhhJoM69/1pbtLQ2Wh7tc
+rufoInJddEJBQNff3B2q2p1FvEx+GsIuajFHK3gU1rR8c/FfY9CpU3z/91Tt+yBJ
+qTis+4ht/Yg2Y+YrrpVEO2AkYQIDAQABow0wCzAJBgNVHRMEAjAAMA0GCSqGSIb3
+DQEBCwUAA4ICAQCbuIyMoaQvyOcNkFlSrxbHxW++6eMWTWlPFLCxDDA8o3DP84lk
+We9hvD8ftf/2TcROFrDPALooRYZcWg9mDyBoly374pQ4RRqa6q98wKeTkGlR9qne
+3VQy9AEceAaDA55BcdpzrOcBRFlnDbxjkp6SKcaIOf8S1vttZbz/tpEdUE6wu1ky
+jAJl+x6hklXgstz9BjDqeJjW38QuUUtPy/9Ravmmy2SSGnvO/D4vY8KuSEQ1bsr+
+lw5DPbV6/EXo+CTf8+mvgw5vsH0WaVpLdEWWnjoh3Y2IzJmulSh3XsIFavQ3eF+6
+/5GlkBY40dXcjpDOJrFFJ+ZdGSC7/CVYIhmwhHfuPRjEl1ftaU+3SUQfzXLS1UwN
+mKt6owrj+KYUWxI6UvDQ85AHJCXfQ8Rj/0OixGEj6iLM4Y9pwXzTTTaNWZMSp9Iw
+YNfPi+2Ny4dQNhaLsOAaQIoKzbWjZaW98rodjvOr38kfd+dmhGRvOw14M+ldipU9
+0c+QyRMvef6rUhaY3uV9UISGQ7yEQXdJq36IHslDevsdcsuVw6m0sBaRRbKuEkdI
+d7L1rYQyoC3Vm+hODZ579BJ9BcJXT6J4pCcIjLCinpPL7+07qCR/Rg/l8jb7qNRI
+IdCuh4kIswfIMAphhcAQ+BgROrVOrnKak6tBaiojPOppFEsahWgX97u1mA==
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1628824082
+    next
+    edit "Fortinet_SSL_DSA1024"
+        set password ENC nfwvkFQKR2UE+JkUx60T3JT3BHFRIj3MquxLtNy5uUcCFkWGutSsn02LGJJ26woz7IZuG/ULfxkLnKLMY28mY9fVwCIg7qj4TkA/qssjdC175PeA+0F364SazpXSckvqbjYA+7wkoWIEKZcO4lhnQXBshgVhCrEXddSXR40wjC3YWOVwY/mCGgKgSxGHaDFWc809Pg==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIBpDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIsCebg8mAsmUCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECDeKrEQkwYkJBIIBUKB7eeQaYJ1p
+m4Ue3DYcnilO9mfEW/Xry8Sg1N7NmRu/C+vI/MTzI/Fif2sw3SAhNpq805ofRgiv
+fEBwGm8/1/pOYkpD9yTne80moA+lxTQpSiMcYTRPh3jsOWNNdktbepF/X7uLgJS7
+IJYp8w1pIeKgOJMTI+ya85Gr+R8tPcsmcckKibtrvgy7pGPMIWNP3o426Y3nP3I9
+WcPTuXryy7j68PrJmmiMNk/d26YEt23qMKMBbPUfLnA3BZl1daf0tiFCTOCdFGJ2
+PCxkeGxfKtwNASddL+/z8EW45iKeFGzHSgLXTEx0z+GHOFazoqrJDTBPcqhusFN6
+t5L1PJaz1/IHVG3Rr089wQxAhxTyB/fkHDYob1EGRnDd/wTes6T0N2xd7Svo2fUK
+Jh9ZnSVAPAg+H92lkemzH804swYt1DXMqC/5keoyxdQA3tsos0yd6A==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDgzCCA0GgAwIBAgIEI5JGcjALBglghkgBZQMEAwIwgZ0xCzAJBgNVBAYTAlVT
+MRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNV
+BAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUx
+RTU2MTgwMDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29t
+MB4XDTE5MDgxOTIxNTIyN1oXDTI5MDgxOTIxNTIyN1owgZ0xCzAJBgNVBAYTAlVT
+MRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNV
+BAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUx
+RTU2MTgwMDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29t
+MIIBtjCCASsGByqGSM44BAEwggEeAoGBAMIs+3TSFQo32EU/eDtPLk7Gn7565VC3
+29Ux3DnmcvbH2MM0n+wjXMGt+T0e09VeZZIF24XvNM5Eb8k7+xY8P5qoqWK3JAAE
+/KVYkufek2U0/6CNNi5bR0sotnEpBrQ3fGtcYNZOAEnzE9J42mjt1IbO7ER2TU1o
+NGX4HOmBX6/lAhUAhKQDaOGoCQ95SzHl6c6B/lzqTk8CgYB7RGApCA3PAoDJBo5v
+0L8YOdlg1xaea7LGBWXXlXOv3rigjq85gdCJygNDf1u1PpYGzTGQ81KHT0GT6A+J
+YCzGhWlv9KJAjs9UzcG8eM7/pO/H4GabA/w4TBiMnmgqBXgdNq/JVVg0M0BT/O+J
+BiNgWVxFvZH2XKOAgPg+PrX0uwOBhAACgYApAIaOwSsX6vXOtkdyeR5sIPdE4EBU
+YwMvnJBUSSMZnEkAs1tO8MsL4pcwH+p0zDQU+JWPN2jPBGp6oB3ZSidbg8gcjw35
+ZmBB0qq1sg6m9hE3tdpYQcKnNa+zBxjRvfBOOSuuGw8mTFwDzfEgLPYgFU/hqo2S
+BtGaWPxwFjrSlaMNMAswCQYDVR0TBAIwADALBglghkgBZQMEAwIDLwAwLAIUMdOk
+1DzRvFlcuW1cLDCsutDmMPECFCYnWLzDPaZAVLELtIDXJ5PG2qg5
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_DSA2048"
+        set password ENC 0nbrXn2lW4bMlLlVsA/gpgndXOqx6mumP8YV169J4YZ0wPi8VaB7u+DqO6+y3Ao4nyZXi2Dvme6NvkJyVYDANDcVb8QifGyiQ6hDgZFKJKvXSWtbyLx+B4I2knAXq2FRduQTXAaGMH0ji6QpqyRbA40fKM6QgYOPrEMizx+bLajbA63cca1kT+8zXkyRGSaqogBUXw==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIICxDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIRqyfF7yzmLcCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECNLFjS5yQ/2xBIICcGmEID1grL8c
+W3Fdi67DVKNUW/imJFpR1Us4gBOnGqNyQTlA1rNWqQlYgQowM0BjiGWVVu2a/HP7
+CqjZ0H5kV9MYYc7iKzEMjf3tCZWf/T7Us4YP7Z6IMO4a5qL+jGGW5lU09Ii0+lO9
+DJWv1afJD+IxhAHkgiXkvYawLuejNFW0DUjWbLCK7lwgm2QuXM+IXF1rNVTeWryy
+LNlZbHyQLS9hE7BT6vZNSTEC7vsXq1rusiIIz94rIFX/V4ZvyTWz00vAztq2RNME
+AwNGeKBJlfZnjUk29fR1EJrR4/J8q1MgxdZGDniXuUZG1uuHGyeUaVOePRqz/fLN
+LatISOSFNLjXWgh8S15A1DE0Q8NJmBjhxF6ssvlziXVLC0A/xTmoiqM6XHLAWBzm
+ylHqJ2nnS6FtNyR9QpxF+tYZRcZA8/OwIY46DTe26OtOh6/ZhTbmF6YqhDLGsH2/
+4f5ZvziOqlTQi5up0qzYz+Kv/PevHY4TnWXqmcWt5dAwoPvApR7Ed4DflZgBdrST
+I9opQiMt2ReVBe7jdyq9/ROO+RezmptmrmpeZJKGLd9FewTDWjnxcka/sBUjfbcI
+3ov/383MutH4Ju7fgJykex7yuQZbIlZ7vMAMwFFp8HVMBueZ4MrDa6WDi1a5uo0v
+colQNFpNQqsosRNkEOOmYmddPAV27vmqsv5pB3fgRc8/hbbOXKUTNAPg0xug7+Hh
+4E3yg40EKclFUx2IcZFh/Sx3qW46df/0PZJR/WYjN1CqpHC/KZqHH1tjBc5M5hbb
+kQKTPjxbfn4hHCzuKA8LHES1cxhzBFvGheuaYfbhHNQul6rjVX8kBA==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIFLDCCBNGgAwIBAgIEeB8q+TALBglghkgBZQMEAwIwgZ0xCzAJBgNVBAYTAlVT
+MRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNV
+BAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUx
+RTU2MTgwMDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29t
+MB4XDTE5MDgxOTIxNTIzMVoXDTI5MDgxOTIxNTIzMVowgZ0xCzAJBgNVBAYTAlVT
+MRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNV
+BAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUx
+RTU2MTgwMDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29t
+MIIDRjCCAjkGByqGSM44BAEwggIsAoIBAQCwlt1TrwNRpYcurYY5P5BsiTp1Zowh
+DdpgGC4ogYNyn7IwbKSmEcQ2a5J/uJYP3b4J7nfjXcoRPLXhAICoKG+BEyQ07kze
+d5VUFDqA55+NY3qImu8X7D2CcJEyWFDRcAMS9xvBDNbipTFeyZB4fW1vv6wxPs5I
+YLOKk84vKUabgJMkjL+dRrhwJWdna1wH+T7XlD1EnSz7u9zMUKiKy38CLu58gs9w
+uIWezojgn8YiGH258KxLARC8ozk6+zZWWPgoKsvEfunpOILpGoatVdtEILfCq68J
+4KnYkcbCSAqLxkJv7x6OsgEDH5if69jHCu1ps0IvFwSS7FujGKkD5yeZAiEA8/9i
+19SX9vn+6bVD1LSpvTkKEoz3KnXV88iISmsLILECggEARHFqb6Lk9rbrVCchZRby
+2/Jz3Ck54DihBNNO6SH0LrpI22Tw7+suFOsw+MJBkal5We2HFNXNYNurXG2w4Ime
+R/u3neqZD0GiOhrdfUniIyPA7DIFKzsMfmangl9eom2qgqVSOG8J96m5VEEEQXsd
+FEv6Awj4XArAaqoqI7cdrpc1Nd6e7QEgjHncJAKoLBWzPbc5HXts95Xz/DW2tHUT
+nVyaE2TsAcdvWZTnxD6iUlp/6bD/h40ZuD9uQTXjfkpJPRBrY03ca9cX32gaT8ED
+0SRe6Dz+Zppcbqs8hr3JR04RY+UqmLEITKKeJdrRDYwOaCrQ4QwDJ6c/IgRjg5o0
+jwOCAQUAAoIBAHOix47fGZIUU/8V0Ih6odCrKopQgiKeYk7Jnfr46GoyOqopjBiw
+bboQqHz7bDfY/wTJNV3RiiWt7Ez48xKKfMoMQIf7idQ5B0pSdHo2hDFVtZHZbVgz
+E6EJ1OC9rMawC/F1jzYI+GvAQs+PirqlGWMpg8xDafpMbzh6yv0QOFRbzrgddPqY
+bqtoEsc8I3IwCWlUYfduD1sxhAnzwccO80fznJ5aXGYa8rzXUJ6hBTNacpkFrzIp
+1Sq0nqKMb98AO5tz8JREGrWO7W3LXYMmjPNb0eiJEAwQoxCqIQ1P03WnA1HDH+DP
+Bj+h50kNHjG9YgtMwvs2oPQSNMJDYCyMdxKjDTALMAkGA1UdEwQCMAAwCwYJYIZI
+AWUDBAMCA0gAMEUCIF4A00N2MvaeLqFZdTC/cQ5oWmqv+JxG7BSt3OAamZjgAiEA
+rzuqkjGQY+62niDqx/QSMpEmWRuAVMqYHfp/AQHVWbA=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_ECDSA256"
+        set password ENC woWn6BFwRMqICO9JG6O8b/QA5j1wZbhFoaeG8YtScsDcj3IffgTQDgdt7g7x5W4Fcq2eHYn+lZIP2Kp7WAkWFMYj6sccZNaH2ioKPkTM1FK0JtWmzAcObX/M/ZANrU14ErLQciqckA7gqefVNMQHsYIy9vSEhQPJcihiV790xAWCqky/DV9yvJ3tO8FiRFu6lDvhWw==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIHjME4GCSqGSIb3DQEFDTBBMCkGCSqGSIb3DQEFDDAcBAiyWk9+juYHYAICCAAw
+DAYIKoZIhvcNAgkFADAUBggqhkiG9w0DBwQILGskxJQxY64EgZCUALGrJo7Pkyg9
+eYHZh3v6UvKIFV8q+FzD6KOdV+K4o5EurWtfCP2e/W5mtvReOr0t3QX2A4dJF7Tk
+BeW9ZKgZnzHCBXnyO+WlxwsYJmTy+lyb2lUlCeiT8vHbUIdJvo7SsBu5xg3oC0y5
+4nCkih23OBvPUtWuCn1iM7tCPrxwRjKtSsNmRNUbCv00tiJZsRc=
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICOzCCAeGgAwIBAgIEO8PwgDAKBggqhkjOPQQDAjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+HhcNMTkwODE5MjE1MjMxWhcNMjkwODE5MjE1MjMxWjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATndzDEnTMQEXLAdR4yWr/Y9f5YDrvA
+ylJqJ/3RgjtrTlPRXtQNQ1HsKDoo/XXIcID+19xfgZhXuRl5yKhpXb8gow0wCzAJ
+BgNVHRMEAjAAMAoGCCqGSM49BAMCA0gAMEUCIQCMju1IeDIBsLsxc+sBUq4ESPMk
+HLBTpvc/C513ZBLgrgIgQZhc9uWbGT1ZJ1F2/ZT2AJNioreSW4faWRDE5i6y93g=
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_ECDSA384"
+        set password ENC WENHDjpNRYAs0m3nIrfMXvggIsum5rKRLwHD6ups6Ceqa2bNUqfsD+8rtvc0yq2fvLtt3goMRou7yn93HjMBHPRlwL+Dvxs5R4zZMr7EKKej/GosSKxys2ennzMhGBAilwvsvJd3yhx7opNrjbkEZn1QWsi04VONI/fpVvWwRl9vn48navnZlz3S0d47Hfah7qqsug==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIBEzBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIgVsLjspkfzgCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECOBodh5bbjVrBIHAleuYkPD0O0TZ
+8Hd+6H7H9iXJm4CIZJ+PQwe82n6OChOpjcjruk/BmGoA/vidQXPB8WtA5txDkKJu
+eV50ahacwgHQIu95HPztZUmzTpTnmSngbgQWaSNqvVY8FTWvANaoN5Me73l02ka2
+oMz6Tv5x811gBVOFX69CJyTKQ69O7SkYi8Y5ItLDqaluTwcqeAeZF3J+NwzQ6krZ
+d0uDJ4DJOnbzzfGB/bJo5o2VhDGLA6KN3XKrqYl5CQ5KvQgpRsJO
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICeDCCAf6gAwIBAgIEEGOImzAKBggqhkjOPQQDAjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+HhcNMTkwODE5MjE1MjMxWhcNMjkwODE5MjE1MjMxWjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+djAQBgcqhkjOPQIBBgUrgQQAIgNiAARbLH6u8/qUdVzM2QuSE99tSpr73sH+gCYs
+nzMU/s9F81fIvD4xaYYa7BsBSTXA8tsGDyOJ1vTuGrll+OQg99BEmtZAfufc6aX5
+EAnWMVS87J9Q9y/I2nlzzFNYsWa3uDCjDTALMAkGA1UdEwQCMAAwCgYIKoZIzj0E
+AwIDaAAwZQIwUGbqrvxYU4n7HLjj85cDntInWxyA+M45hFGSMW4yz1MSy/EJWEbs
+1dT2IOli3hwrAjEA4Ik+SoZG2DaoxiNMDrey5OfHS/BS0cgZTQThaqbCAkf69mC6
+d+9zZP032mRoMR18
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1536690462
+    next
+    edit "Fortinet_SSL_ECDSA521"
+        set password ENC LAKBYy+XIoBVzNfR9m6pLmNXRmwUtJgfyjwfPduD9yXkIOM694ZonjwJlgb4le72e1lpzJWhuTGMne3byXWUV9tYe5OtCT99jsyTaDh5wN3L1NbhzL8RD13N0ePbPyxQlGTk7RuIQdfVWxYxEWTAc5boKk76xey5qdG+bIBMrWYsHQSAWLdktTnHYna/FMnjOi0yvQ==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIBSzBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQInZBWSW4msNICAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECEfDC5OQvbZ/BIH4tPXKrDWgiYOM
+mEyBZqlgBJRa1a+jJ6B9hiOgatUkrvMBiP7ythWMP5bUHdad4cdtSS5yipEo4yg/
+Vu71n2WKQw5AspvHbUvIO9LYSJYQPvckoTmCZO6PKfrvbIQtyzgUPm0LkdrAULbV
+6XESwYQo8CZ51VSarOdMFWGtkzl59NCiiR6bdzly1zWeT4kJ2dzIr0/wyX11DyGy
+4ayMrlc0v49ivtQooIxNpVqvRFNCS12zh0zzmBPL1WuoNS/EXFUqw6LbtnwpkBbq
+cp3wMxXerxeBwXXyJebKVPglI6agx3rSK8dToi+B0CPiusUbLeI6Ns6sXyQmeYM=
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICwTCCAiSgAwIBAgIEa1cbbTAKBggqhkjOPQQDAjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+HhcNMjEwODEzMDMwNzQ5WhcNMzEwODE0MDMwNzQ5WjCBnTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVN1bm55dmFsZTERMA8GA1UE
+CgwIRm9ydGluZXQxEjAQBgNVBAsMCUZvcnRpR2F0ZTEZMBcGA1UEAwwQRkdUNTFF
+NTYxODAwNzAxNTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmb3J0aW5ldC5jb20w
+gZswEAYHKoZIzj0CAQYFK4EEACMDgYYABAGiVI3EiFQK4/N4xwJRkd0LpbwBf9Zn
+q+iHXB2wapvL+7D1iupg7k4rJzkJ3DbqO/kT0Sc6XTXiExY9PoHpBmFnHQD5r+24
+yemgJj7rn9FpaZcGzAKgHlTx2VaPsMoifazfJG1MH+XAgx6m+csHfDaJLuYBeLXl
++L+PlZOfPWVbu6bjG6MNMAswCQYDVR0TBAIwADAKBggqhkjOPQQDAgOBigAwgYYC
+QUliWA6mGhFFPvNbV4AGRqUg7neELDThjS0RSVp5QX4rqwJWcYWusfV7ihPkuizd
+qOHn1kaENryO21ye2m3xb6JOAkEkLPAjJ6UpZDe/IEtmdAYVhlBT9xJkJZcAftPE
+3rVi5XL0rq9fbdruFLeIHX822FHmjVG0Wp+iLyV0SXuDf9FkIQ==
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1628824082
+    next
+    edit "Fortinet_SSL_ED25519"
+        set password ENC 9QzSKupf/xyWzwgVHsHtM16eThwg7S1XUN5QGFJ58s29ctNOMdFOphpJiRh3DoDArCmrJ2xI0H0sl+TyD99F4yMsR2FDAOGuNT2nN+ux/DwhCwxTvghSuLjAqgyCpHD9tC8pXuJQcI7kmKcNaPNMVEbjQcJPyC3et5JhKtI3cw8U181efWZNdu3sq9nlqpSbcCV9nQ==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIGKME4GCSqGSIb3DQEFDTBBMCkGCSqGSIb3DQEFDDAcBAjzIR2oxcqLWwICCAAw
+DAYIKoZIhvcNAgkFADAUBggqhkiG9w0DBwQItUUGJeUwWdoEOB8CXVI/14pHKFYD
+KTvVIPZwROxtUqnBZIB7+uhpLprIyISz7mNbGd/HuArf5UOGvm+iVYMpKY66
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIB+zCCAa2gAwIBAgIEeXyL3DAFBgMrZXAwgZ0xCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZv
+cnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUxRTU2MTgw
+MDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMB4XDTIx
+MDgxMzAzMDc0OVoXDTMxMDgxNDAzMDc0OVowgZ0xCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZv
+cnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUxRTU2MTgw
+MDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMCowBQYD
+K2VwAyEAS0k0znWR+MkCpSTeQXhatCl9wjgq2ZEaljhF8VhyVLmjDTALMAkGA1Ud
+EwQCMAAwBQYDK2VwA0EAUk+ihFTAGdg5a/Ana8IXDTzufApWNnKIRqI90ACQeDap
+hOskOpgOebnZvgOtVeMBna+09zWzHOcTCaz2ZfkWBQ==
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1628824082
+    next
+    edit "Fortinet_SSL_ED448"
+        set password ENC eEd8UCMtxOk3MlvgtT9xI2NyjjoOHpBKUEx7x8hI1Tcpp/b1S5Qo/Pbzl+Qma+un+eObozJXF/WST6BrshKF+ulIZZmhMNm5VfRNPTQPU5JCrcqD3rydipOf03yvBY0eUsf19k2Yi2Ilx7rNOcYb06PLgv7nhEzGXOdEi6cfNGyiGfpkcvhsWZ3uNW0X3UDQLRNCMg==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIGiME4GCSqGSIb3DQEFDTBBMCkGCSqGSIb3DQEFDDAcBAi1PvBoBc4C+AICCAAw
+DAYIKoZIhvcNAgkFADAUBggqhkiG9w0DBwQIC0iRE31KyEsEUMwRys67DHaVDbEy
+suWSXi4Os/a28KI+IzLyrUx3wvLBFxg2HfxtiZY54X0efo84qtw+8/ltvqkmgNmT
+a7r3I2/ALmlBLQS+jTWh747ncy/G
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICRjCCAcagAwIBAgIEFA33LTAFBgMrZXEwgZ0xCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZv
+cnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUxRTU2MTgw
+MDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMB4XDTIx
+MDgxMzAzMDc0OVoXDTMxMDgxNDAzMDc0OVowgZ0xCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZv
+cnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZHVDUxRTU2MTgw
+MDcwMTUxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMEMwBQYD
+K2VxAzoA1GDMZwDmPt1UnFOumD3H/r+L0snoNGloQilaxE5wL3lLe/f6NYDpvycy
+TKLjOdUxj8a3/XO0YI0Aow0wCzAJBgNVHRMEAjAAMAUGAytlcQNzAKmxVHu4xRad
+lqkme+9YSOz+bighligXCI4Z89nHao7PukAFiCuo+oTAKKxzrqqESV0fw175AJ7a
+AKFnn/SZ1TNwpigmNH81MYtEgaDU1LV0NbNbiAx4xtBUgUkbQU7fuHlxfPL1xixw
+64QEVaLHSc0OAA==
+-----END CERTIFICATE-----"
+        set range global
+        set source factory
+        set last-updated 1628824082
+    next
+end
+config webfilter ftgd-local-cat
+    edit "Block_Guest"
+        set id 142
+    next
+    edit "Sistemas_Corporativos"
+        set id 143
+    next
+    edit "Proxy_ViaVarejo"
+        set id 144
+    next
+    edit "Portal_Meraki"
+        set id 140
+    next
+    edit "Liberados"
+        set id 141
+    next
+end
+
+config web-proxy global
+    set proxy-fqdn "default.fqdn"
+end
+
+
+
+config webfilter ips-urlfilter-setting
+end
+config webfilter ips-urlfilter-setting6
+end
+config log threat-weight
+    config web
+        edit 1
+            set category 26
+            set level high
+        next
+        edit 2
+            set category 61
+            set level high
+        next
+        edit 3
+            set category 86
+            set level high
+        next
+        edit 4
+            set category 1
+            set level medium
+        next
+        edit 5
+            set category 3
+            set level medium
+        next
+        edit 6
+            set category 4
+            set level medium
+        next
+        edit 7
+            set category 5
+            set level medium
+        next
+        edit 8
+            set category 6
+            set level medium
+        next
+        edit 9
+            set category 12
+            set level medium
+        next
+        edit 10
+            set category 59
+            set level medium
+        next
+        edit 11
+            set category 62
+            set level medium
+        next
+        edit 12
+            set category 83
+            set level medium
+        next
+        edit 13
+            set category 72
+        next
+        edit 14
+            set category 14
+        next
+    end
+    config application
+        edit 1
+            set category 2
+        next
+        edit 2
+            set category 6
+            set level medium
+        next
+    end
+end
+config icap profile
+    edit "default"
+    next
+end
+
+config vpn ssl web host-check-software
+    edit "FortiClient-AV"
+        set guid "1A0271D5-3D4F-46DB-0C2C-AB37BA90D9F7"
+    next
+    edit "FortiClient-FW"
+        set type fw
+        set guid "528CB157-D384-4593-AAAA-E42DFF111CED"
+    next
+    edit "FortiClient-AV-Vista"
+        set guid "385618A6-2256-708E-3FB9-7E98B93F91F9"
+    next
+    edit "FortiClient-FW-Vista"
+        set type fw
+        set guid "006D9983-6839-71D6-14E6-D7AD47ECD682"
+    next
+    edit "FortiClient5-AV"
+        set guid "5EEDDB8C-C27A-6714-3657-DBD811D1F1B7"
+    next
+    edit "AVG-Internet-Security-AV"
+        set guid "17DDD097-36FF-435F-9E1B-52D74245D6BF"
+    next
+    edit "AVG-Internet-Security-FW"
+        set type fw
+        set guid "8DECF618-9569-4340-B34A-D78D28969B66"
+    next
+    edit "AVG-Internet-Security-AV-Vista-Win7"
+        set guid "0C939084-9E57-CBDB-EA61-0B0C7F62AF82"
+    next
+    edit "AVG-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "34A811A1-D438-CA83-C13E-A23981B1E8F9"
+    next
+    edit "CA-Anti-Virus"
+        set guid "17CFD1EA-56CF-40B5-A06B-BD3A27397C93"
+    next
+    edit "CA-Internet-Security-AV"
+        set guid "6B98D35F-BB76-41C0-876B-A50645ED099A"
+    next
+    edit "CA-Internet-Security-FW"
+        set type fw
+        set guid "38102F93-1B6E-4922-90E1-A35D8DC6DAA3"
+    next
+    edit "CA-Internet-Security-AV-Vista-Win7"
+        set guid "3EED0195-0A4B-4EF3-CC4F-4F401BDC245F"
+    next
+    edit "CA-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "06D680B0-4024-4FAB-E710-E675E50F6324"
+    next
+    edit "CA-Personal-Firewall"
+        set type fw
+        set guid "14CB4B80-8E52-45EA-905E-67C1267B4160"
+    next
+    edit "F-Secure-Internet-Security-AV"
+        set guid "E7512ED5-4245-4B4D-AF3A-382D3F313F15"
+    next
+    edit "F-Secure-Internet-Security-FW"
+        set type fw
+        set guid "D4747503-0346-49EB-9262-997542F79BF4"
+    next
+    edit "F-Secure-Internet-Security-AV-Vista-Win7"
+        set guid "15414183-282E-D62C-CA37-EF24860A2F17"
+    next
+    edit "F-Secure-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "2D7AC0A6-6241-D774-E168-461178D9686C"
+    next
+    edit "Kaspersky-AV"
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-FW"
+        set type fw
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-AV-Vista-Win7"
+        set guid "AE1D740B-8F0F-D137-211D-873D44B3F4AE"
+    next
+    edit "Kaspersky-FW-Vista-Win7"
+        set type fw
+        set guid "9626F52E-C560-D06F-0A42-2E08BA60B3D5"
+    next
+    edit "McAfee-Internet-Security-Suite-AV"
+        set guid "84B5EE75-6421-4CDE-A33A-DD43BA9FAD83"
+    next
+    edit "McAfee-Internet-Security-Suite-FW"
+        set type fw
+        set guid "94894B63-8C7F-4050-BDA4-813CA00DA3E8"
+    next
+    edit "McAfee-Internet-Security-Suite-AV-Vista-Win7"
+        set guid "86355677-4064-3EA7-ABB3-1B136EB04637"
+    next
+    edit "McAfee-Internet-Security-Suite-FW-Vista-Win7"
+        set type fw
+        set guid "BE0ED752-0A0B-3FFF-80EC-B2269063014C"
+    next
+    edit "McAfee-Virus-Scan-Enterprise"
+        set guid "918A2B0B-2C60-4016-A4AB-E868DEABF7F0"
+    next
+    edit "Norton-360-2.0-AV"
+        set guid "A5F1BC7C-EA33-4247-961C-0217208396C4"
+    next
+    edit "Norton-360-2.0-FW"
+        set type fw
+        set guid "371C0A40-5A0C-4AD2-A6E5-69C02037FBF3"
+    next
+    edit "Norton-360-3.0-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-360-3.0-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-Internet-Security-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Norton-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Symantec-Endpoint-Protection-AV"
+        set guid "FB06448E-52B8-493A-90F3-E43226D3305C"
+    next
+    edit "Symantec-Endpoint-Protection-FW"
+        set type fw
+        set guid "BE898FE3-CD0B-4014-85A9-03DB9923DDB6"
+    next
+    edit "Symantec-Endpoint-Protection-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Symantec-Endpoint-Protection-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Panda-Antivirus+Firewall-2008-AV"
+        set guid "EEE2D94A-D4C1-421A-AB2C-2CE8FE51747A"
+    next
+    edit "Panda-Antivirus+Firewall-2008-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Panda-Internet-Security-AV"
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2006~2007-FW"
+        set type fw
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2008~2009-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Sophos-Anti-Virus"
+        set guid "3F13C776-3CBE-4DE9-8BF6-09E5183CA2BD"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW"
+        set type fw
+        set guid "0786E95E-326A-4524-9691-41EF88FB52EA"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-AV-Vista-Win7"
+        set guid "479CCF92-4960-B3E0-7373-BF453B467D2C"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW-Vista-Win7"
+        set type fw
+        set guid "7FA74EB7-030F-B2B8-582C-1670C5953A57"
+    next
+    edit "Trend-Micro-AV"
+        set guid "7D2296BC-32CC-4519-917E-52E652474AF5"
+    next
+    edit "Trend-Micro-FW"
+        set type fw
+        set guid "3E790E9E-6A5D-4303-A7F9-185EC20F3EB6"
+    next
+    edit "Trend-Micro-AV-Vista-Win7"
+        set guid "48929DFC-7A52-A34F-8351-C4DBEDBD9C50"
+    next
+    edit "Trend-Micro-FW-Vista-Win7"
+        set type fw
+        set guid "70A91CD9-303D-A217-A80E-6DEE136EDB2B"
+    next
+    edit "ZoneAlarm-AV"
+        set guid "5D467B10-818C-4CAB-9FF7-6893B5B8F3CF"
+    next
+    edit "ZoneAlarm-FW"
+        set type fw
+        set guid "829BDA32-94B3-44F4-8446-F8FCFF809F8B"
+    next
+    edit "ZoneAlarm-AV-Vista-Win7"
+        set guid "D61596DF-D219-341C-49B3-AD30538CBC5B"
+    next
+    edit "ZoneAlarm-FW-Vista-Win7"
+        set type fw
+        set guid "EE2E17FA-9876-3544-62EC-0405AD5FFB20"
+    next
+    edit "ESET-Smart-Security-AV"
+        set guid "19259FAE-8396-A113-46DB-15B0E7DFA289"
+    next
+    edit "ESET-Smart-Security-FW"
+        set type fw
+        set guid "211E1E8B-C9F9-A04B-6D84-BC85190CE5F2"
+    next
+end
+config vpn ssl settings
+    set ssl-min-proto-ver tls1-1
+    set servercert "Fortinet_Factory"
+    set port 443
+end
+config voip profile
+    edit "default"
+        set comment "Default VoIP profile."
+    next
+end
+
+config dnsfilter profile
+    edit "default"
+        set comment "Default dns filtering."
+        config ftgd-dns
+            config filters
+                edit 1
+                    set category 2
+                next
+                edit 2
+                    set category 7
+                next
+                edit 3
+                    set category 8
+                next
+                edit 4
+                    set category 9
+                next
+                edit 5
+                    set category 11
+                next
+                edit 6
+                    set category 12
+                next
+                edit 7
+                    set category 13
+                next
+                edit 8
+                    set category 14
+                next
+                edit 9
+                    set category 15
+                next
+                edit 10
+                    set category 16
+                next
+                edit 11
+                next
+                edit 12
+                    set category 57
+                next
+                edit 13
+                    set category 63
+                next
+                edit 14
+                    set category 64
+                next
+                edit 15
+                    set category 65
+                next
+                edit 16
+                    set category 66
+                next
+                edit 17
+                    set category 67
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+                edit 19
+                    set category 61
+                    set action block
+                next
+                edit 20
+                    set category 86
+                    set action block
+                next
+                edit 21
+                    set category 88
+                    set action block
+                next
+                edit 22
+                    set category 90
+                    set action block
+                next
+                edit 23
+                    set category 91
+                    set action block
+                next
+            end
+        end
+        set block-botnet enable
+    next
+end
+
+
+
+config webfilter search-engine
+    edit "google"
+        set hostname ".*\\.google\\..*"
+        set url "^\\/((custom|search|images|videosearch|webhp)\\?)"
+        set query "q="
+        set safesearch url
+        set safesearch-str "&safe=active"
+    next
+    edit "yahoo"
+        set hostname ".*\\.yahoo\\..*"
+        set url "^\\/search(\\/video|\\/images){0,1}(\\?|;)"
+        set query "p="
+        set safesearch url
+        set safesearch-str "&vm=r"
+    next
+    edit "bing"
+        set hostname ".*\\.bing\\..*"
+        set url "^(\\/images|\\/videos)?(\\/search|\\/async|\\/asyncv2)\\?"
+        set query "q="
+        set safesearch header
+    next
+    edit "yandex"
+        set hostname "yandex\\..*"
+        set url "^\\/((yand|images\\/|video\\/)(search)|search\\/)\\?"
+        set query "text="
+        set safesearch url
+        set safesearch-str "&family=yes"
+    next
+    edit "youtube"
+        set hostname ".*youtube.*"
+        set safesearch header
+    next
+    edit "baidu"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/s?\\?"
+        set query "wd="
+    next
+    edit "baidu2"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/(ns|q|m|i|v)\\?"
+        set query "word="
+    next
+    edit "baidu3"
+        set hostname "tieba\\.baidu\\.com"
+        set url "^\\/f\\?"
+        set query "kw="
+    next
+end
+config emailfilter profile
+    edit "default"
+        set comment "Malware and phishing URL filtering."
+    next
+    edit "sniffer-profile"
+        set comment "Malware and phishing URL monitoring."
+    next
+end
+config wanopt settings
+    set host-id "default-id"
+end
+config wanopt profile
+    edit "default"
+        set comments "Default WANopt profile."
+    next
+    edit "WANOPT_PDR"
+        set comments "Default WANopt profile."
+        config http
+            set status enable
+        end
+        config cifs
+            set status enable
+        end
+        config mapi
+            set status enable
+        end
+        config ftp
+            set status enable
+        end
+        config tcp
+            set status enable
+            set byte-caching enable
+        end
+    next
+end
+
+
+config firewall schedule recurring
+    edit "always"
+        set day sunday monday tuesday wednesday thursday friday saturday
+    next
+    edit "default-darrp-optimize"
+        set start 01:00
+        set end 01:30
+        set day sunday monday tuesday wednesday thursday friday saturday
+    next
+end
+config firewall profile-protocol-options
+    edit "default"
+        set comment "All default services."
+        config http
+            set ports 80
+            unset options
+            unset post-lang
+        end
+        config ftp
+            set ports 21
+            set options splice
+        end
+        config imap
+            set ports 143
+            set options fragmail
+        end
+        config mapi
+            set ports 135
+            set options fragmail
+        end
+        config pop3
+            set ports 110
+            set options fragmail
+        end
+        config smtp
+            set ports 25
+            set options fragmail splice
+        end
+        config nntp
+            set ports 119
+            set options splice
+        end
+        config ssh
+            unset options
+        end
+        config dns
+            set ports 53
+        end
+        config cifs
+            set ports 445
+        end
+    next
+end
+
+config waf profile
+    edit "default"
+        config signature
+            config main-class 100000000
+                set action block
+                set log disable
+                set severity high
+            end
+            config main-class 20000000
+                set log disable
+            end
+            config main-class 30000000
+                set status enable
+                set action block
+                set log disable
+                set severity high
+            end
+            config main-class 40000000
+                set log disable
+            end
+            config main-class 50000000
+                set status enable
+                set action block
+                set log disable
+                set severity high
+            end
+            config main-class 60000000
+                set log disable
+            end
+            config main-class 70000000
+                set status enable
+                set action block
+                set log disable
+                set severity high
+            end
+            config main-class 80000000
+                set status enable
+                set log disable
+                set severity low
+            end
+            config main-class 110000000
+                set status enable
+                set log disable
+                set severity high
+            end
+            config main-class 90000000
+                set status enable
+                set action block
+                set log disable
+                set severity high
+            end
+            set disabled-signature 80080005 80200001 60030001 60120001 80080003 90410001 90410002
+        end
+        config constraint
+            config header-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config content-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config line-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config url-param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config version
+                set log enable
+            end
+            config method
+                set action block
+                set log enable
+            end
+            config hostname
+                set action block
+                set log enable
+            end
+            config malformed
+                set log enable
+            end
+            config max-cookie
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-header-line
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-url-param
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-range-segment
+                set status enable
+                set log enable
+                set severity high
+            end
+        end
+    next
+end
+
+
+
+config firewall ssh local-key
+    edit "Fortinet_SSH_RSA2048"
+        set password ENC WvEEaJJJUe0g0MjY/hu0Jj8pFFf4pQhLfrG8To/GhNvtfwDnkvMwpRIQGmQrA/j3O8WQDVcBiI6F5L6wZHIj7vzD2HAk4lmrtX/JdH9pMIxdobIXoFc3VGaka0eepl5POJIKAUopsEU4lz/uEmcZy1fcHpwf5cEyUUCBzJuo8E6N7PiPWmedcvNAhDFtnWOAFuio6w==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDq6zqbP6
+Eqn/c4epaTgQHLAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQD1/FWVPVFn
+ljGB2gTVbj1scEfmf6nH7rwn5obN8KPbqKVd5wAXQgea8oDR6nTAMtxUrq8o50seJZefGU
+zqjICgMGtOaZLje5WjL/54sRzY4DwBH93tb8Xm0igP3n+bSd14VrRtZnfzVb5G871dKLcm
+EANYpxf6F9gA0aPqQJCgUMwO0AbfK74idHH+OBh3n9ovA8HABZATO/5otfKEe25EV8ceoK
+zznnZUkVAzgYIvI0KogF5s0eA17Tb//VlwzZ6bQ4xjZsOFQP0GKGY0piVectPrrfwOWr/F
+2capHRxxvVetHNIQ+YagM7AVv5bnez0nkWfNVX13FWUcDh4wRnEPAAADwMGLS4dNJIhgbz
+LgDNChpMSF9HPUD1+m6s1tizo8HPOOZRe6XqI5hc/MbuZFGiMzIEtvlyHi5WWF0q4jk+YX
+oXy8Ve8boBtqoEGHdJ4lyXDF9oF5ald1QxbzAd7e2S+tGjCewp6vvtaN9xo4rt6XYKIKeY
+PwfKuAuNL5WREFslzqGwo6+Iyz3E4Yx2zO/wyUqD4lc2ycffTPxK93qg/G8O8RxAAKuTwo
+zYcC5DifqDpkK731fzKgR7P3oVCqSYeADh6bNJ73CyuyLlnF7DruwAlagSyekYfGw7jqeT
+S4BByjaCmGwbB7Ig4Sp2XQMMGEwX4+55K4Fo+Hv8YR55CSn9W+BWOpj33l7z7S8KJhsdZl
+G1YmrBnj58932M+AwblP7DVvgKScjp+p5z8QwrdiZps8JA/l6tBz7dDHy45sqKFomrze+E
+8T1uRFRljIPvMbx4prA6pfYhM2qdMkel255fwUNlg8YFLyEnHCdAqbme9eUO6RAzRDrv7Y
+D+kmj5LWOlN31j8km1vFL7PFt4z2BBUMVoea8H2qPI47DpZWgizIYlLHcKqPFwfWtGvEKB
+iQ7y4GYkyQF+xOSHrYQPx/Jym7uFBJYUamHMSVsaiECZmRitH2+wWK4KTd+NMSBvvZSzOx
+MBK6zxhk8kv6Wnef3RlQlZSXizSEjbRlqy4xP6OJ2rKXIq7+5VbDZ5Hu3Gn5GuSluqwLbM
+nys6DVFqSu5euZgIsrkauavtT3MBYs9eW25B8ARc+yqWbfymsSEKN+SKl4PBNSV03x8m4v
+BFRH224s0rWpy1NfNXogsdcr/QqTFrM6kPkKiETZFcs7sc1GksvS4k1ItB4ZbPPdE3bJ8U
+4WO1CKq1LhZazpDhnpdl8y55V1gZ/UglLbf28fwWFMYw65wnZIUD0gMspPspwFW1P6lrDI
+WAUUSeZ6qnNRn+uEN3D60A73AaPKU9z0CU+Ttl7mSGR2E4HImzdVlcFouta2o6pzOUytvO
+pp6mdiP3GYN1f98H+v+Oh7t3fgr/MeVEjAnrEXTlJnYg4lBkWYVeBBsUo2IPhEx4KP0vu8
+7JgZ1RKqcpHq1uHwgOPu2BK/2h2yyVMZtwo/8Xcz9xEBBKFips3IH79+9jixNysmbkdvz+
+KycnYcjn+Pj3qVf+RzuspwVugBqlh/E076NzE43y1uCKxKWljakcvi8lzlmZYFxm55yT4f
+4lzAltOW335+YadUhOyCIv6nl2i3iQQOVDdClMCAK6C+Qt2oDSUWsTWZ3DacBv/lQ1Ls2u
+rz52+XEg==
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD1/FWVPVFnljGB2gTVbj1scEfmf6nH7rwn5obN8KPbqKVd5wAXQgea8oDR6nTAMtxUrq8o50seJZefGUzqjICgMGtOaZLje5WjL/54sRzY4DwBH93tb8Xm0igP3n+bSd14VrRtZnfzVb5G871dKLcmEANYpxf6F9gA0aPqQJCgUMwO0AbfK74idHH+OBh3n9ovA8HABZATO/5otfKEe25EV8ceoKzznnZUkVAzgYIvI0KogF5s0eA17Tb//VlwzZ6bQ4xjZsOFQP0GKGY0piVectPrrfwOWr/F2capHRxxvVetHNIQ+YagM7AVv5bnez0nkWfNVX13FWUcDh4wRnEP"
+        set source built-in
+    next
+    edit "Fortinet_SSH_DSA1024"
+        set password ENC WvEEaJFsIAwYpr99juLUjUq2rmX6WZWvQY8y3ak5707ebBhHV6N+MVFIdy1BIc+YyRDIrBBu3QRXsgHRxfYrz+vS31DwvCPRAfmZkoH5GY4QoekGzXpTJ8/z3mHe5XxQ1abT3IJDPxh0E7UReJTHJjpMAZ9XZA25JmnZ5zt4kSDfft62Qdfudqa9Ql59A4NRZHGB/w==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBZ7+n3RE
+pp1uKn0EuczkqIAAAAEAAAAAEAAAGxAAAAB3NzaC1kc3MAAACBAMjsvtYbY5w5SnAtymfd
+5TXYL3/pG8FzKqOC8DDewiUgzDW1WWXMyl0ZgCR8BxeATPAHt2gSgrYkKD9Ldv2CMnrBIU
+2U3iGaU35rWHlnFD8qS9vqd8IyEmRH50L46H707vTiM+tQvxqWrfwv8qiQzcThBS76ZZva
+6/0AWFx4CJcFAAAAFQCEPPIt5NEhE7437f/eKj+S0KfE5QAAAIAj4fVicNO07doXPS8PpX
+Rt8ez9klM22O4y+aoPwwLFXnwpypq9kPYpZS+4t9iMfngAqgIIx6dRZMsqrYlU4Cbw8h+A
+0/Z7VtIkANpODH8d+aqlpPg6DDmNNEvs9uzAjig7wZAvS8DEYA/1hwqUCAALziCWkLq5IP
+cfbRjp/2fcRwAAAIBaHl9MlS8/NcGNP0+jzKY2NS0/CZODvz+DbTCVkGvDFL/leRcN/eEY
+Yg92xbjBvpesHp0HDg2jPbtIw/bkHL3odsbuEZE1sG45KdeEvwazIxTkmMD8JPhHpCfBjb
+NLUSTTtudqokn8fl4o+xDj/xjDerdAw3KDR5oo9yHETs9QuQAAAeCMPWiYkvgqNHS70/0i
+uIKwieXpD/fqKMLUI9ezvCxhzuuDlnKbB2bV0miU3eAxr/FYMOrLE+giwZ5fd+WDpHNpw8
+n05zKCyEX8ngmrgOUmtOqHhhTFKbuqaGi44gDxdmt8Ks2Z3J53CJx7anzTJ/cEqOmJSt9X
+8zpfBclW+gsIIpixuMvt7dbY4k8GKzlU+6wI9/P3icuE5XAztTUdqKOH64Twg7hCQutZGA
+S+VceXqM0wvnGjJq6GwgsXf7vmOg2cvi6asFaglAG6VfXQwS1iloMKrwJ3LTR6kmrjU5ad
+A3Oz/Sz57C/QbeOf5DXIKqP2aV2v/Xd1SSyNn8Zrl+JW/pz/oQxQ5ykdGGszk+ClYgM/4Y
+9ljezibHogtwKqdptnEJiWcltinC+3pEwOavEyROWN4Na5a7we0JphTkGoQy70auJnvcKv
+4yWsPuWGr+FlfdCpCyeAj3oJny3YUxXhKc0H7fso3z5AKWi0JD1pv+DBzRGpIL1f1IErya
+UtOl8SHZeY4DNbWVFiLRClACWHhu781m9IkA0/ZFrk4h5AgGdwqKRXmIUVdbqNpWnld4ir
+ldsVwpyftH9iv0SW5IAM7BWR+lnPTKSGPDhf77eXwurbahOXDynRKFQ3VQ+OQkI=
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ssh-dss AAAAB3NzaC1kc3MAAACBAMjsvtYbY5w5SnAtymfd5TXYL3/pG8FzKqOC8DDewiUgzDW1WWXMyl0ZgCR8BxeATPAHt2gSgrYkKD9Ldv2CMnrBIU2U3iGaU35rWHlnFD8qS9vqd8IyEmRH50L46H707vTiM+tQvxqWrfwv8qiQzcThBS76ZZva6/0AWFx4CJcFAAAAFQCEPPIt5NEhE7437f/eKj+S0KfE5QAAAIAj4fVicNO07doXPS8PpXRt8ez9klM22O4y+aoPwwLFXnwpypq9kPYpZS+4t9iMfngAqgIIx6dRZMsqrYlU4Cbw8h+A0/Z7VtIkANpODH8d+aqlpPg6DDmNNEvs9uzAjig7wZAvS8DEYA/1hwqUCAALziCWkLq5IPcfbRjp/2fcRwAAAIBaHl9MlS8/NcGNP0+jzKY2NS0/CZODvz+DbTCVkGvDFL/leRcN/eEYYg92xbjBvpesHp0HDg2jPbtIw/bkHL3odsbuEZE1sG45KdeEvwazIxTkmMD8JPhHpCfBjbNLUSTTtudqokn8fl4o+xDj/xjDerdAw3KDR5oo9yHETs9QuQ=="
+        set source built-in
+    next
+    edit "Fortinet_SSH_ECDSA256"
+        set password ENC WvEEaNMcPTtoJmAIlFU4ElC26F9UE2Vbo6GbAFmwww395Ioge9uoVrfoqzxolFZ2N/iRjmdJw6RKEYR993LQEqiznkPqvxoZoeFCGflaA/qXWQjKqsa54RTUWiTEu/P+lK4tOzYU1r7v5fiLHm+Pb/zK6tx09MYD0nl+cQ3ilIYq2jf7j3+qe9YqcrPCC31tkjcLcA==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABA7Liw9X7
+JhqBHxwbt4CdUrAAAAEAAAAAEAAABoAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlz
+dHAyNTYAAABBBL7DpvmSBs289icz14t+moZbYJm9k3VfDI1ZoOtETWBp2ZB6HHXGMMefal
+/k7pnJtne/6OPsMUL2vRfCvJtk6lgAAACgC5zUYHTxHUXTcSsTXfbkfmy1xVXsBwkTOBGG
++rcrR4SrCHyDrRuFilrlDOC184rtoCruGfXYqOEu6zqeI1UCqH4IEkgXcDQPqGSoQ75ltu
+k8KZOyC43rku6YWW5jmLakB2q9AK+50lRZ4q7SDwUIOzLh+gInrR0uZ+A02ndIAiXJa2Fh
+aLRZcxj+Z0Uxn4eRiLgT4cKI9sZ31QU6oWG4Ug==
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBL7DpvmSBs289icz14t+moZbYJm9k3VfDI1ZoOtETWBp2ZB6HHXGMMefal/k7pnJtne/6OPsMUL2vRfCvJtk6lg="
+        set source built-in
+    next
+    edit "Fortinet_SSH_ECDSA384"
+        set password ENC WvEEaOQ8aL8t6w4TsUZ6LmilcIGTGPGYrsinY/Ymz1/QKMBICiaug/wIs5fVt6Z0cxnNnGn1effZ6J0kNjpoAPIAOSR3R/p+kyVvmODvctRCbzMRmcnNO+j+cnQbKgJAGEjE7cyJPkhU/fQH0pGg66OAa0YupAs3uV3VLQhSpMilk2tUepUvex0SMIGqy3bIjlKKRQ==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDmqO0GGM
+sUbjTuGmHDjaY8AAAAEAAAAAEAAACIAAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlz
+dHAzODQAAABhBBgqAgReln4iRjBgNMvMj6ix+DVm05VqeqbQ4mTuF5tHYKkQG+bw1SBuI0
+2XgGPi9haILGrzt+1DZFDLE8sN4s8yEIekD5+lL/cPn99Y9alk5wBlE6q1b0kUxLMJ1vhA
+awAAANB88AR41ALLfFRSfNvnmMLSitaqVw3J4rL8LZC6BtgP2KDYE2ZAfpZz5Ye6XW4AUQ
+TMvn2Twqfk0Q4tin5UgPXu/KOprdkQOS36Y54Lqzd2ehFlqtoXRKkVIpCZGJ31XXObD259
+AnzMe3FeIqtBGGCvbUtiYrG7szlv60S0BYlP3eW8lwHs4ylHVWwVZPIarHkiflKYA2G0BA
+jOdjHWhlqxclsJxoWX8c/UF6AjIJM/ZgXWRE/1zOIzyk7oO01b5uODsCwm6Ir0JT+aC0BD
+PZ/A
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBBgqAgReln4iRjBgNMvMj6ix+DVm05VqeqbQ4mTuF5tHYKkQG+bw1SBuI02XgGPi9haILGrzt+1DZFDLE8sN4s8yEIekD5+lL/cPn99Y9alk5wBlE6q1b0kUxLMJ1vhAaw=="
+        set source built-in
+    next
+    edit "Fortinet_SSH_ECDSA521"
+        set password ENC WvEEaPjrPH/aL1Ij+YQSMZKpdoLZwugUYmKpSP3UR+vGVwsZbJbnmZaQqVH0ANrHMFN5pKD9X+tAAFBB7m3ylvT+R6xdf5vEKmI9LbchUDcVXeadj6yzJfGYkJJ/XNb6LtEcXtAzFBpD8YdCKgtGr2dRwTEueRp4ozKwkEB2n5Vlov8oSUBFRTRAEtT6O9sBUc6gew==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABC8DnaKvb
+KquFW/jRl7Lu0KAAAAEAAAAAEAAACsAAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlz
+dHA1MjEAAACFBAESF/NTvjlFPylzU+hR5Tjm84Ug+DiaJSpLnOMbxCl96eAtGDl5IS4NeJ
+PhbFUhh43JkAqW3nqRs+MmxejlZeLgUwAsqNjQmtnrpVt6gjvJzIol9K1r5cuttI0JnrQr
++PPNoh+S0hur1fL62xHLZ2eYVJV8adgJHgTtSh+XpMADPWs0wQAAAQAiB9B4X8IeGNnffe
+JYlDJY0tV7fxxpidA92kugOg0xJUjrIm33FctowT4E7bY/eRudY7okbWAuHHIRU87JK+Yi
+e3x96XcB/tJnlvfa0JyVDjXruxwXRP1aXO5BbCdRJdpLOSoxJ7W6Sn1CpMEiIZBdzxfqOg
+7sUw44gOyUMVVD5osguLCxV0eEDhwhmRywY4/NCXbxDfFN6TSfOiEe94xftMuI25Y9wsOE
+0ByNwmoXtaS7VIYW95ZKfRxwr65RYlVPBR317OdyRU3onDqGxX+JvMBgoAWS70/9ews7uL
+3xw0WEZHevk8owlXBZk/PVNROGYTNPur/IACOsUUeUWsq3
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAESF/NTvjlFPylzU+hR5Tjm84Ug+DiaJSpLnOMbxCl96eAtGDl5IS4NeJPhbFUhh43JkAqW3nqRs+MmxejlZeLgUwAsqNjQmtnrpVt6gjvJzIol9K1r5cuttI0JnrQr+PPNoh+S0hur1fL62xHLZ2eYVJV8adgJHgTtSh+XpMADPWs0wQ=="
+        set source built-in
+    next
+    edit "Fortinet_SSH_ED25519"
+        set password ENC 8EexARUrPLnfGn/EzP2s6t4VQSJF7N5EgfSYNg/mT4DLPYZNbZ7PmLq1FlfFm7/FU8Qr46wkA7OnzMeFKxQTH+C2OuyQUkE5Ht1m9ehKrSLepAo2TpsGvFGdBWKr1kuUJrohgvERR2elOeUlw/BxtO+n9MC1gZOU2Rk2X26X+h7EZCd5mhC/CZ2BRTwxK5fEo58lBg==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBNDDnjQf
+mEZfnsq9tkQj07AAAAEAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIPqkRgd5GhAs3O2n
+DIUABds6el/+rdnqC/zss0iDfcsRAAAAkM+YJbfWlv9VcAlfzGCQy5b3O9oD8GeD97vSZN
+EV+b0QzgSWBYniJmkWyiVsGGNsb+GaUe8k5BlOZM+k7qLV8ZQKP+PZZMZEs8TA0gXs0Hz4
+ZfjLKctD+A5xE/jiowQNfLNsaQiZdmObVR0C1S6Py1CgHrOhnNNkhBu370fhZhtnGfcmQK
+eW1RAl5hgHd0rZfg==
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqkRgd5GhAs3O2nDIUABds6el/+rdnqC/zss0iDfcsR"
+        set source built-in
+    next
+end
+config firewall ssh local-ca
+    edit "Fortinet_SSH_CA"
+        set password ENC oM4AAUnypjlUFMK75zxwrxzimMthRi2/+QKsNQlCqxDQ7Bnf7jHhhhfh0ZYpqofXf7nBmyvxOFO0nDo0YOc6mSlskEVRp7VTC3Tscj7V+LNe2LloK52PKLLZATBbyN8d0/BXvN08WzRY7qQX/KySNToQp+nrDOGJGy/Gjpk1giWnDwLiAcI2cte5gzbYVQBI31bOog==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBFkKWXZH
+e+geKdT1mltvqXAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQDYSrf3k21D
+ucJq2GCDCAMhpWolrYe82D0F4xESlR/ixfr0GMvP19kRGOlJagcr9QUYiNdgr9dAx7oivM
+0WOs7RDhDPmkmLHO6BxXlt7gkDqXP3pV99Y1JpwlNQh8ogGu2H9AOyFdVnMRlz17GShP34
+anvQj4F/4LmjTWzC5WKB/yZE1zEjPlynLgS3B7+U39/HBqQN+uBx/+XByy0JGqaxV6SHYP
+uPl1DL6/DVAvDk+jwTPCPl1hzFXq10bYVIlsFnD2d/pxysdSd41vTIneY7AC+Ftd83f2vC
+QvJ9t5j0QJxopnPXjCE7d80QRL19AiNOOOBaNIGYn+9vbzZ2TqOvAAADwHjaPpEQY9pzNW
+RH1qyMG0H6AejjWaqElALUXK9gdsAe1gc4Cd/JB99LdvXSSwO5qbO77fSZK7FK0W0VQPy0
+8iheI/qJsoconmRZMRttVT1CN1m9+j2f+4SYY6j9zkBBKYJQoIf7M/heGA+NHLAAxmgljS
+a6GJXRBGDxE3ntQL61K3WPZaMn2VrOY+oUnc35rVENGSPuu5reVzhuUzs5K68+AhPhd6Hv
+VeutuC+7WH1eurgReQmpLVQldIZ3tvxBCFn9x29V2oBsC//EJPGtAINuib5XPcyr7QT4Nz
+I5j1jxbbfcBWIwUkWbUdm/BImF0wa8rWcf8BerwlG1rQw8SP+gBRza5qbqbTZlpqhD8oOS
+RZ7ozlggCDmP1s4frHn447yOYNYnQvRyRnXs79XNd3Nzw6kcJtLui5JVHTPY2J1C5i9G8I
+STt6K1VR+l/DNp//AGezZN54m7w75F43vvgsQ7QCdB6OAeXQd7Pam1ZHaf5mUDLlm1dhnM
+6SC+Crn6dEtyOfut46PsPowZIXplwtD8oBfZ6ccVpFSQ9U7pBycQ92wgAHhoPRBSefLYRO
+YQIIe7DmDGDhGLGFa7zVHpwEyZFy7cJPgiXOo8j5Ij3ZPjLUxKmxQmsbnRYJL7ymLx1D2T
+mMrCFZyWhTVQF6tTVUBYuzI+SsxD3/NwQ8YPvN5yuuRz8t6w5LVSgBLvOF9e4NKy/omG3V
+2Li4511LSEX5ICyj5Rb2fwf85hfi9jUQCJL4Mf+BaxFkE+mNfnEHbo12prcxtuKOuerKtL
+hErxXyGrkJsXPENl/nh8XrfnjsnQlDolQUB3YB1Qj3ZOEntDG4F7nkMKOkQ9kEwnGOys9r
+ps/ITi/Vip2y8BpjnVW533En5fTDXNGWpJNADHGSLQ7BtYcUUM7DaNfCqG2N8TKVHLFYBC
+rEl1uVWUHRIP/1XIH7X7x45KjOKIO7187rYfup5aLeYYLLt8MMEUJEgGhm9BmPkpIChZnp
++5iL2XKq8dgbZCmdWRROLOU0+4Dw7luR+2Ajmf7n2xlg1LbjA73QiD2NZattYpi1ruiEVK
+aNdzFm50ZrqaMrY/yEu5/4y14d/fyD4ExVtYpJq01hcYaFKF9JGlDrTzRBvl1ehHmTjp2j
+R1/lwSshrOXNB24nxuDcHZQViU7Oyy5CAoZOHiuqGw3NAX87+VZ7MP/yv3pEdhie5OjHj6
+qwDYHC07O8DsG/nMx9gXeBdDjW3c0ZRO+VI0PTL90QFgUF6vVo3JoFkHdWiTlt5Hi2Z4qk
+nNmDS6PQ==
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYSrf3k21DucJq2GCDCAMhpWolrYe82D0F4xESlR/ixfr0GMvP19kRGOlJagcr9QUYiNdgr9dAx7oivM0WOs7RDhDPmkmLHO6BxXlt7gkDqXP3pV99Y1JpwlNQh8ogGu2H9AOyFdVnMRlz17GShP34anvQj4F/4LmjTWzC5WKB/yZE1zEjPlynLgS3B7+U39/HBqQN+uBx/+XByy0JGqaxV6SHYPuPl1DL6/DVAvDk+jwTPCPl1hzFXq10bYVIlsFnD2d/pxysdSd41vTIneY7AC+Ftd83f2vCQvJ9t5j0QJxopnPXjCE7d80QRL19AiNOOOBaNIGYn+9vbzZ2TqOv"
+        set source built-in
+    next
+    edit "Fortinet_SSH_CA_Untrusted"
+        set password ENC oM4AAZBH6FZ7GzJu/LG6PgTMKaUaGQRdXRZCTbLt+y6LRDLxYoLRseAN7EU4XfQz0YH3o8HzV/hOolJ/QU0BnGjvaFDajc5bApBTrdKPZP7G/Q80uj1Id+eGH/0/lxz0jd8igb5ehOR95jO0ZmoD884hwbORMi4iUU+Ff64L5w2leG7OASHV/55ti/ui+HmKdQGrew==
+        set private-key "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABCplnkv7p
+wosr42+7Q+e36IAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQC4/+7/AXpQ
+S/0EJpvEWB7yA2u1pL7t8Z2twSKpPIJeGzrihIsxmudOV+72oG8hkANVvZJS8PuMGtJC9K
+Pg2fHZhkHjIzWpFNcJsvnC8rdD/rMUbhUoGcrdas6inRoGuqVr3F1DCXCu8n8kZTwXzRw7
+sWkTwRqgkUO/HSHkZrxGQRiF1KMQK8GUV0VQ2BKwwOHleL/x3yc/bR6zoRe8inNNWpGwUE
+pRt/4u+L+qrK/eflivd6enrd7up+61z4IIry4bTneFHz9+0TTXlfhCs5eqs8F26MROKnts
+4cNZrJptzE6laK1zDnLR7MgTwUmVy1u7fxZXzBKYBjM19fkHrv4XAAADwMs/dwIPEgtn9o
+R/yMDK1ZipAoVU5e8SmTbqpfXgAcWihMfdTJaavrX1gcC1MeM46bXXftVvHGt3SJj4aYb1
+I9tNizTHR3O/3VrW0Wua3uUcG1ImQAMt7RdpVw4sZz1P/Dp0p9QYMAaXi4xe5w2HvzYiF1
+VQMWdmRy/aaTdIYxO+uMAzGqmBMjVn0vkNg7SOP85t8I5xQecK2OboVC6Zgyf9qSk7bVbo
+VEUD75wRpXI80Drti8i9RkkUmLGu212w8ZIoJT5vb0vMhOQSdIZ+7nNm/MqiJXvJlxjiez
+9i3afCErF/uaN1XAkJmeMcklZx/7OBc5awDJpy7Z1pUGJ5ikZkhjANRDLczcLGZKkU7iH5
+ZvTdUC/XA+1tkS7ncROZLyjkhgK8J9ZpzjAynF+SofdAhTyAR0GWfat2tzBje7uxjlqmeA
+t0gyWnvnIVi1vSvsK71nBN+8rhhiBp7T/TQUr1sBI9AvSx2wpBSk98DtIrIKpXUiAUyI7e
+4W3WxRdW32W8Ri6v9Nu4Y+EQzJTGb5MJEk1xsHdwjWE2bpXAgdH0EpixZ7gy8UpP4CLuhG
+HgU/KatlXOdbz08nMboBUN9mjNcguxCaCpHoRG4+ybgpEmF4wtTRFdFPJjaiSJNARNkent
+vwDiuqJre6+ObYsU7m88LH24Agiz1lvxqXlCOu20xFKUj81jKmOEw8HclrRfdswpkyVC6h
+49ltM6nQhO+czpJPhH+WpRgu27k+gCh8gTO1XxUALXTuDdQ5LFGVquPXtps2X3iCwIQBXA
+Sn7OGTQ55+ZXTt4xXKMQW9izjnIabkONFmr8YirJ9fXJ2OvLeFyaV/JXmIqO7MOxoXVkXP
+JhGK6Q3g2GZ2AcvhksXuBDzlpt6tvUzpt5qWKB5iLEpKLgKkMe5aoGhFHlwzUYAxDVnOWQ
+LC8/TAMnRgTNkfcuIZGPUS1V7xQWm26QtDo7LqIzsMpbcmjN1Z84MIVPLxEBbGVQBmdU4t
+/Okn4pzUGtMw7Dwd/ajsZ7b5w1sx/0enJb8j3ZV1/pDR2cjkuACyPg2Qtv43DSrvYVmj0S
+IvloeIxBS/7xlfOvW/HrXSPney7wURKvEsaEX3MGvM4ssrt00b4JBKByGG0ltXUlabLAM+
+BIJQPJa40wRrZbjp9J+kBcS+IetJ5W56kaxQdc8dGdmQTkqTOj8hi/TG/Qcw1dwvDeDFGi
+5s9jY69l6ZPrZzJysjV350lwVgtQQGc12p0gaRfTRlUeCfrHu51eYMY1j+CE+P2F9qqUe8
+Or1HswLQ==
+-----END OPENSSH PRIVATE KEY-----
+"
+        set public-key "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4/+7/AXpQS/0EJpvEWB7yA2u1pL7t8Z2twSKpPIJeGzrihIsxmudOV+72oG8hkANVvZJS8PuMGtJC9KPg2fHZhkHjIzWpFNcJsvnC8rdD/rMUbhUoGcrdas6inRoGuqVr3F1DCXCu8n8kZTwXzRw7sWkTwRqgkUO/HSHkZrxGQRiF1KMQK8GUV0VQ2BKwwOHleL/x3yc/bR6zoRe8inNNWpGwUEpRt/4u+L+qrK/eflivd6enrd7up+61z4IIry4bTneFHz9+0TTXlfhCs5eqs8F26MROKnts4cNZrJptzE6laK1zDnLR7MgTwUmVy1u7fxZXzBKYBjM19fkHrv4X"
+        set source built-in
+    next
+end
+config firewall ssh setting
+    set caname "Fortinet_SSH_CA"
+    set untrusted-caname "Fortinet_SSH_CA_Untrusted"
+    set hostkey-rsa2048 "Fortinet_SSH_RSA2048"
+    set hostkey-dsa1024 "Fortinet_SSH_DSA1024"
+    set hostkey-ecdsa256 "Fortinet_SSH_ECDSA256"
+    set hostkey-ecdsa384 "Fortinet_SSH_ECDSA384"
+    set hostkey-ecdsa521 "Fortinet_SSH_ECDSA521"
+    set hostkey-ed25519 "Fortinet_SSH_ED25519"
+end
+config switch-controller security-policy 802-1X
+    edit "802-1X-policy-default"
+        set user-group "SSO_Guest_Users"
+        set mac-auth-bypass disable
+        set open-auth disable
+        set eap-passthru enable
+        set guest-vlan disable
+        set auth-fail-vlan disable
+        set framevid-apply enable
+        set radius-timeout-overwrite disable
+    next
+end
+config switch-controller security-policy local-access
+    edit "default"
+        set mgmt-allowaccess https ping ssh
+        set internal-allowaccess https ping ssh
+    next
+end
+config switch-controller lldp-profile
+    edit "default"
+        set med-tlvs inventory-management network-policy
+        set auto-isl disable
+        config med-network-policy
+            edit "voice"
+            next
+            edit "voice-signaling"
+            next
+            edit "guest-voice"
+            next
+            edit "guest-voice-signaling"
+            next
+            edit "softphone-voice"
+            next
+            edit "video-conferencing"
+            next
+            edit "streaming-video"
+            next
+            edit "video-signaling"
+            next
+        end
+    next
+    edit "default-auto-isl"
+    next
+end
+config switch-controller qos dot1p-map
+    edit "voice-dot1p"
+        set priority-0 queue-4
+        set priority-1 queue-4
+        set priority-2 queue-3
+        set priority-3 queue-2
+        set priority-4 queue-3
+        set priority-5 queue-1
+        set priority-6 queue-2
+        set priority-7 queue-2
+    next
+end
+config switch-controller qos ip-dscp-map
+    edit "voice-dscp"
+        config map
+            edit "1"
+                set cos-queue 1
+                set value 46
+            next
+            edit "2"
+                set cos-queue 2
+                set value 24,26,48,56
+            next
+            edit "5"
+                set cos-queue 3
+                set value 34
+            next
+        end
+    next
+end
+config switch-controller qos queue-policy
+    edit "default"
+        set schedule round-robin
+        set rate-by kbps
+        config cos-queue
+            edit "queue-0"
+            next
+            edit "queue-1"
+            next
+            edit "queue-2"
+            next
+            edit "queue-3"
+            next
+            edit "queue-4"
+            next
+            edit "queue-5"
+            next
+            edit "queue-6"
+            next
+            edit "queue-7"
+            next
+        end
+    next
+    edit "voice-egress"
+        set schedule weighted
+        set rate-by kbps
+        config cos-queue
+            edit "queue-0"
+            next
+            edit "queue-1"
+                set weight 0
+            next
+            edit "queue-2"
+                set weight 6
+            next
+            edit "queue-3"
+                set weight 37
+            next
+            edit "queue-4"
+                set weight 12
+            next
+            edit "queue-5"
+            next
+            edit "queue-6"
+            next
+            edit "queue-7"
+            next
+        end
+    next
+end
+config switch-controller qos qos-policy
+    edit "default"
+    next
+    edit "voice-qos"
+        set trust-dot1p-map "voice-dot1p"
+        set trust-ip-dscp-map "voice-dscp"
+        set queue-policy "voice-egress"
+    next
+end
+config switch-controller storm-control-policy
+    edit "default"
+        set description "default storm control on all port"
+    next
+    edit "auto-config"
+        set description "storm control policy for fortilink-isl-icl port"
+        set storm-control-mode disabled
+    next
+end
+config switch-controller auto-config policy
+    edit "default"
+    next
+    edit "default-icl"
+        set poe-status disable
+        set igmp-flood-report enable
+        set igmp-flood-traffic enable
+    next
+end
+config switch-controller auto-config default
+    set icl-policy "default"
+end
+config switch-controller switch-profile
+    edit "default"
+    next
+end
+config switch-controller remote-log
+    edit "syslogd"
+    next
+    edit "syslogd2"
+    next
+end
+config wireless-controller setting
+    set darrp-optimize-schedules "default-darrp-optimize"
+end
+config wireless-controller wids-profile
+    edit "default"
+        set comment "Default WIDS profile."
+        set ap-scan enable
+        set wireless-bridge enable
+        set deauth-broadcast enable
+        set null-ssid-probe-resp enable
+        set long-duration-attack enable
+        set invalid-mac-oui enable
+        set weak-wep-iv enable
+        set auth-frame-flood enable
+        set assoc-frame-flood enable
+        set spoofed-deauth enable
+        set asleap-attack enable
+        set eapol-start-flood enable
+        set eapol-logoff-flood enable
+        set eapol-succ-flood enable
+        set eapol-fail-flood enable
+        set eapol-pre-succ-flood enable
+        set eapol-pre-fail-flood enable
+    next
+    edit "default-wids-apscan-enabled"
+        set ap-scan enable
+    next
+end
+config wireless-controller wtp-profile
+    edit "FAP23JF-default"
+        config platform
+            set type 23JF
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP234F-default"
+        config platform
+            set type 234F
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP231F-default"
+        config platform
+            set type 231F
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP432F-default"
+        config platform
+            set type 432F
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP433F-default"
+        config platform
+            set type 433F
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP431F-default"
+        config platform
+            set type 431F
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11ax
+        end
+        config radio-2
+            set band 802.11ax-5G
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAP231E-default"
+        config platform
+            set type 231E
+            set ddscan enable
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+        config radio-3
+            set mode monitor
+        end
+    next
+    edit "FAPU433F-default"
+        config platform
+            set type U433F
+            set mode dual-5G
+        end
+        config radio-1
+            set band 802.11ax-5G
+            set band-5g-type 5g-low
+        end
+        config radio-2
+            set band 802.11ax-5G
+            set band-5g-type 5g-high
+        end
+        config radio-3
+            set band 802.11n,g-only
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU431F-default"
+        config platform
+            set type U431F
+            set mode dual-5G
+        end
+        config radio-1
+            set band 802.11ax-5G
+            set band-5g-type 5g-low
+        end
+        config radio-2
+            set band 802.11ax-5G
+            set band-5g-type 5g-high
+        end
+        config radio-3
+            set band 802.11n,g-only
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU323EV-default"
+        config platform
+            set type U323EV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU321EV-default"
+        config platform
+            set type U321EV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU24JEV-default"
+        config platform
+            set type U24JEV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU223EV-default"
+        config platform
+            set type U223EV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU221EV-default"
+        config platform
+            set type U221EV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU423E-default"
+        config platform
+            set type U423E
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU422EV-default"
+        config platform
+            set type U422EV
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPU421E-default"
+        config platform
+            set type U421E
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP321E-default"
+        config platform
+            set type 321E
+        end
+        set handoff-sta-thresh 55
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS223E-default"
+        config platform
+            set type S223E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS221E-default"
+        config platform
+            set type S221E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP224E-default"
+        config platform
+            set type 224E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP223E-default"
+        config platform
+            set type 223E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP222E-default"
+        config platform
+            set type 222E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP221E-default"
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP423E-default"
+        config platform
+            set type 423E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP421E-default"
+        config platform
+            set type 421E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS423E-default"
+        config platform
+            set type S423E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS422E-default"
+        config platform
+            set type S422E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS421E-default"
+        config platform
+            set type S421E
+        end
+        set handoff-sta-thresh 55
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS323CR-default"
+        config platform
+            set type S323CR
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS322CR-default"
+        config platform
+            set type S322CR
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS321CR-default"
+        config platform
+            set type S321CR
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS313C-default"
+        config platform
+            set type S313C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS311C-default"
+        config platform
+            set type S311C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS323C-default"
+        config platform
+            set type S323C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS322C-default"
+        config platform
+            set type S322C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAPS321C-default"
+        config platform
+            set type S321C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP321C-default"
+        config platform
+            set type 321C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP223C-default"
+        config platform
+            set type 223C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP112D-default"
+        config platform
+            set type 112D
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP24D-default"
+        config platform
+            set type 24D
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP21D-default"
+        config platform
+            set type 21D
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FK214B-default"
+        config platform
+            set type 214B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP224D-default"
+        config platform
+            set type 224D
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n-5G
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP222C-default"
+        config platform
+            set type 222C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP25D-default"
+        config platform
+            set type 25D
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP221C-default"
+        config platform
+            set type 221C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP320C-default"
+        config platform
+            set type 320C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11ac
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP28C-default"
+        config platform
+            set type 28C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP223B-default"
+        config platform
+            set type 223B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n-5G
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP14C-default"
+        config platform
+            set type 14C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP11C-default"
+        config platform
+            set type 11C
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP320B-default"
+        config platform
+            set type 320B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n-5G
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP112B-default"
+        config platform
+            set type 112B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP222B-default"
+        config platform
+            set type 222B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11n-5G
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP210B-default"
+        config platform
+            set type 210B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "FAP220B-default"
+        config platform
+            set type 220B
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n-5G
+            set channel-utilization disable
+        end
+        config radio-2
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+    edit "AP-11N-default"
+        config platform
+            set type AP-11N
+        end
+        set handoff-sta-thresh 30
+        set ap-country US
+        set lldp disable
+        config radio-1
+            set band 802.11n,g-only
+            set channel-utilization disable
+        end
+        set ext-info-enable disable
+    next
+end
+config wireless-controller utm-profile
+    edit "wifi-default"
+        set comment "Default configuration for offloading WiFi traffic."
+        set ips-sensor "wifi-default"
+        set application-list "wifi-default"
+        set antivirus-profile "wifi-default"
+        set webfilter-profile "wifi-default"
+    next
+end
+config log memory setting
+    set status enable
+end
+config log eventfilter
+    set wireless-activity disable
+    set wan-opt disable
+    set endpoint disable
+    set ha disable
+    set security-rating disable
+end
+config log null-device setting
+    set status disable
+end
+config log setting
+    set local-in-allow enable
+    set local-out enable
+end
+config log gui-display
+    set fortiview-unscanned-apps enable
+end
+config router rip
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ripng
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+
+config router ospf
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ospf6
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+
+config router multicast
+end

@@ -1,0 +1,61 @@
+config ips sensor
+    edit "sniffer-profile"
+        set comment "Monitor IPS attacks."
+        config entries
+            edit 1
+                set severity high critical 
+            next
+        end
+    next
+    edit "IPS_GUEST"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity medium high critical 
+            next
+            edit 2
+                set rule 51006
+                set status enable
+                set log-packet enable
+                set action block
+            next
+        end
+    next
+    edit "IPS_PDR_LOJA"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity info low medium high 
+                set status enable
+                set log-packet enable
+                set action pass
+            next
+            edit 2
+                set severity critical 
+                set log-packet enable
+            next
+            edit 3
+                set rule 51006
+                set status enable
+                set log-packet enable
+                set action block
+            next
+        end
+    next
+    edit "wifi-default"
+        set comment "Default configuration for offloading WiFi traffic."
+        config entries
+            edit 1
+                set severity medium high critical 
+            next
+        end
+    next
+    edit "default"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity medium high critical 
+            next
+        end
+    next
+end

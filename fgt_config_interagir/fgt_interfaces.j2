@@ -1,0 +1,123 @@
+config system interface
+    edit "wan1"
+        set vdom "root"
+        set ip {{endereço ip wan1}}
+        set allowaccess ping https
+        set type physical
+        set alias {{alias wan1}}
+        set device-identification enabless
+        set role lan
+        set snmp-index 5
+    next
+    edit "wan2"
+        set vdom "root"
+        set ip {{endereço ip wan2}}
+        set allowaccess ping https
+        set status down
+        set type physical
+        set alias {{alias wan2}}
+        set device-identification enable
+        set role lan
+        set snmp-index 26
+    next
+    edit "modem"
+        set vdom "root"
+        set type physical
+        set snmp-index 3
+    next
+    edit "ssl.root"
+        set vdom "root"
+        set type tunnel
+        set alias "SSL VPN interface"
+        set snmp-index 11
+    next
+    edit "lan3"
+        set vdom "root"
+        set status down
+        set type physical
+        set snmp-index 7
+    next
+    edit "VLAN_LAN"
+        set vdom "root"
+        set type hard-switch
+        set device-identification enable
+        set role lan
+        set snmp-index 8
+    next
+    edit "VLAN_WAN"
+        set vdom "root"
+        set ip 192.168.254.99 255.255.255.0
+        set allowaccess ping https ssh snmp
+        set type hard-switch
+        set device-identification enable
+        set role lan
+        set snmp-index 9
+    next
+    edit "LAN_CB"
+        set vdom "root"
+        set ip {{LAN_CB}}
+        set allowaccess ping https ssh snmp fgfm radius-acct fabric ftm
+        set alias "22"
+        set device-identification enable
+        set role lan
+        set snmp-index 12
+        set secondary-IP enable
+        set interface "VLAN_LAN"
+        set vlanid 22
+    next
+    edit "LAN_Wifi_Corp"
+        set vdom "root"
+        set ip {{LAN_Wifi_Corp}}
+        set allowaccess ping
+        set alias "212"
+        set device-identification enable
+        set role lan
+        set snmp-index 14
+        set interface "VLAN_LAN"
+        set vlanid 212
+    next
+    edit "LAN_Wifi_DEVCOR"
+        set vdom "root"
+        set ip {{LAN_Wifi_DEVCOR}}
+        set allowaccess ping
+        set alias "216"
+        set device-identification enable
+        set role lan
+        set snmp-index 16
+        set interface "VLAN_LAN"
+        set vlanid 216
+    next
+    edit "LAN_Wifi_Mgmt"
+        set vdom "root"
+        set ip {{LAN_Wifi_Mgmt}}
+        set allowaccess ping
+        set alias "215"
+        set device-identification enable
+        set role lan
+        set snmp-index 18
+        set interface "VLAN_LAN"
+        set vlanid 215
+    next
+    edit "LAN_Wifi_DEVEXT"
+        set vdom "root"
+        set ip {{192.168.14.1 255.255.255.0}}
+        set allowaccess ping
+        set alias "14"
+        set device-identification enable
+        set role lan
+        set snmp-index 15
+        set interface "VLAN_LAN"
+        set vlanid 14
+    next
+    edit "LAN_Wifi_Guest"
+        set vdom "root"
+        set ip 192.168.80.1 255.255.255.0
+        set allowaccess ping
+        set alias "192"
+        set device-identification enable
+        set role lan
+        set snmp-index 17
+        set interface "VLAN_LAN"
+        set vlanid 192
+    next
+end

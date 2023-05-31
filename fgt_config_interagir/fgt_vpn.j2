@@ -1,0 +1,61 @@
+config vpn ipsec phase1-interface
+    edit "VPN1_EQX"
+        set interface "OUTSIDE_EBT"
+        set mode aggressive
+        set peertype one
+        set net-device enable
+        set proposal aes128-sha256
+        set localid {{VPN1_EQX_local id}}
+        set dpd on-idle
+        set dhgrp 5
+        set remote-gw 177.126.185.196
+        set peerid "SDWAN_LOJAS_01"
+        set psksecret {{VPN1_EQX_psksecret}}
+    next
+    edit "VPN2_EQX"
+        set interface "wan1"
+        set mode aggressive
+        set peertype one
+        set net-device enable
+        set proposal aes128-sha256
+        set localid {{VPN2_EQX_local id}}
+        set dpd on-idle
+        set dhgrp 5
+        set remote-gw 131.100.116.198
+        set peerid "SDWAN_LOJAS_02"
+        set psksecret {{VPN2_EQX_psksecret}}
+    next
+end
+config vpn ipsec phase2-interface
+    edit "VPN1_EQX"
+        set phase1name "VPN1_EQX"
+        set proposal aes128-sha256
+        set dhgrp 5
+    next
+    edit "VPN2_EQX"
+        set phase1name "VPN2_EQX"
+        set proposal aes128-sha256
+        set dhgrp 5
+    next
+end
+
+config system interface
+    edit "VPN1_EQX"
+        set vdom "root"
+        set ip {{VPN1_EQX_ip_tunnel}}
+        set allowaccess ping snmp
+        set type tunnel
+        set remote-ip 10.253.0.1 255.255.240.0
+        set snmp-index 2
+        set interface {{VPN1_EQX_interface_saida}}
+    next
+    edit "VPN2_EQX"
+        set vdom "root"
+        set ip {{VPN2_EQX_ip_tunnel}}
+        set allowaccess ping snmp
+        set type tunnel
+        set remote-ip 10.253.16.1 255.255.240.0
+        set snmp-index 1
+        set interface {{VPN2_EQX_interface_saida}}
+    next
+end

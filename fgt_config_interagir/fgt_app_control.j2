@@ -1,0 +1,125 @@
+config application list
+    edit "APP_GUEST"
+        set comment "Monitor all applications."
+        set unknown-application-action block
+        set unknown-application-log enable
+        config entries
+            edit 1
+                set application 15832 28057 31077 37371 39999 40698 41598 42533 44956 16171 39243 42662 16492 27210 29880 33053 38900
+                set action pass
+            next
+            edit 2
+                set category 2 6 7 17
+                set application 16009 18155 24318 38075 38517 40934 40935
+            next
+            edit 3
+                set category 6 7 17 22
+            next
+            edit 4
+                set action pass
+            next
+        end
+    next
+    edit "APP_PDR_LOJA"
+        set other-application-log enable
+        set unknown-application-log enable
+        set options allow-dns allow-quic
+        config entries
+            edit 1
+                set application 15893 15895 15896 15897 16060 16074 16091 16172 16173 16195 16206 16253 16265 16270 16906 16939 17057 17149 24466 27457 34050 40568 41542 107347980 16217 16513 39621
+                set action pass
+            next
+            edit 2
+                set category 2 3 5 6 7 8 12 15 17 21 22 23 25 26 28 29 30 31
+            next
+        end
+    next
+    edit "APP_PDR_VENDEDOR"
+        set other-application-log enable
+        set unknown-application-action block
+        set unknown-application-log enable
+        set options allow-dns allow-quic
+        config entries
+            edit 1
+                set application 15893 15895 16270 16492 27210 31605 40169 40568 41540 42533 28057 40698
+                set action pass
+            next
+            edit 2
+                set application 16172 16331 31077 35169
+            next
+            edit 3
+                set category 2 3 5 6 7 8 12 15 17 21 22 23 25 26 28 29 30 31
+            next
+            edit 10
+                set application 28057 40698
+                set action pass
+                set log disable
+            next
+        end
+    next
+    edit "wifi-default"
+        set comment "Default configuration for offloading WiFi traffic."
+        set deep-app-inspection disable
+        config entries
+            edit 1
+                set category 2 3 5 6 7 8 12 15 17 21 22 23 25 26 28 30 31
+                set action pass
+                set log disable
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor all applications."
+        unset options
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "default"
+        set comment "Monitor all applications."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "APP_PDR_INET"
+        set other-application-log enable
+        set unknown-application-action block
+        set unknown-application-log enable
+        config entries
+            edit 1
+                set application 15893 15895 16492 27210 34039 34050 35944 38131 40568 41468 42533
+                set action pass
+            next
+            edit 2
+                set category 2 3 5 6 7 8 12 15 17 21 22 23 25 28 29 30 31
+            next
+        end
+    next
+    edit "APP_PDR_VENDEDOR_V2"
+        set other-application-log enable
+        set unknown-application-action block
+        set unknown-application-log enable
+        set options allow-dns allow-quic
+        config entries
+            edit 1
+                set application 28057 40698
+                set action pass
+                set log disable
+            next
+            edit 2
+                set application 15893 15895 16027 16270 16492 16677 17136 23662 25376 27210 31605 33053 38550 38924 40169 40568 41469 41471 41475 41540 42533 43541 47822 47966 48976 48977 16573 15816 45553 16162 38709 38708 41701 41702 24747 43540 16996 31077
+                set action pass
+            next
+            edit 3
+                set application 16172 16331 35169
+            next
+            edit 4
+                set log disable
+            next
+        end
+    next
+end

@@ -1,0 +1,8 @@
+config system zone
+    edit "TRUSTED"
+        set interface "LAN_CB" "LAN_Wifi_Corp" "LAN_Wifi_DEVCOR" "LAN_Wifi_Mgmt"
+    next
+    edit "UNTRUSTED"
+        set interface "LAN_Wifi_DEVEXT" "LAN_Wifi_Guest"
+    next
+end

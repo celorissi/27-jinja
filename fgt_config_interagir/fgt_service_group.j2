@@ -1,0 +1,23 @@
+config firewall service group
+    edit "Email Access"
+        set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
+    next
+    edit "Web Access"
+        set member "DNS" "HTTP" "HTTPS"
+    next
+    edit "Windows AD"
+        set member "DCE-RPC" "DNS" "KERBEROS" "LDAP" "LDAP_UDP" "SAMBA" "SMB"
+    next
+    edit "Exchange Server"
+        set member "DCE-RPC" "DNS" "HTTPS"
+    next
+    edit "GRP_SVC_BRADESCO"
+        set member "SVC_BRADESCO_RANGE" "SVC_BRADESCO_TCP_UDP" "ALL_ICMP"
+    next
+    edit "grp_PDV_Mobile"
+        set member "tcp_8085" "tcp_8105" "tcp_8125" "tcp_8165" "tcp_8185" "tcp_8205" "tcp_8225" "tcp_8245"
+    next
+    edit "grp_PIX_APP_Pag"
+        set member "tcp_8480" "tcp_8580" "tcp_8680" "tcp_8780" "tcp_8880" "tcp_8980" "tcp_9080" "tcp_9180"
+    next
+end

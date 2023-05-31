@@ -1,0 +1,78 @@
+config system accprofile
+    edit "prof_admin"
+        set secfabgrp read-write
+        set ftviewgrp read-write
+        set authgrp read-write
+        set sysgrp read-write
+        set netgrp read-write
+        set loggrp read-write
+        set fwgrp read-write
+        set vpngrp read-write
+        set utmgrp read-write
+        set wifi read-write
+    next
+    edit "R.O."
+        set secfabgrp read
+        set ftviewgrp read
+        set authgrp read
+        set sysgrp read
+        set netgrp read
+        set loggrp read
+        set fwgrp read
+        set vpngrp read
+        set utmgrp read
+        set wifi read
+    next
+    edit "SI"
+        set comments "Perfil de Acesso aos analistas de SI"
+        set secfabgrp read-write
+        set ftviewgrp read
+        set authgrp read
+        set sysgrp read
+        set netgrp read
+        set loggrp read-write
+        set fwgrp read
+        set vpngrp read
+        set utmgrp read-write
+        set wanoptgrp read
+        set wifi read
+    next
+    edit "N2_NOC_READ_ONLY"
+        set comments "NOC_TELECOM"
+        set secfabgrp read
+        set ftviewgrp read
+        set authgrp read
+        set sysgrp custom
+        set netgrp custom
+        set loggrp read
+        set fwgrp read
+        set vpngrp read
+        set utmgrp read
+        set wanoptgrp read
+        set wifi read
+        config netgrp-permission
+            set cfg read-write
+            set packet-capture read-write
+            set route-cfg read
+        end
+        config sysgrp-permission
+            set upd read-write
+            set cfg read-write
+            set mnt read-write
+        end
+    next
+    edit "NetOps"
+        set comments "N3_TELECOM"
+        set secfabgrp read-write
+        set ftviewgrp read-write
+        set authgrp read-write
+        set sysgrp read-write
+        set netgrp read-write
+        set loggrp read-write
+        set fwgrp read-write
+        set vpngrp read-write
+        set utmgrp read-write
+        set wanoptgrp read-write
+        set wifi read-write
+    next
+end

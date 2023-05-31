@@ -1,0 +1,25 @@
+config system physical-switch
+    edit "sw0"
+        set age-val 0
+    next
+end
+config system virtual-switch
+    edit "VLAN_LAN"
+        set physical-switch "sw0"
+        config port
+            edit "lan4"
+            next
+            edit "lan5"
+            next
+        end
+    next
+    edit "VLAN_WAN"
+        set physical-switch "sw0"
+        config port
+            edit "lan1"
+            next
+            edit "lan2"
+            next
+        end
+    next
+end

@@ -1,0 +1,733 @@
+config system admin
+    edit "N3.TELECOM"
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 131.100.116.0 255.255.252.0
+        set trusthost3 177.126.185.0 255.255.255.0
+        set trusthost4 177.126.180.80 255.255.255.240
+        set trusthost5 177.154.146.0 255.255.255.224
+        set trusthost6 200.169.193.128 255.255.255.252
+        set trusthost7 192.168.0.0 255.255.0.0
+        set trusthost8 200.142.90.192 255.255.255.224
+        set trusthost9 172.16.0.0 255.240.0.0
+        set trusthost10 187.93.51.216 255.255.255.252
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 3
+                set name "Status"
+                set vdom "root"
+                set permanent enable
+                config widget
+                    edit 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 2
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type security-fabric
+                        set x-pos 3
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 4
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 5
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 6
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 4
+                set name "Top Usage LAN/DMZ"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "source"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "destination"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "application"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 4
+                        set type fortiview
+                        set x-pos 3
+                        set width 6
+                        set height 3
+                        set fortiview-type "website"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 5
+                set name "Security"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "compromisedHosts"
+                        set fortiview-sort-by "verdict"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "threats"
+                        set fortiview-sort-by "threatLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "endpointDevices"
+                        set fortiview-sort-by "vulnerabilities"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+        end
+        set password ENC SH2tOefbwuHSk/ciCtD/xS70tNt7UJUL0DN9nVcPBrqruzNfPJfBFFoeA2A3lc=
+    next
+    edit "secureway"
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 172.16.0.0 255.240.0.0
+        set trusthost3 192.168.0.0 255.255.0.0
+        set trusthost4 179.189.225.208 255.255.255.248
+        set trusthost5 201.48.165.184 255.255.255.248
+        set trusthost6 177.154.146.0 255.255.255.224
+        set trusthost7 131.100.116.0 255.255.252.0
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Status"
+                set vdom "root"
+                set permanent enable
+                config widget
+                    edit 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 2
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type security-fabric
+                        set x-pos 3
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 4
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 5
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 6
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 2
+                set name "Top Usage LAN/DMZ"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "source"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "destination"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "application"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 4
+                        set type fortiview
+                        set x-pos 3
+                        set width 6
+                        set height 3
+                        set fortiview-type "website"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 3
+                set name "Security"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "compromisedHosts"
+                        set fortiview-sort-by "verdict"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "threats"
+                        set fortiview-sort-by "threatLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "endpointDevices"
+                        set fortiview-sort-by "vulnerabilities"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 4
+                set name "System Events"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "count"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "eventLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+        end
+        set password ENC SH2zVOFjLrmnj6/RW20xgW+7w8B6MJ+Bpl5dVZIx2FUN7aXWmgMlrjpdZS6Erg=
+    next
+    edit "N2.VIEW"
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 131.100.116.0 255.255.252.0
+        set trusthost3 177.126.185.0 255.255.255.0
+        set trusthost4 177.126.180.80 255.255.255.240
+        set trusthost5 177.154.146.0 255.255.255.224
+        set trusthost6 200.169.193.128 255.255.255.252
+        set trusthost7 187.93.51.216 255.255.255.252
+        set trusthost8 192.168.0.0 255.255.0.0
+        set trusthost9 200.142.90.192 255.255.255.224
+        set trusthost10 172.16.0.0 255.240.0.0
+        set accprofile "R.O."
+        set comments "VIEW"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Status"
+                set vdom "root"
+                set permanent enable
+                config widget
+                    edit 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 2
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type security-fabric
+                        set x-pos 3
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 4
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 5
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 6
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 2
+                set name "Top Usage LAN/DMZ"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "source"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "destination"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "application"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 4
+                        set type fortiview
+                        set x-pos 3
+                        set width 6
+                        set height 3
+                        set fortiview-type "website"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 3
+                set name "Security"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "compromisedHosts"
+                        set fortiview-sort-by "verdict"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "threats"
+                        set fortiview-sort-by "threatLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "endpointDevices"
+                        set fortiview-sort-by "vulnerabilities"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 4
+                set name "System Events"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "count"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "eventLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+        end
+        set password ENC SH2XANt3uqMC0NfuOwz20Pa0VVqXn2KmeO72og51tDuK6G2uZaAZGKptuYzcnE=
+    next
+    edit "svc_n3fortinet"
+        set remote-auth enable
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 131.100.116.0 255.255.252.0
+        set trusthost3 177.126.185.0 255.255.255.0
+        set trusthost4 177.126.180.80 255.255.255.240
+        set trusthost5 177.154.146.0 255.255.255.224
+        set trusthost6 200.169.193.128 255.255.255.252
+        set trusthost7 192.168.0.0 255.255.0.0
+        set trusthost8 200.142.90.192 255.255.255.224
+        set trusthost9 172.16.0.0 255.240.0.0
+        set trusthost10 187.93.51.216 255.255.255.252
+        set accprofile "NetOps"
+        set vdom "root"
+        set wildcard enable
+        set remote-group "Fortigate_NetOps"
+        set accprofile-override enable
+    next
+    edit "svc_n2fortinet"
+        set remote-auth enable
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 131.100.116.0 255.255.252.0
+        set trusthost3 177.126.185.0 255.255.255.0
+        set trusthost4 177.126.180.80 255.255.255.240
+        set trusthost5 177.154.146.0 255.255.255.224
+        set trusthost6 200.169.193.128 255.255.255.252
+        set trusthost7 192.168.0.0 255.255.0.0
+        set trusthost8 200.142.90.192 255.255.255.224
+        set trusthost9 172.16.0.0 255.240.0.0
+        set trusthost10 187.93.51.216 255.255.255.252
+        set accprofile "N2_NOC_READ_ONLY"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Status"
+                set vdom "root"
+                set permanent enable
+                config widget
+                    edit 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 2
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type security-fabric
+                        set x-pos 3
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 4
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 5
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 6
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 2
+                set name "Top Usage LAN/DMZ"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "source"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "destination"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "application"
+                        set fortiview-sort-by "bytes"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 4
+                        set type fortiview
+                        set x-pos 3
+                        set width 6
+                        set height 3
+                        set fortiview-type "website"
+                        set fortiview-sort-by "sessions"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 3
+                set name "Security"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "compromisedHosts"
+                        set fortiview-sort-by "verdict"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "threats"
+                        set fortiview-sort-by "threatLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 3
+                        set type fortiview
+                        set x-pos 2
+                        set width 6
+                        set height 3
+                        set fortiview-type "endpointDevices"
+                        set fortiview-sort-by "vulnerabilities"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+            edit 4
+                set name "System Events"
+                set vdom "root"
+                set layout-type fixed
+                set columns 12
+                config widget
+                    edit 1
+                        set type fortiview
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "count"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                    edit 2
+                        set type fortiview
+                        set x-pos 1
+                        set width 6
+                        set height 3
+                        set fortiview-type "systemEvents"
+                        set fortiview-sort-by "eventLevel"
+                        set fortiview-timeframe "hour"
+                        set fortiview-visualization "table"
+                    next
+                end
+            next
+        end
+        set wildcard enable
+        set remote-group "Fortigate_N2_NOC"
+        set accprofile-override enable
+    next
+    edit "svc_fortimanager"
+        set trusthost1 10.0.0.0 255.0.0.0
+        set trusthost2 131.100.116.0 255.255.252.0
+        set trusthost3 177.126.185.0 255.255.255.0
+        set trusthost4 177.126.180.80 255.255.255.240
+        set trusthost5 177.154.146.0 255.255.255.224
+        set trusthost6 200.169.193.128 255.255.255.252
+        set trusthost7 187.93.51.216 255.255.255.252
+        set trusthost8 192.168.0.0 255.255.0.0
+        set trusthost9 200.142.90.192 255.255.255.224
+        set trusthost10 172.16.0.0 255.240.0.0
+        set accprofile "super_admin"
+        set vdom "root"
+        set password ENC SH2Rw0YYd+7/MNpxcWd0txxeQeWecGdhTBrIDRk+EWpVxe9BCh1a1srvjXVoXs=
+    next
+end

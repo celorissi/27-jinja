@@ -1,0 +1,106 @@
+config antivirus profile
+    edit "AV_PDR"
+        set comment "AV padrão lojas"
+        config http
+            set options scan
+            set outbreak-prevention full-archive
+        end
+        config ftp
+            set options scan
+            set outbreak-prevention full-archive
+        end
+        config imap
+            set options scan
+            set executables virus
+            set outbreak-prevention full-archive
+        end
+        config pop3
+            set options scan
+            set executables virus
+            set outbreak-prevention full-archive
+        end
+        config smtp
+            set options scan
+            set executables virus
+            set outbreak-prevention full-archive
+        end
+        config mapi
+            set options scan
+            set executables virus
+            set outbreak-prevention full-archive
+        end
+        config nntp
+            set outbreak-prevention full-archive
+        end
+        config outbreak-prevention
+            set ftgd-service enable
+        end
+        set scan-mode legacy
+    next
+    edit "wifi-default"
+        set comment "Default configuration for offloading WiFi traffic."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+        set scan-mode legacy
+    next
+    edit "sniffer-profile"
+        set comment "Scan files and monitor viruses."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+        set scan-mode legacy
+    next
+    edit "default"
+        set comment "Scan files and block viruses."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+        set scan-mode legacy
+    next
+end

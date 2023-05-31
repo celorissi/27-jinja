@@ -1,0 +1,44 @@
+config firewall shaper traffic-shaper
+    edit "TSH_GUEST_5MB"
+        set guaranteed-bandwidth 512
+        set maximum-bandwidth 5120
+        set priority low
+    next
+    edit "TSH_GUEST_30MB"
+        set guaranteed-bandwidth 512
+        set maximum-bandwidth 30720
+        set priority low
+    next
+    edit "PARAMOUNT_1MB"
+        set guaranteed-bandwidth 512
+        set maximum-bandwidth 1024
+        set priority low
+    next
+end
+
+config firewall shaping-policy
+    edit 99
+        set service "ALL"
+        set dstintf "virtual-wan-link"
+        set traffic-shaper "PARAMOUNT_1MB"
+        set traffic-shaper-reverse "PARAMOUNT_1MB"
+        set srcaddr "VLAN14_LAN_WIFI_DEVEXT"
+        set dstaddr "all"
+    next
+    edit 1
+        set service "ALL"
+        set dstintf "OUTSIDE_EBT"
+        set traffic-shaper "TSH_GUEST_30MB"
+        set traffic-shaper-reverse "TSH_GUEST_30MB"
+        set srcaddr "VLAN192_LAN_Wifi_GUEST" "VLAN212_LAN_WIFI_CORP" "VLAN216_LAN_WIFI_DEVCORP" "VLAN215_LAN_WIFI_MGMT"
+        set dstaddr "all"
+    next
+    edit 2
+        set service "ALL"
+        set dstintf "wan1"
+        set traffic-shaper "TSH_GUEST_5MB"
+        set traffic-shaper-reverse "TSH_GUEST_5MB"
+        set srcaddr "VLAN192_LAN_Wifi_GUEST" "VLAN212_LAN_WIFI_CORP" "VLAN216_LAN_WIFI_DEVCORP" "VLAN215_LAN_WIFI_MGMT"
+        set dstaddr "all"
+    next
+end
