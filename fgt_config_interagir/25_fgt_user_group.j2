@@ -1,0 +1,23 @@
+config user group
+    edit "SSO_Guest_Users"
+    next
+    edit "Fortigate_N2_NOC"
+        set member "tac_plus"
+    next
+    edit "Fortigate_NetOps"
+        set member "tac_plus"
+    next
+    edit "Ger_WhatsApp_Loja"
+        set member "LDAP_ViaCorp"
+        config match
+            edit 1
+                set server-name "LDAP_ViaCorp"
+                set group-name "CN=WEBWHATSAPP_LOJA,OU=SERVICO,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
+            next
+            edit 2
+                set server-name "LDAP_ViaCorp"
+                set group-name "CN=GERENTES,OU=LOJAS,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
+            next
+        end
+    next
+end

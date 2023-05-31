@@ -1,7 +1,6 @@
 config firewall policy
     edit 530
         set name "DC_TO_LAN"
-        set uuid 7eb16902-5f6c-51ec-738e-50b308fe1599
         set srcintf "virtual-wan-link"
         set dstintf "TRUSTED"
         set srcaddr "GRP_RD_DC"
@@ -16,7 +15,6 @@ config firewall policy
     next
     edit 540
         set name "PRINT_TO_DC"
-        set uuid 7ec4bf20-5f6c-51ec-2a96-42f43116a35d
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "HST_PRINTERS"
@@ -28,7 +26,6 @@ config firewall policy
     next
     edit 550
         set name "ENABLE_SAT"
-        set uuid 7ed32eac-5f6c-51ec-54f4-ecf882cba685
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN22_LAN_CB"
@@ -49,7 +46,6 @@ config firewall policy
     next
     edit 560
         set name "VLAN 22_TO_DC"
-        set uuid 7eeb8dda-5f6c-51ec-cda5-061885d923dd
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN22_LAN_CB"
@@ -71,7 +67,6 @@ config firewall policy
     next
     edit 570
         set name "GUEST INTERNET"
-        set uuid 7f0605de-5f6c-51ec-0cbe-693069422199
         set srcintf "UNTRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN192_LAN_Wifi_GUEST"
@@ -93,7 +88,6 @@ config firewall policy
     next
     edit 580
         set name "BREAKOUT"
-        set uuid 7f1e815e-5f6c-51ec-a55b-42a0f57e3952
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN22_LAN_CB"
@@ -113,7 +107,6 @@ config firewall policy
     next
     edit 590
         set name "VLAN 212 - PDV MOBILE"
-        set uuid 7f32f40e-5f6c-51ec-afa5-6231575dcb23
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN212_LAN_WIFI_CORP"
@@ -135,7 +128,6 @@ config firewall policy
     next
     edit 600
         set name "VLAN 216"
-        set uuid 7f49e4b6-5f6c-51ec-1112-408950460ed5
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN216_LAN_WIFI_DEVCORP"
@@ -156,7 +148,6 @@ config firewall policy
     next
     edit 640
         set name "VLAN 212 INTERNET"
-        set uuid 7f5ab3c2-5f6c-51ec-68df-50b4d4160e54
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN212_LAN_WIFI_CORP" "VLAN216_LAN_WIFI_DEVCORP"
@@ -177,7 +168,6 @@ config firewall policy
     next
     edit 650
         set name "VLAN14 INTERNET"
-        set uuid 7f6c6f5e-5f6c-51ec-9f60-4c20dee79260
         set srcintf "UNTRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN14_LAN_WIFI_DEVEXT"
@@ -199,7 +189,6 @@ config firewall policy
     next
     edit 670
         set name "VLAN 215 TO DC"
-        set uuid 7f863420-5f6c-51ec-64f9-357777cfeb0a
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN215_LAN_WIFI_MGMT"
@@ -219,7 +208,6 @@ config firewall policy
     next
     edit 660
         set name "VLAN 215 INTERNET"
-        set uuid 7f96369a-5f6c-51ec-b501-2522981c49a4
         set srcintf "TRUSTED"
         set dstintf "virtual-wan-link"
         set srcaddr "VLAN215_LAN_WIFI_MGMT"
@@ -240,7 +228,6 @@ config firewall policy
     next
     edit 800
         set name "IMPRESSAO_PDV"
-        set uuid a998d314-491b-51ed-9afe-4b92e6596c34
         set srcintf "TRUSTED"
         set dstintf "TRUSTED"
         set srcaddr "VLAN212_LAN_WIFI_CORP"
