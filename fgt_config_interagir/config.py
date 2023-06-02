@@ -48,6 +48,8 @@ config_vars = {
     "dhcp_vlan_22_end_99": '',# 10.111.88.99
     "dhcp_vlan_22_start_105": '', # 10.111.88.105
     "dhcp_vlan_22_end_254": '', # 10.111.91.254 (Termina com o iltimo range do /22)
+    "impressora_inicial": '' , # 10.111.88.120
+    "impressora_final": '' , # 10.111.88.194
 }
 
 #ABRINDO O ARQUIVO JINJA TEMPLATE

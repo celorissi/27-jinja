@@ -1,11 +1,46 @@
 config user ldap
     edit "LDAP_ViaCorp"
         set server "via.varejo.corp"
-        set source-ip 10.111.88.100
+        set source-ip {{gateway_vlan22}}
         set cnid "sAMAccountName"
         set dn "DC=via,DC=varejo,DC=corp"
         set type regular
         set username "svc_fortinet"
         set password ENC MTAwNMcx0GaPmcOPhIfnsr+MGeRTi9v5LLIH72xxsZKtPlouKD03s2lVyCNzRSDR9Ql/dpJyIZCT9AX54Kfok+x/cdGW/sz7U8AyzKwFqXw0OBFlpzpt/OSdAXE1psZ+LOGhpcw0g4xzPGDb7UJUl+e5Ffa/0h7kaCQA6FZ/l2FjNz3b87eIcyyfq6wE2tj3AQl/XA==
+    next
+end
+config user fortitoken
+    edit "FTKMOB9167B76D2B"
+        set license "FTMTRIAL02327971"
+    next
+    edit "FTKMOB918FF8C033"
+        set license "FTMTRIAL02327971"
+    next
+end
+config user setting
+    set auth-cert "Fortinet_Factory"
+    set auth-secure-http enable
+end
+config user group
+    edit "SSO_Guest_Users"
+    next
+    edit "Fortigate_N2_NOC"
+        set member "tac_plus"
+    next
+    edit "Fortigate_NetOps"
+        set member "tac_plus"
+    next
+    edit "Ger_WhatsApp_Loja"
+        set member "LDAP_ViaCorp"
+        config match
+            edit 1
+                set server-name "LDAP_ViaCorp"
+                set group-name "CN=WEBWHATSAPP_LOJA,OU=SERVICO,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
+            next
+            edit 2
+                set server-name "LDAP_ViaCorp"
+                set group-name "CN=GERENTES,OU=LOJAS,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
+            next
+        end
     next
 end

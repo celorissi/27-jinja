@@ -4,7 +4,7 @@ config system virtual-wan-link
         edit 11
             set interface "VPN1_EQX"
             set gateway 10.253.0.1
-            set source {{dhcp_vlan_22_gateway}}
+            set source {{gateway_vlan22}}
             set priority 1
         next
         edit 15
@@ -14,7 +14,7 @@ config system virtual-wan-link
         edit 12
             set interface "VPN2_EQX"
             set gateway 10.253.16.1
-            set source {{dhcp_vlan_22_gateway}}
+            set source {{gateway_vlan22}}
             set priority 1
         next
         edit 16
@@ -45,7 +45,7 @@ config system virtual-wan-link
                 next
             end
         next
-        edit {{alias wan1}}
+        edit {{alias_wan1}}
             set server "177.126.185.196" "131.100.116.199"
             set update-static-route disable
             set members 15
@@ -57,7 +57,7 @@ config system virtual-wan-link
                 next
             end
         next
-        edit {{alias wan2}}
+        edit {{alias_wan2}}
             set server "177.126.185.197" "131.100.116.198"
             set update-static-route disable
             set members 16

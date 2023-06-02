@@ -1,21 +1,21 @@
 config system interface
     edit "wan1"
         set vdom "root"
-        set ip {{endereço ip wan1}}
+        set ip {{endereço_ip_wan1}}
         set allowaccess ping https
         set type physical
-        set alias {{alias wan1}}
+        set alias {{alias_wan1}}
         set device-identification enabless
         set role lan
         set snmp-index 5
     next
     edit "wan2"
         set vdom "root"
-        set ip {{endereço ip wan2}}
+        set ip {{endereço_ip_wan2}}
         set allowaccess ping https
         set status down
         set type physical
-        set alias {{alias wan2}}
+        set alias {{alias_wan2}}
         set device-identification enable
         set role lan
         set snmp-index 26
@@ -100,7 +100,7 @@ config system interface
     next
     edit "LAN_Wifi_DEVEXT"
         set vdom "root"
-        set ip {{192.168.14.1 255.255.255.0}}
+        set ip 192.168.14.1 255.255.255.0
         set allowaccess ping
         set alias "14"
         set device-identification enable

@@ -2,7 +2,7 @@
 from __future__ import print_function, unicode_literals
 import  jinja2
 
-advertised_routes = [ "10.10.200.0/24", "10.10.201.0/24", "10.10.202.0/24"]
+advertised_routes = [ "10.10.200.0/24", "10.10.201.0/24", "10.10.202.0/24", "10.10.0.0/20"]
 
 bgp_vars = {
     "peer1_ip": "10.255.255.2",

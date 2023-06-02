@@ -5,52 +5,6 @@ config user tacacs+
         set key ENC rdjtla5fe1aICSvnXxEvLzdOQ07Ijbqnge8AJnrtaNsky5+gtsMeOvrwbMN+r4gphGEPzi4G5jNdkrxSoLZowgukMeOrfT+y80exCRMM/Cy1Y7bFg3mmG27Rzuf59cS9LB74Ty7kkfZVUtLgZx1M5Ni/vR6YZ0Cj0Tjw1QitseH+Z3u39M+RoJLKe4PiBg2Kg9Tlvg==
         set secondary-key ENC Xzz47Ry5VJviP1EV22rEljj5NCJQcWlAWpAzElMZtUi6P9j16BDXOySy2eT4P1eupvlrVLDJjo5ac3EeCf824F0xSGP/j/RvwlT6O3bjLnVqQL6GX7cL5UD07PtP28h8kKKO1G1OpRZpSaQ7tgjI1+VaouzCkmm/1BRbyrooT73XKw7QeVh3gI2NE726Y56snrQu9g==
         set authorization enable
-        set source-ip "10.111.88.100"
-    next
-end
-config user ldap
-    edit "LDAP_ViaCorp"
-        set server "via.varejo.corp"
-        set source-ip {{dhcp_vlan_22_gateway}}
-        set cnid "sAMAccountName"
-        set dn "DC=via,DC=varejo,DC=corp"
-        set type regular
-        set username "svc_fortinet"
-        set password ENC MTAwNMcx0GaPmcOPhIfnsr+MGeRTi9v5LLIH72xxsZKtPlouKD03s2lVyCNzRSDR9Ql/dpJyIZCT9AX54Kfok+x/cdGW/sz7U8AyzKwFqXw0OBFlpzpt/OSdAXE1psZ+LOGhpcw0g4xzPGDb7UJUl+e5Ffa/0h7kaCQA6FZ/l2FjNz3b87eIcyyfq6wE2tj3AQl/XA==
-    next
-end
-config user fortitoken
-    edit "FTKMOB9167B76D2B"
-        set license "FTMTRIAL02327971"
-    next
-    edit "FTKMOB918FF8C033"
-        set license "FTMTRIAL02327971"
-    next
-end
-config user setting
-    set auth-cert "Fortinet_Factory"
-    set auth-secure-http enable
-end
-config user group
-    edit "SSO_Guest_Users"
-    next
-    edit "Fortigate_N2_NOC"
-        set member "tac_plus"
-    next
-    edit "Fortigate_NetOps"
-        set member "tac_plus"
-    next
-    edit "Ger_WhatsApp_Loja"
-        set member "LDAP_ViaCorp"
-        config match
-            edit 1
-                set server-name "LDAP_ViaCorp"
-                set group-name "CN=WEBWHATSAPP_LOJA,OU=SERVICO,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
-            next
-            edit 2
-                set server-name "LDAP_ViaCorp"
-                set group-name "CN=GERENTES,OU=LOJAS,OU=GRUPOS,OU=VIA,DC=via,DC=varejo,DC=corp"
-            next
-        end
+        set source-ip {{gateway_vlan22}}
     next
 end

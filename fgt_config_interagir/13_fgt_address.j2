@@ -19,8 +19,8 @@ config firewall address
     edit "HST_PRINTERS"
         set type iprange
         set comment "HST_PRINTERS"
-        set start-ip 10.111.88.120
-        set end-ip 10.111.88.194
+        set start-ip {{impressora_inicial}}
+        set end-ip {{impressora_final}}
     next
     edit "NAS-BRIDGE01"
         set subnet 10.208.32.50 255.255.255.255

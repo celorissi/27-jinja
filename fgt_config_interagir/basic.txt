@@ -1,0 +1,125 @@
+Parametros necessarios para configuracao
+
+
+hostname = FW_LOJA_CB_1511
+Hostname do Firewall
+
+endereço_ip_wan1 = 186.201.14.146 255.255.255.248
+Endereço de IP wan1
+
+wan1_gateway = 186.201.14.145 
+Gateway da wan1
+
+alias_wan1 = 'OUTSIDE_WCS'
+Alias da interface wan1
+
+endereço_ip_wan2 = '200.100.110.2 255.255.255.252'
+Endereço de IP wan2
+
+alias_wan2 = 'OUTSIDE_VIVO' 
+Alias da interface wan2
+
+wan2_gateway = '200.100.110.1' 
+Gateway da wan1
+
+LAN_CB = '10.111.88.100 255.255.252.0'
+Emdereço de IP da VLAN22
+
+gateway_vlan22 = '10.110.88.100'
+Emdereço de IP do gateway da VLAN 22 padrão x.x.x.100
+
+LAN_Wifi_Corp = '10.212.150.128 255.255.255.128'
+Endereço de IP da VLAN212 Wifi Corporativo
+
+LAN_Wifi_DEVCOR = '10.216.2.128 255.255.255.128'
+Endereço de IP da VLAN216 DEVCOR
+
+LAN_Wifi_Mgmt = '10.215.15.128 255.255.255.128'
+Endereço de IP da VLAN215 Gerencia das antenas Meraki
+
+VPN1_EQX_ip_tunnel = '10.253.3.10 255.255.255.255'
+Endereço de IP do tunnel 1 do lado da loja
+
+VPN1_EQX_interface_saida =  'wan1'
+Endereço de IP do tunnel 1 do lado do DC
+
+VPN1_EQX_local_id = 'LJ_CB_1511_01'
+Local ID que será apontado do lado do DC
+
+VPN1_EQX_psksecret = 'senhaforte'
+Senha compartilhada da VPN1
+
+VPN2_EQX_ip_tunnel =  '10.253.19.10 255.255.255.255' 
+Endereço de IP do tunnel 2 do lado do DC
+
+VPN2_EQX_interface_saida = 'wan2' 
+Local ID que será apontado do lado do DC
+
+VPN2_EQX_local_id = 'LJ_CB_1511_02'
+Local ID que será apontado do lado do DC
+
+VPN2_EQX_psksecret =  'senhaforte'
+Senha compartilhada da VPN2
+
+dhcp_vlan_212_gateway =  '10.212.150.129'
+Gateway da VLAN 212
+
+dhcp_vlan_212_mascara =  '255.255.255.128'
+Mascara de rede da vlan 212
+
+dhcp_vlan_212_start =  '10.212.150.130'
+IP inicial da VLAN 212
+
+dhcp_vlan_212_end = '10.212.150.254'
+Ip Final da VLAN 212
+
+dhcp_vlan_215_gateway = '10.215.15.128'
+Gateway da VLAN 215
+
+dhcp_vlan_215_mascara =  '255.255.255.128'
+Mascara de rede da vlan 215
+
+dhcp_vlan_215_start =  '10.215.15.130'
+IP inicial da VLAN 215
+
+dhcp_vlan_215_end =  '10.215.15.254'
+Ip Final da VLAN 215
+
+dhcp_vlan_216_gateway =  '10.216.2.129'
+Gateway da VLAN 216
+
+dhcp_vlan_216_mascara =  '255.255.255.128'
+Mascara de rede da vlan 216
+
+dhcp_vlan_216_start =  '10.216.2.130'
+IP inicial da VLAN 216
+
+dhcp_vlan_216_end = '10.216.2.254'
+Ip Final da VLAN 216
+
+dhcp_vlan_22_gateway =  '10.111.88.100'
+Gateway da VLAN 22
+
+dhcp_vlan_22_mascara = '255.255.252.0'
+Mascara de rede da vlan 22
+
+dhcp_vlan_22_start_22 = '10.111.88.22'
+IP inicial da VLAN 22 comecando no ip x.x.x.22
+
+dhcp_vlan_22_end_99 =  '10.111.88.99'
+Ip Final da VLAN 22 antes do ip x.x.x.100
+
+dhcp_vlan_22_start_105 = '10.111.88.105'
+IP inicial da VLAN 22 comecando no ip x.x.x.105
+
+dhcp_vlan_22_end_254 = '10.111.91.254'
+Ip Final da VLAN 22 antes do ip x.x.x.254
+
+impressora_inicial = '10.111.88.120'
+IP da impressora inicial x.x.x.120
+
+impressora_final =  '10.111.88.194'
+Ip da impressora final x.x.x.194
+
+bgp_router_id = '10.111.93.254'
+Ip do router ID para BGP x.x.x.254
