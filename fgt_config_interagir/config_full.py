@@ -2,10 +2,11 @@
 from __future__ import print_function, unicode_literals
 import  jinja2
 
-#VARIAVEIS
+#diretorios
 diretorio_template = "/data/rissi/jinja/fgt_config_interagir/templates/"
 diretorio_destino = "/data/rissi/jinja/fgt_config_interagir/arquivos_configuracao/"
 
+#VARIAVEIS
 arquivocfg = 'FW_LOJA_CB_1511.conf' #input("Digite o nome do arquivo.cfg: Ex: FW_LOJA_CB_1511.cfg : " )
 hostname = 'FW_LOJA_CB_1511'#input("Digite o Hostname da loja Ex: FW_LOJA_CB_1511: " )
 endereço_ip_wan1 = '186.201.14.146 255.255.255.248' #186.201.14.146 255.255.255.248
@@ -157,40 +158,40 @@ config_vars_35 = {
 }
 
 #ABRINDO O ARQUIVO JINJA TEMPLATE
-template_file_1 = diretorio_template + '1_fgt_config_global.j2'
+template_file_1 = diretorio_template + '01_fgt_config_global.j2'
 with open(template_file_1) as f:
     config_template = f.read()
 #print(config_template)
 
-template_file_2 = diretorio_template + '2_fgt_acc_profile.j2'
+template_file_2 = diretorio_template + '02_fgt_acc_profile.j2'
 with open(template_file_2) as f:
     config_template_2 = f.read()
 
-template_file_3 = diretorio_template +'3_fgt_virtual_switch.j2'
+template_file_3 = diretorio_template +'03_fgt_virtual_switch.j2'
 with open(template_file_3) as f:
     config_template_3 = f.read()
 
-template_file_4 = diretorio_template + '4_fgt_interfaces.j2'
+template_file_4 = diretorio_template + '04_fgt_interfaces.j2'
 with open(template_file_4) as f:
     config_template_4 = f.read()
     
-template_file_5 = diretorio_template + '5_fgt_sys_admin.j2'
+template_file_5 = diretorio_template + '05_fgt_sys_admin.j2'
 with open(template_file_5) as f:
     config_template_5 = f.read()
 
-template_file_6 = diretorio_template + '6_fgt_dns.j2'
+template_file_6 = diretorio_template + '06_fgt_dns.j2'
 with open(template_file_6) as f:
     config_template_6 = f.read()
     
-template_file_7 = diretorio_template + '7_fgt_snmp.j2'
+template_file_7 = diretorio_template + '07_fgt_snmp.j2'
 with open(template_file_7) as f:
     config_template_7 = f.read()
 
-template_file_8 = diretorio_template + '8_fgt_fortimanager.j2'
+template_file_8 = diretorio_template + '08_fgt_fortimanager.j2'
 with open(template_file_8) as f:
     config_template_8 = f.read()
     
-template_file_9 = diretorio_template + '9_fgt_ips.j2'
+template_file_9 = diretorio_template + '09_fgt_ips.j2'
 with open(template_file_9) as f:
     config_template_9 = f.read()
 
